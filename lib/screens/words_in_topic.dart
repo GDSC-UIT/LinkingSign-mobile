@@ -25,10 +25,13 @@ class _WordsInTopicState extends State<WordsInTopic> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          widget.topic_name,
-          textAlign: TextAlign.center,
-        ),
+        title: Text(widget.topic_name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 30,
+              color: Colors.black,
+              fontWeight: FontWeight.w900,
+            )),
         centerTitle: true,
         backgroundColor: ColorClass.myBackground,
       ),
@@ -46,17 +49,25 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 return Container(
                   width: widget.width,
                   height: widget.height,
+                  padding: EdgeInsets.only(top: 20),
                   margin: const EdgeInsets.only(bottom: 20),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
                   child: ListTile(
                     leading: CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 217, 240, 237),
+                      radius: 50,
+                      backgroundColor: ColorClass.circleColor,
                       child: Text((index + 1).toString(),
-                          style: const TextStyle(color: ColorClass.mainColor)),
+                          style: const TextStyle(
+                              fontSize: 20, color: ColorClass.mainColor)),
                     ),
-                    title: Text("$titleField"),
+                    title: Text("$titleField",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w900,
+                        )),
                     trailing: const Icon(Icons.check_circle_outline),
                     onTap: () {
                       print("Tap Tap the listile");

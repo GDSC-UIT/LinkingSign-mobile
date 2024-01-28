@@ -37,7 +37,7 @@ class WordTopicCard extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 10, top: 30, right: 10),
+        padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
         child: Container(
           decoration: BoxDecoration(
               color: ColorClass.myTopicCardBG,

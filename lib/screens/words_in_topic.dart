@@ -49,7 +49,7 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 return Container(
                   width: widget.width,
                   height: widget.height,
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   margin: const EdgeInsets.only(bottom: 20),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -82,12 +82,3 @@ class _WordsInTopicState extends State<WordsInTopic> {
     );
   }
 }
-  // child: ListTile(
-  //                 leading: CircleAvatar(
-  //                   backgroundColor: Colors.white,
-  //                   child: Text((index + 1).toString(),
-  //                       style: const TextStyle(color: ColorClass.mainColor)),
-  //                 ),
-  //                 title: const Text("Title content"),
-  //                 trailing: Icon(Icons.play_circle_fill),
-  //               ),

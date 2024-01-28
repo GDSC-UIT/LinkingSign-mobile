@@ -11,13 +11,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 int current_position = 0;
+String? appBarTitle;
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> widgetList = const [
-    Text(
-      'Home',
-      style: TextStyle(fontSize: 20),
-    ),
+    LessonView(),
     Text(
       'Learn',
       style: TextStyle(fontSize: 20),
@@ -52,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         backgroundColor: ColorClass.myBackground,
       ),
-      body: const LessonView(),
+      body: widgetList.elementAt(current_position),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: current_position,
@@ -60,6 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: (index) {
             setState(() {
               current_position = index;
+              if (index == 0) {
+                widget.title = "Khóa học của bạn";
+              } else if (index == 1) {
+                widget.title = "Từ điển";
+              } else {
+                widget.title = "Luyện tập";
+              }
             });
           },
           items: const [

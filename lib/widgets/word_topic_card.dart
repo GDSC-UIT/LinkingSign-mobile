@@ -30,6 +30,7 @@ class WordTopicCard extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => WordsInTopic(
+                    topic_name: title,
                     height: 100,
                     width: 200,
                   )),

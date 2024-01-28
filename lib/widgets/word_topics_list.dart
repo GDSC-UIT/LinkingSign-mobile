@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vsa_mobile/controller/topic_list_controller.dart';
 import 'package:vsa_mobile/database/wordtopic.dart';
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
@@ -10,22 +12,27 @@ class WordTopicList extends StatefulWidget {
 }
 
 class _WordTopicListState extends State<WordTopicList> {
-  final topic = wordtopicList;
+  final topicsController = Get.put(TopicsController());
   @override
   Widget build(BuildContext context) {
     final screen_width = MediaQuery.of(context).size.width;
     final screen_height = MediaQuery.of(context).size.height;
-    return ListView.builder(
-        itemCount: topic.length,
-        itemBuilder: (context, index) {
-          return WordTopicCard(
-            url_path: topic[index].url_path,
-            title: topic[index].title,
-            current_completed: topic[index].current_completed,
-            width: screen_width,
-            height: screen_height * 0.2,
-            total_lessons: 100,
-          );
-        });
+    return GetX<TopicsController>(
+      builder: (controller) {
+        return ListView.builder(
+          itemCount: controller.topics.length,
+          itemBuilder: (context, index) {
+            return WordTopicCard(
+              url_path: controller.topics[index].url_path,
+              title: controller.topics[index].title,
+              current_completed: controller.topics[index].current_completed,
+              width: screen_width,
+              height: screen_height * 0.2,
+              total_lessons: controller.topics[index].total_lessons,
+            );
+          },
+        );
+      },
+    );
   }
 }

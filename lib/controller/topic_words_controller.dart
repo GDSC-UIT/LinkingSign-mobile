@@ -13,7 +13,7 @@ class TopicWordsPairController extends GetxController {
   }
 
   void fetchWordTopicWordsPair() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     // var TopicWordPairsFromDatabase = [
     //   TopicWordPairs(topic_words: {

@@ -20,7 +20,8 @@ class _WordTopicListState extends State<WordTopicList> {
     return GetX<TopicsController>(
       builder: (controller) {
         return Container(
-          padding: const EdgeInsets.all(10),
+          padding:
+              const EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
           child: ListView.builder(
             itemCount: controller.topics.length,
             itemBuilder: (context, index) {

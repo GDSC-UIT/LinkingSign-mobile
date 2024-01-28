@@ -34,6 +34,7 @@ class _WordsInTopicState extends State<WordsInTopic> {
             )),
         centerTitle: true,
         backgroundColor: ColorClass.myBackground,
+        surfaceTintColor: Colors.transparent,
       ),
       body: Container(
         color: ColorClass.myBackground,

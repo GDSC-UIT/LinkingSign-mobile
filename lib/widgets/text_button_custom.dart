@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vsa_mobile/const/color.dart';
 
-class TextButtonCustom extends StatelessWidget {
+class TextButtonCustom extends StatefulWidget {
   final double width;
   final double height;
   final VoidCallback Function;
@@ -19,18 +19,23 @@ class TextButtonCustom extends StatelessWidget {
       required this.textColor});
 
   @override
+  State<TextButtonCustom> createState() => _TextButtonCustomState();
+}
+
+class _TextButtonCustomState extends State<TextButtonCustom> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: SizedBox(
-        width: width,
-        height: height,
+        width: widget.width,
+        height: widget.height,
         child: ElevatedButton(
-          onPressed: Function,
+          onPressed: widget.Function,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
           ),
-          child: Text(title,
+          child: Text(widget.title,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: ColorClass.mainColor)),
         ),

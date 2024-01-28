@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.black,
               fontWeight: FontWeight.w900,
             )),
+        surfaceTintColor: Colors.transparent,
         actions: [
           Container(
               margin: const EdgeInsets.only(right: 20),
@@ -49,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: const Icon(Icons.more_horiz),
               ))
         ],
+        backgroundColor: ColorClass.myBackground,
       ),
       body: const LessonView(),
       bottomNavigationBar: BottomNavigationBar(

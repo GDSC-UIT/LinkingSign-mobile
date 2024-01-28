@@ -22,7 +22,7 @@ class TopicsController extends GetxController {
       WordTopic(
           url_path: "assets/image-2.svg",
           title: 'Thể thao',
-          current_completed: 30,
+          current_completed: 24,
           total_lessons: 60),
       WordTopic(
         url_path: "assets/image-3.svg",
@@ -33,17 +33,17 @@ class TopicsController extends GetxController {
       WordTopic(
           url_path: "assets/image-4.svg",
           title: 'Đồ chơi',
-          current_completed: 50,
+          current_completed: 77,
           total_lessons: 100),
       WordTopic(
           url_path: "assets/image-5.svg",
           title: 'Học tập',
-          current_completed: 50,
+          current_completed: 16,
           total_lessons: 100),
       WordTopic(
           url_path: "assets/image-6.svg",
           title: 'Lễ hội',
-          current_completed: 50,
+          current_completed: 15,
           total_lessons: 100),
     ];
     topics.value = TopicsFromDatabase;

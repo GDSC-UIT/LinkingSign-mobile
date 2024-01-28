@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vsa_mobile/screens/word_topics_screen.dart';
+import 'package:vsa_mobile/const/color.dart';
+import 'package:vsa_mobile/screens/lesson_view.dart';
+import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
 class MyHomePage extends StatefulWidget {
   String title;
@@ -43,10 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ))
         ],
       ),
-      body: const WordTopicScreen(),
+      body: const LessonView(),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: current_position,
+          selectedItemColor: ColorClass.mainColor,
           onTap: (index) {
             setState(() {
               current_position = index;
@@ -68,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: Colors.orange,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.abc),
+              icon: Icon(
+                Icons.abc,
+              ),
               label: 'practice',
               backgroundColor: Colors.green,
             )

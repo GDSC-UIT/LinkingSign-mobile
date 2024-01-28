@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/screens/my_home.dart';
 
 void main() {
@@ -14,11 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.greenAccent,
-        ),
-        scaffoldBackgroundColor: Colors.white,
+        // colorScheme: ColorScheme.fromSeed(
+        //   seedColor: ColorClass.mainColor,
+        // ),
+        scaffoldBackgroundColor: ColorClass.myBackground,
         useMaterial3: true,
+        iconTheme: const IconThemeData(color: ColorClass.mainColor),
       ),
       home: MyHomePage(title: 'Khóa học của tôi'),
       debugShowCheckedModeBanner: false,

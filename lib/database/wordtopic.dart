@@ -16,18 +16,18 @@ List<WordTopic> wordtopicList = [
   WordTopic(
       url_path: "assets/image-1.svg",
       title: 'Đồ Ăn',
-      current_completed: 50,
+      current_completed: 40,
       total_lessons: 100),
   WordTopic(
       url_path: "assets/image-2.svg",
       title: 'Thể thao',
-      current_completed: 50,
-      total_lessons: 100),
+      current_completed: 30,
+      total_lessons: 60),
   WordTopic(
     url_path: "assets/image-3.svg",
     title: 'Người thân',
-    current_completed: 50,
-    total_lessons: 100,
+    current_completed: 25,
+    total_lessons: 60,
   ),
   WordTopic(
       url_path: "assets/image-4.svg",

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:vsa_mobile/database/wordtopic.dart';
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
-class WordTopicScreen extends StatefulWidget {
-  const WordTopicScreen({super.key});
+class WordTopicList extends StatefulWidget {
+  const WordTopicList({super.key});
 
   @override
-  State<WordTopicScreen> createState() => _WordTopicScreenState();
+  State<WordTopicList> createState() => _WordTopicListState();
 }
 
-class _WordTopicScreenState extends State<WordTopicScreen> {
+class _WordTopicListState extends State<WordTopicList> {
   final topic = wordtopicList;
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vsa_mobile/const/color.dart';
+import 'package:vsa_mobile/screens/dictionary_view.dart';
 import 'package:vsa_mobile/screens/lesson_view.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
@@ -16,10 +17,7 @@ String? appBarTitle;
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> widgetList = const [
     LessonView(),
-    Text(
-      'Learn',
-      style: TextStyle(fontSize: 20),
-    ),
+    DictionaryView(),
     Text(
       'Practice',
       style: TextStyle(fontSize: 20),

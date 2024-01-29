@@ -1,5 +1,5 @@
 import 'package:get/state_manager.dart';
-import 'package:vsa_mobile/database/wordtopic.dart';
+import 'package:vsa_mobile/database/wordtopic_model.dart';
 
 class TopicsController extends GetxController {
   // List<WordTopic> topics = <WordTopic>[].obs;

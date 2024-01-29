@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/screens/my_home.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/database/wordtopic.dart';
-import 'package:vsa_mobile/screens/words_in_topic.dart';
+import 'package:vsa_mobile/database/wordtopic_model.dart';
+import 'package:vsa_mobile/screens/words_in_topic_view.dart';
 import 'package:vsa_mobile/widgets/progress_circle.dart';
 
 class WordTopicCard extends StatelessWidget {

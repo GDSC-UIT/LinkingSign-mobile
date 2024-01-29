@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/controller/topic_words_controller.dart';
+import 'package:vsa_mobile/widgets/word_card.dart';
 
 class WordsInTopic extends StatefulWidget {
   // const WordsInTopic({super.key});
@@ -47,34 +48,13 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 var key = widget.topic_name;
                 final titleField =
                     controller.topic_word_pair["$key"]?.elementAt(index);
-                return Container(
-                  width: widget.width,
-                  height: widget.height,
-                  padding: const EdgeInsets.only(top: 20),
-                  margin: const EdgeInsets.only(bottom: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      radius: 50,
-                      backgroundColor: ColorClass.circleColor,
-                      child: Text((index + 1).toString(),
-                          style: const TextStyle(
-                              fontSize: 20, color: ColorClass.mainColor)),
-                    ),
-                    title: Text("$titleField",
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w900,
-                        )),
-                    trailing: const Icon(Icons.check_circle_outline),
-                    onTap: () {
-                      print("Tap Tap the listile");
-                    },
-                  ),
-                );
+                return WordCard(
+                    title_field: titleField,
+                    start_index: index,
+                    custom_width: widget.width,
+                    custom_height: widget.height,
+                    circle_color: ColorClass.circleColor,
+                    number_in_circle_color: ColorClass.mainColor);
               },
             );
           },

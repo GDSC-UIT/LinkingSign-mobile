@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/controller/topic_list_controller.dart';
-import 'package:vsa_mobile/database/wordtopic.dart';
+import 'package:vsa_mobile/database/wordtopic_model.dart';
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
 class WordTopicList extends StatefulWidget {

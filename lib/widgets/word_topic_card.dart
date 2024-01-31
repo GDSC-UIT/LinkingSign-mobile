@@ -11,15 +11,15 @@ class WordTopicCard extends StatelessWidget {
   final String title;
   final double current_completed;
   final double total_lessons;
-  final double width;
-  final double height;
+  final double screen_width;
+  final double screen_height;
   WordTopicCard({
     super.key,
     required this.url_path,
     required this.title,
     required this.current_completed,
-    required this.width,
-    required this.height,
+    required this.screen_width,
+    required this.screen_height,
     required this.total_lessons,
   });
   @override
@@ -31,19 +31,19 @@ class WordTopicCard extends StatelessWidget {
           MaterialPageRoute(
               builder: (context) => WordsInTopic(
                     topic_name: title,
-                    height: 100,
-                    width: 200,
+                    screen_width: screen_width,
+                    screen_height: screen_height,
                   )),
         );
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
+        padding: const EdgeInsets.only(top: 10),
         child: Container(
           decoration: BoxDecoration(
               color: ColorClass.myTopicCardBG,
               borderRadius: BorderRadius.circular(20)),
-          width: width,
-          height: height,
+          width: screen_width * 0.6,
+          height: screen_height * 0.2,
           child: Row(
             // crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,8 +54,8 @@ class WordTopicCard extends StatelessWidget {
                       padding: const EdgeInsets.all(20),
                       margin: const EdgeInsets.only(left: 10, right: 20),
                       child: SvgPicture.asset(url_path,
-                          height: 0.1 * width,
-                          width: 0.2 * width,
+                          height: 0.1 * screen_width,
+                          width: 0.2 * screen_width,
                           fit: BoxFit.contain)),
                   Container(
                       // margin: EdgeInsets.only(top: 10, bottom: 10),

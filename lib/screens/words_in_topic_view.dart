@@ -8,14 +8,14 @@ import 'package:vsa_mobile/widgets/word_card.dart';
 class WordsInTopic extends StatefulWidget {
   // const WordsInTopic({super.key});
   final String topic_name;
-  final double height;
-  final double width;
+  final double screen_width;
+  final double screen_height;
 
   const WordsInTopic(
       {super.key,
       required this.topic_name,
-      required this.height,
-      required this.width});
+      required this.screen_width,
+      required this.screen_height});
   @override
   State<WordsInTopic> createState() => _WordsInTopicState();
 }
@@ -51,8 +51,8 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 return WordCard(
                     title_field: titleField,
                     start_index: index,
-                    custom_width: widget.width,
-                    custom_height: widget.height,
+                    screen_width: widget.screen_height,
+                    screen_height: widget.screen_height,
                     circle_color: ColorClass.circleColor,
                     number_in_circle_color: ColorClass.mainColor);
               },

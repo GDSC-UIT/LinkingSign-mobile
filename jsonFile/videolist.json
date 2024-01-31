@@ -1,0 +1,30 @@
+[
+    {
+        "id":0,
+        "word":"Cơm",
+        "videoUrl":"https://www.youtube.com/watch?v=LNPZglky0iA&list=RDMMLNPZglky0iA&start_radio=1",
+        "picture1Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg",
+        "picture2Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg"
+    },
+    {
+        "id":1,
+        "word":"Cháo",
+        "videoUrl":"https://www.youtube.com/watch?v=LNPZglky0iA&list=RDMMLNPZglky0iA&start_radio=1",
+        "picture1Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg",
+        "picture2Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg"
+    },
+    {
+        "id":2,
+        "word":"Hủ tiếu",
+        "videoUrl":"https://www.youtube.com/watch?v=LNPZglky0iA&list=RDMMLNPZglky0iA&start_radio=1",
+        "picture1Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg",
+        "picture2Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg"
+    },
+    {
+        "id":3,
+        "word":"Bò",
+        "videoUrl":"https://www.youtube.com/watch?v=LNPZglky0iA&list=RDMMLNPZglky0iA&start_radio=1",
+        "picture1Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg",
+        "picture2Url":"https://khamphamonngon.com/wp-content/uploads/2016/06/cach-lam-com-tam-bi-ngon.jpg"
+    }
+]

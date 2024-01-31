@@ -27,10 +27,10 @@ class _SearchingBarState extends State<SearchingBar> {
       margin: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
-      child: const TextField(
+      child: TextField(
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: "Search your topics here...",
+            hintText: widget.hintText,
             prefixIcon: Icon(Icons.search)),
       ),
     );

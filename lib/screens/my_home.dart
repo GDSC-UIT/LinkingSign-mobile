@@ -1,30 +1,31 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:vsa_mobile/const/color.dart';
+import 'package:vsa_mobile/screens/camera_test_pending.dart';
 import 'package:vsa_mobile/screens/dictionary_view.dart';
 import 'package:vsa_mobile/screens/lesson_view.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
 class MyHomePage extends StatefulWidget {
   String title;
-  MyHomePage({super.key, required this.title});
+  CameraDescription firstCamera;
+  MyHomePage({super.key, required this.title, required this.firstCamera});
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+// Obtain a list of the available cameras on the device.
 
-int current_position = 0;
-String? appBarTitle;
+int currentScreenNumber = 0;
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Widget> widgetList = const [
-    LessonView(),
-    DictionaryView(),
-    Text(
-      'Practice',
-      style: TextStyle(fontSize: 20),
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
+    List<Widget> widgetList = [
+      const LessonView(),
+      const DictionaryView(),
+      TakePictureScreen(camera: widget.firstCamera),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title,
@@ -48,14 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         backgroundColor: ColorClass.myBackground,
       ),
-      body: widgetList.elementAt(current_position),
+      body: widgetList.elementAt(currentScreenNumber),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: current_position,
+          currentIndex: currentScreenNumber,
           selectedItemColor: ColorClass.mainColor,
           onTap: (index) {
             setState(() {
-              current_position = index;
+              currentScreenNumber = index;
               if (index == 0) {
                 widget.title = "Khóa học của bạn";
               } else if (index == 1) {

@@ -17,7 +17,7 @@ class LessonView extends StatelessWidget {
       children: [
         SearchingBar(
           width: 0.9 * screen_width,
-          height: 0.08 * screen_height,
+          height: 0.2 * screen_height,
           hintText: "Search your topic here",
         ),
 

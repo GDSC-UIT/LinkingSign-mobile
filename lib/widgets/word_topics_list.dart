@@ -29,8 +29,8 @@ class _WordTopicListState extends State<WordTopicList> {
                 url_path: controller.topics[index].url_path,
                 title: controller.topics[index].title,
                 current_completed: controller.topics[index].current_completed,
-                width: screen_width,
-                height: screen_height * 0.2,
+                screen_width: screen_width,
+                screen_height: screen_height,
                 total_lessons: controller.topics[index].total_lessons,
               );
             },

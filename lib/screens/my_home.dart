@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.abc,
+                Icons.waving_hand_rounded,
               ),
               label: 'practice',
               backgroundColor: Colors.green,

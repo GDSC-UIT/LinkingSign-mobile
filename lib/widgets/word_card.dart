@@ -22,7 +22,7 @@ class WordCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: screen_width,
-      height: screen_height * 0.15,
+      height: screen_height < 400 ? 0.25 * screen_height : 0.15 * screen_height,
       padding: const EdgeInsets.only(top: 20),
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(

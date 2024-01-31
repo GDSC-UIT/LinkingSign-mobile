@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:vsa_mobile/const/color.dart';
+import 'package:vsa_mobile/const/const_dimension.dart';
 import 'package:vsa_mobile/widgets/searching_bar.dart';
 import 'package:vsa_mobile/widgets/text_button_custom.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
@@ -17,7 +18,9 @@ class LessonView extends StatelessWidget {
       children: [
         SearchingBar(
           width: 0.9 * screen_width,
-          height: 0.2 * screen_height,
+          height: screen_height < horizontalHeight
+              ? 0.2 * screen_height
+              : 0.1 * screen_height,
           hintText: "Search your topic here",
         ),
 

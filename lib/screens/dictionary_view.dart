@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vsa_mobile/const/const_dimension.dart';
 import 'package:vsa_mobile/widgets/dictionary_list.dart';
 import 'package:vsa_mobile/widgets/searching_bar.dart';
 
@@ -30,7 +31,9 @@ class DictionaryView extends StatelessWidget {
       children: [
         SearchingBar(
           width: 0.9 * screen_width,
-          height: 0.08 * screen_height,
+          height: screen_height < horizontalHeight
+              ? 0.2 * screen_height
+              : 0.1 * screen_height,
           hintText: "Search your words here....",
         ),
         const Expanded(child: DictionaryList()),

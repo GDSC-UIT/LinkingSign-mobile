@@ -105,7 +105,7 @@ class LearningScreen extends StatelessWidget {
             ),
             SizedBox(
               width: 200,
-              height: 20,
+              height: 30,
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(

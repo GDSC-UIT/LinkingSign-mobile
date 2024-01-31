@@ -4,6 +4,8 @@ import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/screens/camera_test_pending.dart';
 import 'package:vsa_mobile/screens/dictionary_view.dart';
 import 'package:vsa_mobile/screens/lesson_view.dart';
+import 'package:vsa_mobile/screens/practice_view.dart';
+import 'package:vsa_mobile/widgets/my_camera.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -20,10 +22,16 @@ int currentScreenNumber = 0;
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final screen_width = MediaQuery.of(context).size.width;
+    final screen_height = MediaQuery.of(context).size.height;
     List<Widget> widgetList = [
       const LessonView(),
       const DictionaryView(),
-      TakePictureScreen(camera: widget.firstCamera),
+      // TakePictureScreen(camera: widget.firstCamera),
+      PracticeView(
+        screen_width: screen_width,
+        screen_height: screen_height,
+      ),
     ];
 
     return Scaffold(

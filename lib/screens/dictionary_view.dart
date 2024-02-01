@@ -33,7 +33,7 @@ class DictionaryView extends StatelessWidget {
           width: 0.9 * screen_width,
           height: screen_height < horizontalHeight
               ? 0.2 * screen_height
-              : 0.1 * screen_height,
+              : 0.05 * screen_height,
           hintText: "Search your words here....",
         ),
         const Expanded(child: DictionaryList()),

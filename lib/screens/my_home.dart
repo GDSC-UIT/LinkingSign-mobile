@@ -9,15 +9,17 @@ import 'package:vsa_mobile/widgets/my_camera.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
 class MyHomePage extends StatefulWidget {
+  int currentScreenNumber = 0;
   String title;
-  CameraDescription firstCamera;
-  MyHomePage({super.key, required this.title, required this.firstCamera});
+
+  MyHomePage(
+      {super.key, required this.title, required this.currentScreenNumber});
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 // Obtain a list of the available cameras on the device.
 
-int currentScreenNumber = 0;
+// int currentScreenNumber = 0;
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
@@ -57,14 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         backgroundColor: ColorClass.myBackground,
       ),
-      body: widgetList.elementAt(currentScreenNumber),
+      body: widgetList.elementAt(widget.currentScreenNumber),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: currentScreenNumber,
+          currentIndex: widget.currentScreenNumber,
           selectedItemColor: ColorClass.mainColor,
           onTap: (index) {
             setState(() {
-              currentScreenNumber = index;
+              widget.currentScreenNumber = index;
               if (index == 0) {
                 widget.title = "Khóa học của bạn";
               } else if (index == 1) {

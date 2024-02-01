@@ -44,7 +44,7 @@ class WordTopicCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(20)),
           width: screen_width * 0.6,
           height:
-              screen_height < 400 ? screen_height * 0.3 : screen_height * 0.2,
+              screen_height < 400 ? screen_height * 0.3 : screen_height * 0.15,
           child: Row(
             // crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

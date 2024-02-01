@@ -47,7 +47,7 @@ class _WordsInTopicState extends State<WordsInTopic> {
               itemBuilder: (BuildContext context, int index) {
                 var key = widget.topic_name;
                 final titleField =
-                    controller.topic_word_pair["$key"]?.elementAt(index);
+                    controller.topic_word_pair[key]?.elementAt(index);
                 return WordCard(
                     title_field: titleField,
                     start_index: index,

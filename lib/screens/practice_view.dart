@@ -19,8 +19,9 @@ class PracticeView extends StatelessWidget {
           width: screen_width,
           height: screen_height * 0.2,
           decoration: BoxDecoration(
-              color: ColorClass.darkMainColor,
-              borderRadius: BorderRadius.circular(20)),
+            color: ColorClass.darkMainColor,
+          ),
+          // borderRadius: BorderRadius.circular(20)),
           child: Stack(children: [
             const Align(
               alignment: Alignment.topCenter,
@@ -33,10 +34,14 @@ class PracticeView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Image.network(
-                  "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",
-                  width: screen_width * 0.4,
-                  height: screen_height * 0.2,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  clipBehavior: Clip.antiAlias,
+                  child: Image.network(
+                    "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",
+                    width: screen_width * 0.4,
+                    height: screen_height * 0.2,
+                  ),
                 ),
                 Image.network(
                   "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",

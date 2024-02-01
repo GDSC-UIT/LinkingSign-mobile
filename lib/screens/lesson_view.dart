@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/const/const_dimension.dart';
+import 'package:vsa_mobile/widgets/practice_button.dart';
 import 'package:vsa_mobile/widgets/searching_bar.dart';
 import 'package:vsa_mobile/widgets/text_button_custom.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
@@ -19,42 +20,24 @@ class LessonView extends StatelessWidget {
         SearchingBar(
           width: 0.9 * screen_width,
           height: screen_height < horizontalHeight
-              ? 0.2 * screen_height
-              : 0.1 * screen_height,
+              ? 0.1 * screen_height
+              : 0.05 * screen_height,
           hintText: "Search your topic here",
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // practiceButton("Tất cả", ColorClass.darkMainColor, Colors.white,
+            //     screen_width * 1.5, screen_height * 1.5, () {}),
+            PracticeButton("Tất cả", screen_width * 1.5, screen_height * 1.5,
+                ColorClass.darkMainColor, Colors.white, () {}),
 
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child: Row(
-        //     children: [
-        //       TextButtonCustom(
-        //         title: "Tất cả",
-        //         Function: () {},
-        //         width: screen_width / 3 - 5,
-        //         height: 40,
-        //         buttonColor: ColorClass.mainColor,
-        //         textColor: Colors.black,
-        //       ),
-        //       TextButtonCustom(
-        //         title: "Đang học",
-        //         Function: () {},
-        //         width: screen_width / 3 - 5,
-        //         height: 40,
-        //         buttonColor: Colors.white,
-        //         textColor: Colors.white,
-        //       ),
-        //       TextButtonCustom(
-        //         title: "Hoàn thành",
-        //         Function: () {},
-        //         width: screen_width / 3 - 5,
-        //         height: 40,
-        //         buttonColor: ColorClass.mainColor,
-        //         textColor: Colors.white,
-        //       ),
-        //     ],
-        //   ),
-        // ),
+            PracticeButton("Đang học", screen_width * 1.5, screen_height * 1.5,
+                ColorClass.darkMainColor, Colors.white, () {}),
+            practiceButton("Hoàn thành", ColorClass.darkMainColor, Colors.white,
+                screen_width * 1.5, screen_height * 1.5, () {}),
+          ],
+        ),
         const Expanded(child: WordTopicList()),
       ],
     );

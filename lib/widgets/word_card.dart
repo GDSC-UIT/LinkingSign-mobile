@@ -12,7 +12,8 @@ class WordCard extends StatelessWidget {
   final String title_field;
   final int start_index;
   WordCard(
-      {required this.title_field,
+      {super.key,
+      required this.title_field,
       required this.start_index,
       required this.screen_width,
       required this.screen_height,

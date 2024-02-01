@@ -23,15 +23,17 @@ class _SearchingBarState extends State<SearchingBar> {
     return Container(
       width: widget.width,
       height: widget.height,
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.only(top: 10),
+      // padding: const EdgeInsets.all(10),
+      // margin: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      alignment: Alignment.bottomCenter,
       child: TextField(
         decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: widget.hintText,
-            prefixIcon: Icon(Icons.search)),
+          border: InputBorder.none,
+          hintText: widget.hintText,
+          prefixIcon: const Icon(Icons.search),
+        ),
       ),
     );
   }

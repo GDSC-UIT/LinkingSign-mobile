@@ -6,6 +6,8 @@ import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/const/const_dimension.dart';
 import 'package:vsa_mobile/model/video_model.dart';
 import 'package:vsa_mobile/screens/youtube_player_srceen.dart';
+import 'package:vsa_mobile/widgets/example_image.dart';
+import 'package:vsa_mobile/widgets/practice_button.dart';
 import 'dart:convert';
 
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -19,17 +21,13 @@ class LearningScreen extends StatelessWidget {
       required this.screen_width,
       required this.screen_height,
       required this.word});
-  // Future<List<WordVideoModel>> readjsonData() async {
-  //   final jsonData = await rootBundle.loadString("jsonFile/videolist.json");
-  //   final list = json.decode(jsonData) as List<dynamic>;
-  //   return list.map((e) => WordVideoModel.fromJson(e)).toList();
-  // }
 
+  // Future<List<WordVideoModel>> readjsonData() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("$word"),
+        title: Text(word),
         surfaceTintColor: Colors.transparent,
       ),
       body: Container(
@@ -38,7 +36,7 @@ class LearningScreen extends StatelessWidget {
             Container(
               width: screen_width,
               height: screen_height < horizontalHeight
-                  ? screen_height * 0.5
+                  ? screen_height * 0.55
                   : screen_height * 0.3,
               color: Colors.amber,
               child: YoutubeScreen(),
@@ -57,7 +55,7 @@ class LearningScreen extends StatelessWidget {
             ),
             Visibility(
               visible: screen_height < horizontalHeight ? false : true,
-              child: Text("Hình minh họa bên dưới",
+              child: const Text("Hình minh họa bên dưới",
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: Colors.black,
@@ -66,35 +64,20 @@ class LearningScreen extends StatelessWidget {
             ),
             Expanded(
               child: Visibility(
+                  // ignore: sort_child_properties_last
                   child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Container(
                         padding: const EdgeInsets.all(20),
                         child: Column(
                           children: [
-                            Container(
-                              width: screen_width * 0.5,
-                              height: screen_height * 0.3,
-                              decoration: BoxDecoration(
-                                // borderRadius: BorderRadius.circular(40),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/image_test.jpg'),
-                                    fit: BoxFit.contain),
-                              ),
-                            ),
-                            SizedBox(
+                            exampleImage(screen_width * 0.4,
+                                screen_height * 0.25, 'assets/image_test.jpg'),
+                            const SizedBox(
                               height: 20,
                             ),
-                            Container(
-                                width: screen_width * 0.5,
-                                height: screen_height * 0.3,
-                                decoration: BoxDecoration(
-                                  // borderRadius: BorderRadius.circular(50),
-                                  image: const DecorationImage(
-                                      image:
-                                          AssetImage('assets/image_test.jpg'),
-                                      fit: BoxFit.contain),
-                                )),
+                            exampleImage(screen_width * 0.4,
+                                screen_height * 0.25, 'assets/image_test.jpg'),
                           ],
                         ),
                       )),
@@ -103,22 +86,8 @@ class LearningScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
-              width: 200,
-              height: 30,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorClass.darkMainColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    )),
-                child: const Text(
-                  "Luyện tập",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
+            practiceButton("Luyện tập", ColorClass.darkMainColor, Colors.white,
+                screen_width, screen_height, () {}),
             const SizedBox(
               height: 10,
             ),

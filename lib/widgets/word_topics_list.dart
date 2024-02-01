@@ -26,7 +26,8 @@ class _WordTopicListState extends State<WordTopicList> {
     return GetX<TopicsController>(
       builder: (controller) {
         final filterTopics = controller.topics.where((topic) {
-          return selectedTopics.isEmpty || selectedTopics.contains(topic.state);
+          return selectedTopics.isNotEmpty ||
+              selectedTopics.contains(topic.state);
         }).toList();
         return Column(
           mainAxisSize: MainAxisSize.min,

@@ -2,8 +2,10 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class MyCamera extends StatefulWidget {
-  const MyCamera({super.key});
-
+  const MyCamera(
+      {super.key, required this.screen_width, required this.screen_height});
+  final double screen_width;
+  final double screen_height;
   @override
   State<MyCamera> createState() => _MyCameraState();
 }
@@ -11,7 +13,7 @@ class MyCamera extends StatefulWidget {
 class _MyCameraState extends State<MyCamera> {
   late List<CameraDescription> cameras;
   CameraController? cameraController;
-  int direction = 0;
+  int direction = 1;
   bool isCameraReady = false;
 
   @override
@@ -50,8 +52,44 @@ class _MyCameraState extends State<MyCamera> {
     if (!isCameraReady) {
       return Container();
     }
-    return Scaffold(
-      body: Stack(
+    // return Stack(
+    //   children: [
+    //     //CameraPreview(cameraController!),
+    //     ClipRRect(
+    //         child: SizedOverflowBox(
+    //       size: Size(widget.screen_width,
+    //           widget.screen_height * 0.55), // aspect is 1:1
+    //       alignment: Alignment.center,
+    //       child: CameraPreview(cameraController!),
+    //     )),
+    //     GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             direction = direction == 0 ? 1 : 0;
+    //             initializeCamera();
+    //           });
+    //         },
+    //         child: button(
+    //             Icons.flip_camera_android_outlined, Alignment.centerLeft)),
+    //     GestureDetector(
+    //         onTap: () {
+    //           cameraController!.takePicture().then((XFile file) {
+    //             if (mounted) {
+    //               if (file != null) {
+    //                 print('picture stores to ${file.path}');
+    //               }
+    //             }
+    //           });
+    //         },
+    //         child: button(Icons.camera_alt_outlined, Alignment.bottomCenter))
+    //   ],
+    // );
+    return ClipRRect(
+        child: SizedOverflowBox(
+      size: Size(
+          widget.screen_width, widget.screen_height * 0.57), // aspect is 1:1
+      alignment: Alignment.center,
+      child: Stack(
         children: [
           CameraPreview(cameraController!),
           GestureDetector(
@@ -61,8 +99,8 @@ class _MyCameraState extends State<MyCamera> {
                   initializeCamera();
                 });
               },
-              child: button(
-                  Icons.flip_camera_android_outlined, Alignment.bottomLeft)),
+              child:
+                  button(Icons.flip_camera_android_outlined, Alignment.center)),
           GestureDetector(
               onTap: () {
                 cameraController!.takePicture().then((XFile file) {
@@ -73,10 +111,10 @@ class _MyCameraState extends State<MyCamera> {
                   }
                 });
               },
-              child: button(Icons.camera_alt_outlined, Alignment.bottomCenter))
+              child: button(Icons.camera_alt_outlined, Alignment.center))
         ],
       ),
-    );
+    ));
   }
 }
 

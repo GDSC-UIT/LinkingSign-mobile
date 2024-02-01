@@ -11,38 +11,42 @@ class PracticeView extends StatelessWidget {
       {super.key, required this.screen_height, required this.screen_width});
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.all(0),
-        child: Column(children: [
-          Container(
-            margin: EdgeInsets.all(5),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: ColorClass.darkMainColor,
-                borderRadius: BorderRadius.circular(20)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Image.network(
-                  "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",
-                  width: screen_width * 0.4,
-                  height: screen_height * 0.2,
-                ),
-                Image.network(
-                  "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",
-                  width: screen_width * 0.4,
-                  height: screen_height * 0.2,
-                ),
-              ],
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        const Text("Cơm",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.w800)),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(left: 5, right: 5),
+              width: screen_width,
+              height: screen_height * 0.2,
+              // decoration: BoxDecoration(
+              //     color: ColorClass.darkMainColor,
+              //     borderRadius: BorderRadius.circular(20)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.network(
+                    "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",
+                    width: screen_width * 0.4,
+                    height: screen_height * 0.2,
+                  ),
+                  Image.network(
+                    "https://th.bing.com/th/id/OIP.c6hZooTCPRBiufmsIRfDKQHaE8?rs=1&pid=ImgDetMain",
+                    width: screen_width * 0.4,
+                    height: screen_height * 0.2,
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            margin: EdgeInsets.only(left: screen_width * 0.2),
-            width: screen_width,
-            height: screen_height * 0.52,
-            child: MyCamera(),
-          ),
-        ]));
+            MyCamera(screen_width: screen_width, screen_height: screen_height),
+          ],
+        ),
+      ],
+    );
   }
 }

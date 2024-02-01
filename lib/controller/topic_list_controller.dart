@@ -11,7 +11,7 @@ class TopicsController extends GetxController {
   }
 
   void fetchWordTopics() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
 
     var TopicsFromDatabase = [
       WordTopic(

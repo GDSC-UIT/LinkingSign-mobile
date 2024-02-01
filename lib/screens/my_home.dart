@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
               margin: const EdgeInsets.only(right: 20),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 247, 245, 245),
+                color: const Color.fromARGB(255, 247, 245, 245),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(

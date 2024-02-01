@@ -24,21 +24,22 @@ class LessonView extends StatelessWidget {
               : 0.05 * screen_height,
           hintText: "Search your topic here",
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // practiceButton("Tất cả", ColorClass.darkMainColor, Colors.white,
-            //     screen_width * 1.5, screen_height * 1.5, () {}),
-            PracticeButton("Tất cả", screen_width * 1.5, screen_height * 1.5,
-                ColorClass.darkMainColor, Colors.white, () {}),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   children: [
+        //     // practiceButton("Tất cả", ColorClass.darkMainColor, Colors.white,
+        //     //     screen_width * 1.5, screen_height * 1.5, () {}),
+        //     PracticeButton("Tất cả", screen_width * 1.5, screen_height * 1.5,
+        //         ColorClass.darkMainColor, Colors.white, () {}),
 
-            PracticeButton("Đang học", screen_width * 1.5, screen_height * 1.5,
-                ColorClass.darkMainColor, Colors.white, () {}),
-            practiceButton("Hoàn thành", ColorClass.darkMainColor, Colors.white,
-                screen_width * 1.5, screen_height * 1.5, () {}),
-          ],
-        ),
+        //     PracticeButton("Đang học", screen_width * 1.5, screen_height * 1.5,
+        //         ColorClass.darkMainColor, Colors.white, () {}),
+        //     practiceButton("Hoàn thành", ColorClass.darkMainColor, Colors.white,
+        //         screen_width * 1.5, screen_height * 1.5, () {}),
+        //   ],
+        // ),
         const Expanded(child: WordTopicList()),
+        // const WordTopicList(),
       ],
     );
   }

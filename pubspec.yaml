@@ -45,6 +45,8 @@ dependencies:
   image_picker: ^1.0.7
   youtube_player_flutter: ^8.1.2
   webview_flutter: 4.4.4
+  quickalert: ^1.0.2
+  awesome_dialog: ^3.2.0
 
 dev_dependencies:
   flutter_test:

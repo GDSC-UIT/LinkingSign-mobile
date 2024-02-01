@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:get/state_manager.dart';
-import 'package:vsa_mobile/database/words_in_topics.dart';
 
 class TopicWordsPairController extends GetxController {
   // var topic_word_pair = <TopicWordPairs>[].obs;

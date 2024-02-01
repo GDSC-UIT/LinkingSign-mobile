@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/widgets/my_camera.dart';
@@ -11,6 +12,18 @@ class PracticeView extends StatelessWidget {
       {super.key, required this.screen_height, required this.screen_width});
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 2), () {
+      AwesomeDialog(
+              context: context,
+              dialogType: DialogType.success,
+              animType: AnimType.bottomSlide,
+              showCloseIcon: true,
+              title: "Chúc mừng bạn",
+              desc: "Làm tốt lắm!",
+              btnOkOnPress: () {},
+              btnCancelOnPress: () {})
+          .show();
+    });
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -19,8 +32,8 @@ class PracticeView extends StatelessWidget {
           width: screen_width,
           height: screen_height * 0.2,
           decoration: BoxDecoration(
-            color: ColorClass.darkMainColor,
-          ),
+              color: ColorClass.darkMainColor,
+              borderRadius: BorderRadius.circular(5)),
           // borderRadius: BorderRadius.circular(20)),
           child: Stack(children: [
             const Align(

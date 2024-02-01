@@ -14,7 +14,7 @@ Widget practiceButton(String title, Color BGcolor, Color textColor,
       height: screen_height < horizontalHeight ? 100 : screen_height * 0.04,
       child: ElevatedButton(
         onPressed: () {
-          Get.to(MyHomePage(title: "Luyện tập", currentScreenNumber: 2));
+          Get.off(MyHomePage(title: "Luyện tập", currentScreenNumber: 2));
         },
         style: ElevatedButton.styleFrom(
             backgroundColor: BGcolor,

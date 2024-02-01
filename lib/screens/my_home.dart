@@ -1,5 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/screens/camera_test_pending.dart';
 import 'package:vsa_mobile/screens/dictionary_view.dart';
@@ -53,7 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.success,
+                    text: 'Transaction Completed Successfully!',
+                  );
+                },
                 icon: const Icon(Icons.more_horiz),
               ))
         ],

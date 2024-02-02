@@ -23,6 +23,7 @@ class LessonView extends StatelessWidget {
               ? 0.1 * screen_height
               : 0.05 * screen_height,
           hintText: "Search your topic here",
+          filterResult: [],
         ),
         // Row(
         //   mainAxisAlignment: MainAxisAlignment.spaceBetween,

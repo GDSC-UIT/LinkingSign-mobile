@@ -42,7 +42,7 @@ class WordTopicCard extends StatelessWidget {
           decoration: BoxDecoration(
               color: ColorClass.myTopicCardBG,
               borderRadius: BorderRadius.circular(20)),
-          width: screen_width * 0.6,
+          width: screen_width * 0.5,
           height:
               screen_height < 400 ? screen_height * 0.3 : screen_height * 0.15,
           child: Row(

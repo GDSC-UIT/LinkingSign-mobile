@@ -15,9 +15,10 @@ class WordTopicList extends StatefulWidget {
 class _WordTopicListState extends State<WordTopicList> {
   final topicsController = Get.put(TopicsController());
 
-  final List<String> states = ["Tất cả", "Đang học", "Hoàn thành"];
+  final List<String> states = ["Chưa học", "Đang học", "Hoàn thành"];
 
-  late List<String> selectedTopics = [states.first];
+  late List<String> selectedTopics = [];
+
   bool selectedState = false;
 
   @override
@@ -28,10 +29,19 @@ class _WordTopicListState extends State<WordTopicList> {
     return GetX<TopicsController>(
       builder: (controller) {
         var filterTopics = controller.topics.where((topic) {
-          if (selectedTopics.contains("Tất cả")) {
-            return selectedTopics.isNotEmpty;
-          }
-          return selectedTopics.contains(topic.state);
+          //return selectedTopics.isEmpty || selectedTopics.contains(topic.state);
+          // if (selectedTopics.contains("Tất cả")) {
+          //   return selectedTopics.isNotEmpty;
+          // }
+          // return selectedTopics.contains(topic.state);
+          if (selectedTopics.contains("Chưa học")) {
+            return topic.current_completed == 0;
+          } else if (selectedTopics.contains("Hoàn thành")) {
+            return topic.current_completed == 100;
+          } else if (selectedTopics.contains("Đang học")) {
+            return topic.current_completed > 0 && topic.current_completed < 100;
+          } else
+            return selectedTopics.isEmpty;
         }).toList();
         return Column(
           mainAxisSize: MainAxisSize.min,

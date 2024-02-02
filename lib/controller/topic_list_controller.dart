@@ -48,7 +48,7 @@ class TopicsController extends GetxController {
       WordTopic(
           url_path: "assets/image-1.svg",
           title: 'Đồ Ăn',
-          current_completed: 40,
+          current_completed: 0,
           total_lessons: 100,
           state: 'Đang học'),
       WordTopic(
@@ -73,7 +73,7 @@ class TopicsController extends GetxController {
       WordTopic(
           url_path: "assets/image-5.svg",
           title: 'Học tập',
-          current_completed: 28,
+          current_completed: 0,
           total_lessons: 100,
           state: 'Đang học'),
       WordTopic(

@@ -7,12 +7,14 @@ class SearchingBar extends StatefulWidget {
   final double width;
   final double height;
   final String hintText;
+  final List<dynamic> filterResult;
 
-  SearchingBar(
+  const SearchingBar(
       {super.key,
       required this.width,
       required this.height,
-      required this.hintText});
+      required this.hintText,
+      required this.filterResult});
   @override
   State<SearchingBar> createState() => _SearchingBarState();
 }

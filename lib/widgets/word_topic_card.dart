@@ -66,7 +66,7 @@ class WordTopicCard extends StatelessWidget {
                         children: [
                           Text(
                             title,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w800),

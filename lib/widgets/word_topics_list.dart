@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/controller/topic_list_controller.dart';
-import 'package:vsa_mobile/database/wordtopic_model.dart';
+
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
 class WordTopicList extends StatefulWidget {
@@ -17,7 +17,9 @@ class _WordTopicListState extends State<WordTopicList> {
 
   final List<String> states = ["Tất cả", "Đang học", "Hoàn thành"];
 
-  List<String> selectedTopics = [];
+  late List<String> selectedTopics = [states.first];
+  bool selectedState = false;
+
   @override
   Widget build(BuildContext context) {
     final screen_width = MediaQuery.of(context).size.width;
@@ -25,9 +27,11 @@ class _WordTopicListState extends State<WordTopicList> {
 
     return GetX<TopicsController>(
       builder: (controller) {
-        final filterTopics = controller.topics.where((topic) {
-          return selectedTopics.isNotEmpty ||
-              selectedTopics.contains(topic.state);
+        var filterTopics = controller.topics.where((topic) {
+          if (selectedTopics.contains("Tất cả")) {
+            return selectedTopics.isNotEmpty;
+          }
+          return selectedTopics.contains(topic.state);
         }).toList();
         return Column(
           mainAxisSize: MainAxisSize.min,
@@ -50,9 +54,9 @@ class _WordTopicListState extends State<WordTopicList> {
                           ),
                         ),
                         selected: selectedTopics.contains(state),
-                        onSelected: (selected) {
+                        onSelected: (value) {
                           setState(() {
-                            if (selected) {
+                            if (value) {
                               selectedTopics.add(state);
                             } else {
                               selectedTopics.remove(state);

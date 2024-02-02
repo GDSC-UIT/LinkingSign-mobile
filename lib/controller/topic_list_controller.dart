@@ -85,4 +85,6 @@ class TopicsController extends GetxController {
     ];
     topics.value = TopicsFromDatabase;
   }
+
+  // void filterSearchingBar(String word) async {}
 }

@@ -30,13 +30,12 @@ class DictionaryView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SearchingBar(
-          width: 0.9 * screen_width,
-          height: screen_height < horizontalHeight
-              ? 0.2 * screen_height
-              : 0.05 * screen_height,
-          hintText: "Search your words here....",
-          filterResult: [],
-        ),
+            0.9 * screen_width,
+            screen_height < horizontalHeight
+                ? 0.2 * screen_height
+                : 0.05 * screen_height,
+            "Search your words here....",
+            TopicSearch()),
         const Expanded(child: DictionaryList()),
       ],
     );

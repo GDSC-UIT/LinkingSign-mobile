@@ -50,7 +50,7 @@ class TopicsController extends GetxController {
           title: 'Đồ Ăn',
           current_completed: 0,
           total_lessons: 100,
-          state: 'Đang học'),
+          state: 'Chưa học'),
       WordTopic(
           url_path: "assets/image-2.svg",
           title: 'Thể thao',
@@ -72,13 +72,33 @@ class TopicsController extends GetxController {
           state: 'Hoàn thành'),
       WordTopic(
           url_path: "assets/image-5.svg",
-          title: 'Học tập',
+          title: '',
           current_completed: 0,
+          total_lessons: 100,
+          state: 'Chưa học'),
+
+      ///testing area
+      WordTopic(
+          url_path: "assets/image-6.svg",
+          title: 'Ăn bánh mì',
+          current_completed: 15,
           total_lessons: 100,
           state: 'Đang học'),
       WordTopic(
           url_path: "assets/image-6.svg",
-          title: 'Lễ hội',
+          title: 'game Ăn bánh',
+          current_completed: 15,
+          total_lessons: 100,
+          state: 'Đang học'),
+      WordTopic(
+          url_path: "assets/image-6.svg",
+          title: 'Chơi trốn tìm',
+          current_completed: 15,
+          total_lessons: 100,
+          state: 'Đang học'),
+      WordTopic(
+          url_path: "assets/image-6.svg",
+          title: 'Đồ Ăn ngon',
           current_completed: 15,
           total_lessons: 100,
           state: 'Đang học'),
@@ -86,5 +106,24 @@ class TopicsController extends GetxController {
     topics.value = TopicsFromDatabase;
   }
 
-  // void filterSearchingBar(String word) async {}
+  List<WordTopic> filterSearchingBar(String? queryTopic) {
+    // return topics.where((topic) {
+    //   final topicName = topic.title.toLowerCase();
+    final splitQuery = queryTopic?.toLowerCase().trim().split(' ');
+
+    //   return topicName.contains(splitQuery!);
+    // }).toList();
+
+    List<WordTopic> result = [];
+    topics.forEach((topic) {
+      final topicLower = topic.title.toLowerCase();
+      for (int i = 0; i < splitQuery!.length; ++i) {
+        if (topicLower.contains(splitQuery[i])) {
+          result.add(topic);
+          break;
+        }
+      }
+    });
+    return result;
+  }
 }

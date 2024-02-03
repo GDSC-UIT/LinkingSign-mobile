@@ -8,6 +8,7 @@ import 'package:vsa_mobile/screens/dictionary_view.dart';
 import 'package:vsa_mobile/screens/lesson_view.dart';
 import 'package:vsa_mobile/screens/practice_view.dart';
 import 'package:vsa_mobile/widgets/my_camera.dart';
+import 'package:vsa_mobile/widgets/searching_bar.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final screen_width = MediaQuery.of(context).size.width;
     final screen_height = MediaQuery.of(context).size.height;
     List<Widget> widgetList = [
-      const LessonView(),
+      LessonView(),
       const DictionaryView(),
       // TakePictureScreen(camera: widget.firstCamera),
       PracticeView(
@@ -55,14 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                onPressed: () {
-                  QuickAlert.show(
-                    context: context,
-                    type: QuickAlertType.success,
-                    text: 'Transaction Completed Successfully!',
-                  );
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.more_horiz),
+                // icon: const Icon(Icons.search),
               ))
         ],
         backgroundColor: ColorClass.myBackground,

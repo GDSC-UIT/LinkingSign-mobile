@@ -26,18 +26,19 @@ class DictionaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final screen_width = MediaQuery.of(context).size.width;
     final screen_height = MediaQuery.of(context).size.height;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SearchingBar(
-            0.9 * screen_width,
-            screen_height < horizontalHeight
-                ? 0.2 * screen_height
-                : 0.05 * screen_height,
-            "Search your words here....",
-            TopicSearch()),
-        const Expanded(child: DictionaryList()),
-      ],
-    );
+    // return Column(
+    //   crossAxisAlignment: CrossAxisAlignment.center,
+    //   children: [
+    //     SearchingBar(
+    //         0.9 * screen_width,
+    //         screen_height < horizontalHeight
+    //             ? 0.2 * screen_height
+    //             : 0.05 * screen_height,
+    //         "Tìm kiếm từ vựng ở đây",
+    //         WordSearch()),
+    //     const Expanded(child: DictionaryList()),
+    //   ],
+    // );
+    return const DictionaryList();
   }
 }

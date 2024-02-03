@@ -29,17 +29,6 @@ class _WordTopicListState extends State<WordTopicList> {
     final screen_height = MediaQuery.of(context).size.height;
 
     late TextEditingController query = TextEditingController();
-    @override
-    void initState() {
-      query = TextEditingController();
-      super.initState();
-    }
-
-    @override
-    void dispose() {
-      query.clear();
-      super.dispose();
-    }
 
     return GetX<TopicsController>(
       builder: (controller) {

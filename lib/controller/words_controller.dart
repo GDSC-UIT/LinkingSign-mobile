@@ -67,4 +67,17 @@ class WordController extends GetxController {
 
     words_list.value = wordsFromDataBase;
   }
+
+  // getX improper usage because it does not have any observable variableso
+  List<String> searchWord(String? query) {
+    List<String> result = [];
+    var lowerQuery = query?.toLowerCase();
+    for (int i = 0; i < words_list.length; ++i) {
+      var lowerWord = words_list[i].toLowerCase();
+      if (lowerWord.contains(lowerQuery!)) {
+        result.add(words_list[i]);
+      }
+    }
+    return result;
+  }
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/controller/topic_list_controller.dart';
+import 'package:vsa_mobile/controller/words_controller.dart';
 import 'package:vsa_mobile/database/wordtopic_model.dart';
+import 'package:vsa_mobile/widgets/word_card.dart';
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
 @immutable
@@ -164,6 +167,131 @@ class TopicSearch extends SearchDelegate {
                 screen_width: screen_width,
                 screen_height: screen_height,
                 total_lessons: topicResult[index].total_lessons);
+          });
+    });
+  }
+}
+
+// class WordSearch extends SearchDelegate {
+//   final wordsController = Get.put(WordController());
+//   @override
+//   List<Widget>? buildActions(BuildContext context) {
+//     return [
+//       IconButton(
+//           onPressed: () {
+//             query = '';
+//           },
+//           icon: const Icon(Icons.clear)),
+//     ];
+//   }
+
+//   @override
+//   Widget? buildLeading(BuildContext context) {
+//     return IconButton(
+//         onPressed: () {
+//           close(context, null);
+//         },
+//         icon: const Icon(Icons.arrow_back));
+//   }
+
+//   @override
+//   Widget buildResults(BuildContext context) {
+//     return GetX<WordController>(builder: (controller) {
+//       List<String> topicResult = controller.searchWord(query);
+//       final screen_width = MediaQuery.of(context).size.width;
+//       final screen_height = MediaQuery.of(context).size.height;
+//       return ListView.builder(
+//           itemCount: topicResult.length,
+//           itemBuilder: (context, index) {
+//             return WordCard(
+//                 title_field: topicResult[index],
+//                 start_index: index,
+//                 screen_width: screen_width,
+//                 screen_height: screen_height,
+//                 circle_color: ColorClass.darkMainColor,
+//                 number_in_circle_color: Colors.white);
+//           });
+//     });
+//   }
+
+//   @override
+//   Widget buildSuggestions(BuildContext context) {
+//     return GetX<WordController>(builder: (controller) {
+//       List<String> topicResult = controller.searchWord(query);
+//       final screen_width = MediaQuery.of(context).size.width;
+//       final screen_height = MediaQuery.of(context).size.height;
+//       return ListView.builder(
+//           itemCount: topicResult.length,
+//           itemBuilder: (context, index) {
+//             return WordCard(
+//                 title_field: topicResult[index],
+//                 start_index: index,
+//                 screen_width: screen_width,
+//                 screen_height: screen_height,
+//                 circle_color: ColorClass.darkMainColor,
+//                 number_in_circle_color: Colors.white);
+//           });
+//     });
+//   }
+// }
+class WordSearch extends SearchDelegate {
+  final topicsController = Get.put(WordController());
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = '';
+          },
+          icon: const Icon(Icons.clear)),
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return GetX<WordController>(builder: (controller) {
+      List<String> topicResult = controller.searchWord(query);
+      final screen_width = MediaQuery.of(context).size.width;
+      final screen_height = MediaQuery.of(context).size.height;
+      return ListView.builder(
+          itemCount: topicResult.length,
+          itemBuilder: (context, index) {
+            return WordCard(
+                title_field: topicResult[index],
+                start_index: index,
+                screen_width: screen_width,
+                screen_height: screen_height,
+                circle_color: ColorClass.darkMainColor,
+                number_in_circle_color: Colors.white);
+          });
+    });
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final screen_width = MediaQuery.of(context).size.width;
+    final screen_height = MediaQuery.of(context).size.height;
+    return GetX<WordController>(builder: (controller) {
+      List<String> topicResult = controller.searchWord(query);
+      return ListView.builder(
+          itemCount: topicResult.length,
+          itemBuilder: (context, index) {
+            return WordCard(
+                title_field: topicResult[index],
+                start_index: index,
+                screen_width: screen_width,
+                screen_height: screen_height,
+                circle_color: ColorClass.darkMainColor,
+                number_in_circle_color: Colors.white);
           });
     });
   }

@@ -25,10 +25,8 @@ class LessonView extends StatelessWidget {
                 : 0.05 * screen_height,
             "Tìm kiếm từ vựng ở đây",
             TopicSearch()),
-        Expanded(child: WordTopicList()),
-        // const WordTopicList(),
+        Expanded(child: WordTopicList())
       ],
     );
-    //return WordTopicList();
   }
 }

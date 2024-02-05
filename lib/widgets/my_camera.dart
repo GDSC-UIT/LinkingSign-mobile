@@ -52,46 +52,8 @@ class _MyCameraState extends State<MyCamera> {
     if (!isCameraReady) {
       return Container();
     }
-    // return Stack(
-    //   children: [
-    //     //CameraPreview(cameraController!),
-    //     ClipRRect(
-    //         child: SizedOverflowBox(
-    //       size: Size(widget.screen_width,
-    //           widget.screen_height * 0.55), // aspect is 1:1
-    //       alignment: Alignment.center,
-    //       child: CameraPreview(cameraController!),
-    //     )),
-    //     GestureDetector(
-    //         onTap: () {
-    //           setState(() {
-    //             direction = direction == 0 ? 1 : 0;
-    //             initializeCamera();
-    //           });
-    //         },
-    //         child: button(
-    //             Icons.flip_camera_android_outlined, Alignment.centerLeft)),
-    //     GestureDetector(
-    //         onTap: () {
-    //           cameraController!.takePicture().then((XFile file) {
-    //             if (mounted) {
-    //               if (file != null) {
-    //                 print('picture stores to ${file.path}');
-    //               }
-    //             }
-    //           });
-    //         },
-    //         child: button(Icons.camera_alt_outlined, Alignment.bottomCenter))
-    //   ],
-    // );
     return Stack(
       children: [
-        // ClipRRect(
-        //     child: SizedOverflowBox(
-        //         size: Size(widget.screen_height,
-        //             widget.screen_height), // aspect is 1:1
-        //         alignment: Alignment.center,
-        //         child: CameraPreview(cameraController!))),
         ClipRect(
             child: OverflowBox(
           alignment: Alignment.bottomCenter,

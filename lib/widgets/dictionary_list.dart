@@ -26,12 +26,12 @@ class _DictionaryListState extends State<DictionaryList> {
             itemCount: controller.words_list.length,
             itemBuilder: (context, index) {
               return WordCard(
-                  title_field: controller.words_list[index],
-                  start_index: index,
-                  screen_width: screen_width,
-                  screen_height: screen_height,
-                  circle_color: const Color.fromARGB(255, 11, 216, 182),
-                  number_in_circle_color: Colors.transparent);
+                  title: controller.words_list[index],
+                  startIndex: index,
+                  screenWidth: screen_width,
+                  screenHeight: screen_height,
+                  circleColor: const Color.fromARGB(255, 11, 216, 182),
+                  number: Colors.transparent);
             },
           ),
         );

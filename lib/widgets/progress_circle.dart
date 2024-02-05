@@ -18,15 +18,15 @@ class _ProgressCircleState extends State<ProgressCircle> {
   @override
   Widget build(BuildContext context) {
     var percent = (widget.currentValue / widget.maxValue) * 100;
-    var rounded_percentage = percent.toInt().toString();
+    var roundedPercentage = percent.toInt().toString();
     return CircularPercentIndicator(
-      radius: 40,
+      radius: 30,
       lineWidth: 10,
       percent: widget.currentValue / widget.maxValue,
       progressColor: ColorClass.mainColor,
       backgroundColor: ColorClass.myBackground,
       circularStrokeCap: CircularStrokeCap.round,
-      center: Text("$rounded_percentage %",
+      center: Text("$roundedPercentage %",
           style: const TextStyle(
               color: Colors.black, fontWeight: FontWeight.w900)),
     );

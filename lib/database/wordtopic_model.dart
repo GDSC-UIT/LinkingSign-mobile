@@ -1,17 +1,3 @@
-// class WordTopic {
-//   String? url_path;
-//   String? title;
-//   double? current_completed = 0;
-//   double? total_lessons;
-
-//   WordTopic({
-//     this.url_path,
-//     this.title,
-//     this.current_completed,
-//     this.total_lessons,
-//   });
-// }
-
 class WordTopic {
   final String url_path;
   final String title;

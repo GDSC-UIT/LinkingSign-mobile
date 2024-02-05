@@ -49,12 +49,12 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 final titleField =
                     controller.topic_word_pair[key]?.elementAt(index);
                 return WordCard(
-                    title_field: titleField,
-                    start_index: index,
-                    screen_width: widget.screen_height,
-                    screen_height: widget.screen_height,
-                    circle_color: ColorClass.circleColor,
-                    number_in_circle_color: ColorClass.mainColor);
+                    title: titleField,
+                    startIndex: index,
+                    screenWidth: widget.screen_height,
+                    screenHeight: widget.screen_height,
+                    circleColor: ColorClass.circleColor,
+                    number: ColorClass.mainColor);
               },
             );
           },

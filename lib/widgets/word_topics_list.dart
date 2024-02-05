@@ -5,8 +5,6 @@ import 'package:vsa_mobile/controller/topic_list_controller.dart';
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
 class WordTopicList extends StatefulWidget {
-  List filterTopics = [].obs;
-  String? queryText;
   WordTopicList();
   @override
   State<WordTopicList> createState() => _WordTopicListState();
@@ -24,11 +22,9 @@ class _WordTopicListState extends State<WordTopicList> {
     final screen_width = MediaQuery.of(context).size.width;
     final screen_height = MediaQuery.of(context).size.height;
 
-    late TextEditingController query = TextEditingController();
-
     return GetX<TopicsController>(
       builder: (controller) {
-        widget.filterTopics = controller.topics.where((topic) {
+        final filterTopics = controller.topics.where((topic) {
           return selectedTopics.isEmpty || selectedTopics.contains(topic.state);
         }).toList();
 
@@ -36,8 +32,6 @@ class _WordTopicListState extends State<WordTopicList> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              //
-              // margin: const EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: states
@@ -70,16 +64,15 @@ class _WordTopicListState extends State<WordTopicList> {
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: widget.filterTopics.length,
+                itemCount: filterTopics.length,
                 itemBuilder: (context, index) {
                   return WordTopicCard(
-                      url_path: widget.filterTopics[index].url_path,
-                      title: widget.filterTopics[index].title,
-                      current_completed:
-                          widget.filterTopics[index].current_completed,
-                      screen_width: screen_width,
-                      screen_height: screen_height,
-                      total_lessons: widget.filterTopics[index].total_lessons);
+                      urlPath: filterTopics[index].url_path,
+                      title: filterTopics[index].title,
+                      currentCompleted: filterTopics[index].current_completed,
+                      screenWidth: screen_width,
+                      screenHeight: screen_height,
+                      totalLessons: filterTopics[index].total_lessons);
                 },
               ),
             ),

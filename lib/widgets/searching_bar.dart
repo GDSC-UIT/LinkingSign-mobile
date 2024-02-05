@@ -17,9 +17,9 @@ class SearchingBar extends StatefulWidget {
   double? width;
   double? height;
   String? hintText;
-  SearchDelegate SearchOptions;
+  SearchDelegate searchOptions;
 
-  SearchingBar(this.width, this.height, this.hintText, this.SearchOptions,
+  SearchingBar(this.width, this.height, this.hintText, this.searchOptions,
       {super.key});
   @override
   State<SearchingBar> createState() => _SearchingBarState();
@@ -89,7 +89,7 @@ class _SearchingBarState extends State<SearchingBar> {
     // );
     return GestureDetector(
       onTap: () {
-        showSearch(context: context, delegate: widget.SearchOptions);
+        showSearch(context: context, delegate: widget.searchOptions);
       },
       child: Container(
         width: widget.width,
@@ -137,105 +137,43 @@ class TopicSearch extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     return GetX<TopicsController>(builder: (controller) {
       List<WordTopic> topicResult = controller.filterSearchingBar(query);
-      final screen_width = MediaQuery.of(context).size.width;
-      final screen_height = MediaQuery.of(context).size.height;
+      final screenWidth = MediaQuery.of(context).size.width;
+      final screenHeight = MediaQuery.of(context).size.height;
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                url_path: topicResult[index].url_path,
+                urlPath: topicResult[index].url_path,
                 title: topicResult[index].title,
-                current_completed: topicResult[index].current_completed,
-                screen_width: screen_width,
-                screen_height: screen_height,
-                total_lessons: topicResult[index].total_lessons);
+                currentCompleted: topicResult[index].current_completed,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                totalLessons: topicResult[index].total_lessons);
           });
     });
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final screen_width = MediaQuery.of(context).size.width;
-    final screen_height = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return GetX<TopicsController>(builder: (controller) {
       List<WordTopic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                url_path: topicResult[index].url_path,
+                urlPath: topicResult[index].url_path,
                 title: topicResult[index].title,
-                current_completed: topicResult[index].current_completed,
-                screen_width: screen_width,
-                screen_height: screen_height,
-                total_lessons: topicResult[index].total_lessons);
+                currentCompleted: topicResult[index].current_completed,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                totalLessons: topicResult[index].total_lessons);
           });
     });
   }
 }
 
-// class WordSearch extends SearchDelegate {
-//   final wordsController = Get.put(WordController());
-//   @override
-//   List<Widget>? buildActions(BuildContext context) {
-//     return [
-//       IconButton(
-//           onPressed: () {
-//             query = '';
-//           },
-//           icon: const Icon(Icons.clear)),
-//     ];
-//   }
-
-//   @override
-//   Widget? buildLeading(BuildContext context) {
-//     return IconButton(
-//         onPressed: () {
-//           close(context, null);
-//         },
-//         icon: const Icon(Icons.arrow_back));
-//   }
-
-//   @override
-//   Widget buildResults(BuildContext context) {
-//     return GetX<WordController>(builder: (controller) {
-//       List<String> topicResult = controller.searchWord(query);
-//       final screen_width = MediaQuery.of(context).size.width;
-//       final screen_height = MediaQuery.of(context).size.height;
-//       return ListView.builder(
-//           itemCount: topicResult.length,
-//           itemBuilder: (context, index) {
-//             return WordCard(
-//                 title_field: topicResult[index],
-//                 start_index: index,
-//                 screen_width: screen_width,
-//                 screen_height: screen_height,
-//                 circle_color: ColorClass.darkMainColor,
-//                 number_in_circle_color: Colors.white);
-//           });
-//     });
-//   }
-
-//   @override
-//   Widget buildSuggestions(BuildContext context) {
-//     return GetX<WordController>(builder: (controller) {
-//       List<String> topicResult = controller.searchWord(query);
-//       final screen_width = MediaQuery.of(context).size.width;
-//       final screen_height = MediaQuery.of(context).size.height;
-//       return ListView.builder(
-//           itemCount: topicResult.length,
-//           itemBuilder: (context, index) {
-//             return WordCard(
-//                 title_field: topicResult[index],
-//                 start_index: index,
-//                 screen_width: screen_width,
-//                 screen_height: screen_height,
-//                 circle_color: ColorClass.darkMainColor,
-//                 number_in_circle_color: Colors.white);
-//           });
-//     });
-//   }
-// }
 class WordSearch extends SearchDelegate {
   final topicsController = Get.put(WordController());
   @override
@@ -262,38 +200,38 @@ class WordSearch extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     return GetX<WordController>(builder: (controller) {
       List<String> topicResult = controller.searchWord(query);
-      final screen_width = MediaQuery.of(context).size.width;
-      final screen_height = MediaQuery.of(context).size.height;
+      final screenWidth = MediaQuery.of(context).size.width;
+      final screenHeight = MediaQuery.of(context).size.height;
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
-                title_field: topicResult[index],
-                start_index: index,
-                screen_width: screen_width,
-                screen_height: screen_height,
-                circle_color: ColorClass.darkMainColor,
-                number_in_circle_color: Colors.white);
+                title: topicResult[index],
+                startIndex: index,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                circleColor: ColorClass.darkMainColor,
+                number: Colors.white);
           });
     });
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final screen_width = MediaQuery.of(context).size.width;
-    final screen_height = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return GetX<WordController>(builder: (controller) {
       List<String> topicResult = controller.searchWord(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
-                title_field: topicResult[index],
-                start_index: index,
-                screen_width: screen_width,
-                screen_height: screen_height,
-                circle_color: ColorClass.darkMainColor,
-                number_in_circle_color: Colors.white);
+                title: topicResult[index],
+                startIndex: index,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                circleColor: ColorClass.darkMainColor,
+                number: Colors.white);
           });
     });
   }

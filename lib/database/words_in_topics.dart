@@ -1,6 +1,4 @@
 class TopicWordPairs {
-  // String topic_name;
-  // List<String> word_list;
   Map<String, List<String>> topic_words;
   TopicWordPairs({required this.topic_words});
 }

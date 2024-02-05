@@ -3,7 +3,7 @@ import 'package:vsa_mobile/const/const_dimension.dart';
 import 'package:vsa_mobile/widgets/dictionary_list.dart';
 import 'package:vsa_mobile/widgets/searching_bar.dart';
 
-var demo_dictionary = [
+var demoDictionary = [
   "cong",
   "cha",
   "nhu",

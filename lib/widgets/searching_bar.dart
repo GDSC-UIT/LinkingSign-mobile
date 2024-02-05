@@ -1,16 +1,12 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/controller/topic_list_controller.dart';
 import 'package:vsa_mobile/controller/words_controller.dart';
-import 'package:vsa_mobile/database/wordtopic_model.dart';
+import 'package:vsa_mobile/model/wordtopic_model.dart';
 import 'package:vsa_mobile/widgets/word_card.dart';
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
-@immutable
 class SearchingBar extends StatefulWidget {
   // const SearchingBar({super.key});
 

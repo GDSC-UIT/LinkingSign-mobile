@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vsa_mobile/const/const_dimension.dart';
-import 'package:vsa_mobile/database/wordtopic_model.dart';
+import 'package:vsa_mobile/model/wordtopic_model.dart';
 import 'package:vsa_mobile/widgets/searching_bar.dart';
 import 'package:vsa_mobile/widgets/word_topics_list.dart';
 

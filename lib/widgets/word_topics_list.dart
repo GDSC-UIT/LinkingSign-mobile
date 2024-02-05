@@ -31,33 +31,31 @@ class _WordTopicListState extends State<WordTopicList> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: states
-                    .map((state) => FilterChip(
-                        showCheckmark: false,
-                        selectedColor: ColorClass.darkMainColor,
-                        label: Text(
-                          state,
-                          style: TextStyle(
-                            color: selectedTopics.contains(state)
-                                ? Colors.white
-                                : ColorClass.darkMainColor,
-                          ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: states
+                  .map((state) => FilterChip(
+                      showCheckmark: false,
+                      selectedColor: ColorClass.darkMainColor,
+                      label: Text(
+                        state,
+                        style: TextStyle(
+                          color: selectedTopics.contains(state)
+                              ? Colors.white
+                              : ColorClass.darkMainColor,
                         ),
-                        selected: selectedTopics.contains(state),
-                        onSelected: (value) {
-                          setState(() {
-                            if (value) {
-                              selectedTopics.add(state);
-                            } else {
-                              selectedTopics.remove(state);
-                            }
-                          });
-                        }))
-                    .toList(),
-              ),
+                      ),
+                      selected: selectedTopics.contains(state),
+                      onSelected: (value) {
+                        setState(() {
+                          if (value) {
+                            selectedTopics.add(state);
+                          } else {
+                            selectedTopics.remove(state);
+                          }
+                        });
+                      }))
+                  .toList(),
             ),
             Flexible(
               fit: FlexFit.loose,

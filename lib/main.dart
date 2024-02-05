@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/screens/my_home.dart';
+import 'dart:js';
 
 // List<CameraDescription> cameras = [];
 late CameraDescription firstCamera;

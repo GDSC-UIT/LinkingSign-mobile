@@ -28,6 +28,7 @@ Widget practiceButton(String title, Color BGcolor, Color textColor,
   );
 }
 
+// ignore: must_be_immutable
 class PracticeButton extends StatefulWidget {
   // const PracticeButton({super.key});
   String title;

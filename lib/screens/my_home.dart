@@ -1,16 +1,10 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:quickalert/models/quickalert_type.dart';
-import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/screens/camera_test_pending.dart';
 import 'package:vsa_mobile/screens/dictionary_view.dart';
 import 'package:vsa_mobile/screens/lesson_view.dart';
 import 'package:vsa_mobile/screens/practice_view.dart';
-import 'package:vsa_mobile/widgets/my_camera.dart';
-import 'package:vsa_mobile/widgets/searching_bar.dart';
-import 'package:vsa_mobile/widgets/word_topics_list.dart';
 
+// ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   int currentScreenNumber = 0;
   String title;

@@ -84,37 +84,51 @@ class _MyCameraState extends State<MyCamera> {
     //         child: button(Icons.camera_alt_outlined, Alignment.bottomCenter))
     //   ],
     // );
-    return ClipRRect(
-        child: SizedOverflowBox(
-      size: Size(
-          widget.screen_width, widget.screen_height * 0.57), // aspect is 1:1
-      alignment: Alignment.center,
-      child: Stack(
-        children: [
-          CameraPreview(cameraController!),
-          GestureDetector(
-              onTap: () {
-                setState(() {
-                  direction = direction == 0 ? 1 : 0;
-                  initializeCamera();
-                });
-              },
-              child:
-                  button(Icons.flip_camera_android_outlined, Alignment.center)),
-          GestureDetector(
-              onTap: () {
-                cameraController!.takePicture().then((XFile file) {
-                  if (mounted) {
-                    if (file != null) {
-                      print('picture stores to ${file.path}');
-                    }
-                  }
-                });
-              },
-              child: button(Icons.camera_alt_outlined, Alignment.center))
-        ],
-      ),
-    ));
+    return Stack(
+      children: [
+        // ClipRRect(
+        //     child: SizedOverflowBox(
+        //         size: Size(widget.screen_height,
+        //             widget.screen_height), // aspect is 1:1
+        //         alignment: Alignment.center,
+        //         child: CameraPreview(cameraController!))),
+        ClipRect(
+            child: OverflowBox(
+          alignment: Alignment.bottomCenter,
+          child: FittedBox(
+              fit: BoxFit.fitHeight,
+              child: Container(
+                  width: widget.screen_width,
+                  height: widget.screen_height *
+                      1.15 /
+                      cameraController!.value.aspectRatio,
+                  child: AspectRatio(
+                    aspectRatio: cameraController!.value.aspectRatio,
+                    child: CameraPreview(cameraController!),
+                  ))),
+        )),
+        // GestureDetector(
+        //     onTap: () {
+        //       setState(() {
+        //         direction = direction == 0 ? 1 : 0;
+        //         initializeCamera();
+        //       });
+        //     },
+        //     child: button(
+        //         Icons.flip_camera_android_outlined, Alignment.bottomCenter)),
+        // GestureDetector(
+        //     onTap: () {
+        //       cameraController!.takePicture().then((XFile file) {
+        //         if (mounted) {
+        //           if (file != null) {
+        //             print('picture stores to ${file.path}');
+        //           }
+        //         }
+        //       });
+        //     },
+        //     child: button(Icons.camera_alt_outlined, Alignment.bottomRight))
+      ],
+    );
   }
 }
 
@@ -125,7 +139,7 @@ Widget button(IconData icon, Alignment alignment) {
     child: Container(
       height: 50,
       width: 50,
-      margin: const EdgeInsets.only(left: 20, right: 20),
+      // margin: const EdgeInsets.only(left: 20, right: 20),
       decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,

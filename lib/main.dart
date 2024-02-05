@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/screens/my_home.dart';
@@ -16,7 +17,9 @@ Future<void> main() async {
 
 // Get a specific camera from the list of available cameras.
   firstCamera = cameras.first;
-
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }
 

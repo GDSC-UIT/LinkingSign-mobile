@@ -4,13 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vsa_mobile/const/color.dart';
 import 'package:vsa_mobile/const/const_dimension.dart';
-import 'package:vsa_mobile/model/video_model.dart';
 import 'package:vsa_mobile/screens/youtube_player_srceen.dart';
 import 'package:vsa_mobile/widgets/example_image.dart';
 import 'package:vsa_mobile/widgets/practice_button.dart';
-import 'dart:convert';
-
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class LearningScreen extends StatelessWidget {
   final double screen_width;
@@ -71,13 +67,19 @@ class LearningScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(20),
                         child: Column(
                           children: [
-                            exampleImage(screen_width * 0.4,
-                                screen_height * 0.25, 'assets/image_test.jpg'),
+                            exampleImage(
+                                screen_width * 0.4,
+                                screen_height * 0.25,
+                                'assets/image_test.jpg',
+                                50),
                             const SizedBox(
                               height: 20,
                             ),
-                            exampleImage(screen_width * 0.4,
-                                screen_height * 0.25, 'assets/image_test.jpg'),
+                            exampleImage(
+                                screen_width * 0.4,
+                                screen_height * 0.25,
+                                'assets/image_test.jpg',
+                                50),
                           ],
                         ),
                       )),

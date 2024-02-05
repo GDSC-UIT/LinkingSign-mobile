@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/const/const_dimension.dart';
 import 'package:vsa_mobile/controller/topic_list_controller.dart';
-import 'package:vsa_mobile/database/wordtopic_model.dart';
-import 'package:vsa_mobile/widgets/searching_bar.dart';
-
 import 'package:vsa_mobile/widgets/word_topic_card.dart';
 
 class WordTopicList extends StatefulWidget {
@@ -39,41 +35,9 @@ class _WordTopicListState extends State<WordTopicList> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SearchingBar(
-                0.9 * screen_width,
-                screen_height < horizontalHeight
-                    ? 0.1 * screen_height
-                    : 0.05 * screen_height,
-                "Nhấn vào kính để tìm chủ đề",
-                TopicSearch()),
-            /* Container(
-              width: 0.9 * screen_width,
-              height: screen_height < horizontalHeight
-                  ? 0.1 * screen_height
-                  : 0.05 * screen_height,
-              // padding: const EdgeInsets.all(10),
-              // margin: const EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              alignment: Alignment.bottomCenter,
-              child: TextField(
-                controller: query,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Search your topics here",
-                  prefixIcon: Icon(Icons.search),
-                ),
-                onChanged: (value) {
-                  // setState(() {
-                  //   widget.filterTopics =
-                  //       controller.filterSearchingBar(query.text);
-                  // });
-                },
-              ),
-            ), */
             Container(
-              padding: const EdgeInsets.all(5.0),
-              margin: const EdgeInsets.all(5.0),
+              //
+              // margin: const EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: states

@@ -46,6 +46,7 @@ class YoutubeScreen extends StatelessWidget {
     ),
   );
 
+  // ignore: use_super_parameters
   YoutubeScreen({Key? key}) : super(key: key);
 
   @override

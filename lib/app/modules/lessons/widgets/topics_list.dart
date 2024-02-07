@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/controller/topic_list_controller.dart';
-import 'package:vsa_mobile/widgets/word_topic_card.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
+
+import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
+import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
 
 class WordTopicList extends StatefulWidget {
   WordTopicList();
@@ -19,9 +20,6 @@ class _WordTopicListState extends State<WordTopicList> {
 
   @override
   Widget build(BuildContext context) {
-    final screen_width = MediaQuery.of(context).size.width;
-    final screen_height = MediaQuery.of(context).size.height;
-
     return GetX<TopicsController>(
       builder: (controller) {
         final filterTopics = controller.topics.where((topic) {
@@ -31,6 +29,9 @@ class _WordTopicListState extends State<WordTopicList> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: states
@@ -57,6 +58,9 @@ class _WordTopicListState extends State<WordTopicList> {
                       }))
                   .toList(),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Flexible(
               fit: FlexFit.loose,
               child: ListView.builder(
@@ -68,8 +72,6 @@ class _WordTopicListState extends State<WordTopicList> {
                       urlPath: filterTopics[index].url_path,
                       title: filterTopics[index].title,
                       currentCompleted: filterTopics[index].current_completed,
-                      screenWidth: screen_width,
-                      screenHeight: screen_height,
                       totalLessons: filterTopics[index].total_lessons);
                 },
               ),

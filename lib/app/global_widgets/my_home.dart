@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/screens/dictionary_view.dart';
-import 'package:vsa_mobile/screens/lesson_view.dart';
-import 'package:vsa_mobile/screens/practice_view.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
+import 'package:vsa_mobile/app/modules/dictionary/screens/dictionary_screen.dart';
+import 'package:vsa_mobile/app/modules/lessons/screens/lesson_screen.dart';
+import 'package:vsa_mobile/app/modules/practice/screens/practice_screen.dart';
 
 // ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
@@ -21,15 +21,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final screen_width = MediaQuery.of(context).size.width;
-    final screen_height = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     List<Widget> widgetList = [
       LessonView(),
       const DictionaryView(),
       // TakePictureScreen(camera: widget.firstCamera),
       PracticeView(
-        screen_width: screen_width,
-        screen_height: screen_height,
+        screen_width: screenWidth,
+        screen_height: screenHeight,
       ),
     ];
 

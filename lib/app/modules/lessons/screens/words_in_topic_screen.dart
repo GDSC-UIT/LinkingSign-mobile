@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/controller/topic_words_controller.dart';
-import 'package:vsa_mobile/widgets/word_card.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
+
+import 'package:vsa_mobile/app/modules/dictionary/topic_words_controller.dart';
+import 'package:vsa_mobile/app/modules/dictionary/widgets/word_card.dart';
 
 class WordsInTopic extends StatefulWidget {
   // const WordsInTopic({super.key});
-  final String topic_name;
-  final double screen_width;
-  final double screen_height;
+  final String topicName;
 
-  const WordsInTopic(
-      {super.key,
-      required this.topic_name,
-      required this.screen_width,
-      required this.screen_height});
+  const WordsInTopic({
+    super.key,
+    required this.topicName,
+  });
   @override
   State<WordsInTopic> createState() => _WordsInTopicState();
 }
@@ -26,7 +24,7 @@ class _WordsInTopicState extends State<WordsInTopic> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.topic_name,
+        title: Text(widget.topicName,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 30,
@@ -39,20 +37,17 @@ class _WordsInTopicState extends State<WordsInTopic> {
       ),
       body: Container(
         color: ColorClass.myBackground,
-        padding: const EdgeInsets.all(20),
         child: GetX<TopicWordsPairController>(
           builder: (controller) {
             return ListView.builder(
               itemCount: controller.topic_word_pair.length,
               itemBuilder: (BuildContext context, int index) {
-                var key = widget.topic_name;
+                var key = widget.topicName;
                 final titleField =
                     controller.topic_word_pair[key]?.elementAt(index);
                 return WordCard(
                     title: titleField,
                     startIndex: index,
-                    screenWidth: widget.screen_height,
-                    screenHeight: widget.screen_height,
                     circleColor: ColorClass.circleColor,
                     number: ColorClass.mainColor);
               },

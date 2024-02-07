@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/controller/topic_list_controller.dart';
-import 'package:vsa_mobile/controller/words_controller.dart';
-import 'package:vsa_mobile/model/wordtopic_model.dart';
-import 'package:vsa_mobile/widgets/word_card.dart';
-import 'package:vsa_mobile/widgets/word_topic_card.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
+import 'package:vsa_mobile/app/data/models/topic.dart';
+import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
+import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
+import 'package:vsa_mobile/app/modules/dictionary/widgets/word_card.dart';
+import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
 
+// ignore: must_be_immutable
 class SearchingBar extends StatefulWidget {
   // const SearchingBar({super.key});
 
@@ -96,10 +97,10 @@ class _SearchingBarState extends State<SearchingBar> {
         ),
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(widget.hintText!),
             const Icon(Icons.search, color: Colors.black),
+            Text(widget.hintText!),
           ],
         ),
       ),
@@ -133,8 +134,6 @@ class TopicSearch extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     return GetX<TopicsController>(builder: (controller) {
       List<WordTopic> topicResult = controller.filterSearchingBar(query);
-      final screenWidth = MediaQuery.of(context).size.width;
-      final screenHeight = MediaQuery.of(context).size.height;
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
@@ -142,8 +141,6 @@ class TopicSearch extends SearchDelegate {
                 urlPath: topicResult[index].url_path,
                 title: topicResult[index].title,
                 currentCompleted: topicResult[index].current_completed,
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
                 totalLessons: topicResult[index].total_lessons);
           });
     });
@@ -151,8 +148,6 @@ class TopicSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return GetX<TopicsController>(builder: (controller) {
       List<WordTopic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
@@ -162,8 +157,6 @@ class TopicSearch extends SearchDelegate {
                 urlPath: topicResult[index].url_path,
                 title: topicResult[index].title,
                 currentCompleted: topicResult[index].current_completed,
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
                 totalLessons: topicResult[index].total_lessons);
           });
     });
@@ -196,16 +189,12 @@ class WordSearch extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     return GetX<WordController>(builder: (controller) {
       List<String> topicResult = controller.searchWord(query);
-      final screenWidth = MediaQuery.of(context).size.width;
-      final screenHeight = MediaQuery.of(context).size.height;
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
                 title: topicResult[index],
                 startIndex: index,
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
                 circleColor: ColorClass.darkMainColor,
                 number: Colors.white);
           });
@@ -214,8 +203,6 @@ class WordSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return GetX<WordController>(builder: (controller) {
       List<String> topicResult = controller.searchWord(query);
       return ListView.builder(
@@ -224,8 +211,6 @@ class WordSearch extends SearchDelegate {
             return WordCard(
                 title: topicResult[index],
                 startIndex: index,
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
                 circleColor: ColorClass.darkMainColor,
                 number: Colors.white);
           });

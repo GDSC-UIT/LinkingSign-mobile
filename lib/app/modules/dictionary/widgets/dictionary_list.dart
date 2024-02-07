@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vsa_mobile/controller/words_controller.dart';
-import 'package:vsa_mobile/widgets/word_card.dart';
+import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
+import 'package:vsa_mobile/app/modules/dictionary/widgets/word_card.dart';
 
 class DictionaryList extends StatefulWidget {
   const DictionaryList({super.key});
@@ -14,8 +14,6 @@ class _DictionaryListState extends State<DictionaryList> {
   final dictionaryController = Get.put(WordController());
   @override
   Widget build(BuildContext context) {
-    final screen_width = MediaQuery.of(context).size.width;
-    final screen_height = MediaQuery.of(context).size.height;
     return GetX<WordController>(
       builder: (controller) {
         return Container(
@@ -28,8 +26,6 @@ class _DictionaryListState extends State<DictionaryList> {
               return WordCard(
                   title: controller.words_list[index],
                   startIndex: index,
-                  screenWidth: screen_width,
-                  screenHeight: screen_height,
                   circleColor: const Color.fromARGB(255, 11, 216, 182),
                   number: Colors.transparent);
             },

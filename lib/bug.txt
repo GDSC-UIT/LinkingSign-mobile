@@ -1,9 +1,0 @@
-circular unstabled; state: fixed
-flutter doctor - v
-flutter doctor --android-licenses
-camera bug take picture screen:
-    + Must put the list of screen inside my_home_screen;
-
-gv6iIQWLpCY
-
-can not reverse to initialState after change state

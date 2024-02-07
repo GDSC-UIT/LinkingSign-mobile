@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vsa_mobile/const/const_dimension.dart';
-import 'package:vsa_mobile/screens/my_home.dart';
+import 'package:vsa_mobile/app/core/const/const_dimension.dart';
+
+import 'package:vsa_mobile/app/global_widgets/my_home.dart';
 
 Widget practiceButton(String title, Color BGcolor, Color textColor,
-    double screen_width, double screen_height, Function onPressed) {
+    double screenWidth, double screenHeight, Function onPressed) {
   return Padding(
     padding: const EdgeInsets.only(right: 5, top: 5, left: 5),
     child: SizedBox(
-      width: screen_height < horizontalHeight
-          ? screen_width * 0.05
-          : screen_width * 0.2,
-      height: screen_height < horizontalHeight ? 100 : screen_height * 0.04,
+      width: screenHeight < horizontalHeight
+          ? screenWidth * 0.05
+          : screenWidth * 0.2,
+      height: screenHeight < horizontalHeight ? 100 : screenHeight * 0.04,
       child: ElevatedButton(
         onPressed: () {
           Get.off(MyHomePage(title: "Luyện tập", currentScreenNumber: 2));
@@ -32,14 +33,15 @@ Widget practiceButton(String title, Color BGcolor, Color textColor,
 class PracticeButton extends StatefulWidget {
   // const PracticeButton({super.key});
   String title;
-  double screen_width;
-  double screen_height;
-  Color BGcolor;
+  double screenWidth;
+  double screenHeight;
+  Color bgColor;
   Color textColor;
   Function onPressed;
 
-  PracticeButton(this.title, this.screen_width, this.screen_height,
-      this.BGcolor, this.textColor, this.onPressed);
+  PracticeButton(this.title, this.screenWidth, this.screenHeight, this.bgColor,
+      this.textColor, this.onPressed,
+      {super.key});
   @override
   State<PracticeButton> createState() => _PracticeButtonState();
 }
@@ -50,21 +52,21 @@ class _PracticeButtonState extends State<PracticeButton> {
     return Padding(
       padding: const EdgeInsets.only(right: 5, top: 5, left: 5),
       child: SizedBox(
-        width: widget.screen_height < horizontalHeight
-            ? widget.screen_width * 0.05
-            : widget.screen_width * 0.2,
-        height: widget.screen_height < horizontalHeight
+        width: widget.screenHeight < horizontalHeight
+            ? widget.screenWidth * 0.05
+            : widget.screenWidth * 0.2,
+        height: widget.screenHeight < horizontalHeight
             ? 100
-            : widget.screen_height * 0.04,
+            : widget.screenHeight * 0.04,
         child: ElevatedButton(
           onPressed: () {
             setState(() {
-              widget.BGcolor = Colors.white;
+              widget.bgColor = Colors.white;
               widget.textColor = Colors.black;
             });
           },
           style: ElevatedButton.styleFrom(
-              backgroundColor: widget.BGcolor,
+              backgroundColor: widget.bgColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
               )),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vsa_mobile/const/const_dimension.dart';
-import 'package:vsa_mobile/widgets/dictionary_list.dart';
-import 'package:vsa_mobile/widgets/searching_bar.dart';
+import 'package:vsa_mobile/app/core/const/const_dimension.dart';
+
+import 'package:vsa_mobile/app/modules/dictionary/widgets/dictionary_list.dart';
+import 'package:vsa_mobile/app/global_widgets/searching_bar.dart';
 
 var demoDictionary = [
   "cong",
@@ -24,18 +25,20 @@ class DictionaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screen_width = MediaQuery.of(context).size.width;
-    final screen_height = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const SizedBox(height: 10),
         SearchingBar(
-            0.9 * screen_width,
-            screen_height < horizontalHeight
-                ? 0.2 * screen_height
-                : 0.05 * screen_height,
+            0.9 * screenWidth,
+            screenHeight < horizontalHeight
+                ? 0.2 * screenHeight
+                : 0.05 * screenHeight,
             "Tìm kiếm từ vựng ở đây",
             WordSearch()),
+        const SizedBox(height: 10),
         const Expanded(child: DictionaryList()),
       ],
     );

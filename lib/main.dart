@@ -2,8 +2,9 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:vsa_mobile/const/color.dart';
-import 'package:vsa_mobile/screens/my_home.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
+
+import 'package:vsa_mobile/app/global_widgets/my_home.dart';
 
 // List<CameraDescription> cameras = [];
 late CameraDescription firstCamera;

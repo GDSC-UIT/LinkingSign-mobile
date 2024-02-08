@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 
 import 'package:vsa_mobile/app/modules/dictionary/topic_words_controller.dart';
@@ -26,10 +27,9 @@ class _WordsInTopicState extends State<WordsInTopic> {
       appBar: AppBar(
         title: Text(widget.topicName,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 30,
-              color: Colors.black,
-              fontWeight: FontWeight.w900,
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
             )),
         centerTitle: true,
         backgroundColor: ColorClass.myBackground,

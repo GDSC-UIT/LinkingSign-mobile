@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/modules/dictionary/screens/dictionary_screen.dart';
 import 'package:vsa_mobile/app/modules/lessons/screens/lesson_screen.dart';
@@ -21,26 +22,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     List<Widget> widgetList = [
       LessonView(),
       const DictionaryView(),
       // TakePictureScreen(camera: widget.firstCamera),
-      PracticeView(
-        screen_width: screenWidth,
-        screen_height: screenHeight,
-      ),
+      const PracticeView(),
     ];
 
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title,
-            style: const TextStyle(
-              fontSize: 30,
-              color: Colors.black,
-              fontWeight: FontWeight.w900,
-            )),
+            style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                letterSpacing: -0.011)),
         surfaceTintColor: Colors.transparent,
         actions: [
           Container(

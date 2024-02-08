@@ -4,7 +4,7 @@ import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
 import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
-import 'package:vsa_mobile/app/modules/dictionary/widgets/word_card.dart';
+import 'package:vsa_mobile/app/global_widgets/word_card.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
 
 // ignore: must_be_immutable
@@ -193,6 +193,7 @@ class WordSearch extends SearchDelegate {
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
+                circleVisible: false,
                 title: topicResult[index],
                 startIndex: index,
                 circleColor: ColorClass.darkMainColor,
@@ -209,6 +210,7 @@ class WordSearch extends SearchDelegate {
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
+                circleVisible: false,
                 title: topicResult[index],
                 startIndex: index,
                 circleColor: ColorClass.darkMainColor,

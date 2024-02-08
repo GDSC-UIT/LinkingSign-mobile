@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_utils/get_utils.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/modules/lessons/screens/words_in_topic_screen.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/progress_circle.dart';
@@ -49,38 +50,39 @@ class WordTopicCard extends StatelessWidget {
                 Container(
                     padding: const EdgeInsets.all(20),
                     margin: const EdgeInsets.only(left: 10, right: 20),
-                    child: SvgPicture.asset(urlPath,
-                        height: 50, width: 50, fit: BoxFit.fill)),
+                    child: Image(image: AssetImage(urlPath))),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800),
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600, fontSize: 16),
                     ),
-                    // Text("Tiến độ $currentCompleted/$totalLessons ",
-                    //     style: const TextStyle(
-                    //         color: ColorClass.mainColor,
-                    //         fontWeight: FontWeight.bold,
-                    //         fontSize: 15)),
                     Container(
-                        margin: const EdgeInsets.only(left: 0),
-                        width: 80,
-                        height: 25,
+                        width: currentCompleted == 100 ? 100 : 80,
+                        height: 20,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: ColorClass.mainColor),
-                        child: Text(
-                          "$currentCompleted/$totalLessons",
-                          style: const TextStyle(color: Colors.white),
-                        ))
+                        child: currentCompleted == 100
+                            ? Text("Đã hoàn thành",
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 10,
+                                    letterSpacing: -0.011))
+                            : Text(
+                                "$currentCompleted/$totalLessons",
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 10,
+                                    letterSpacing: -0.6),
+                              )),
                   ],
-                ),
+                )
               ],
             ),
             Container(

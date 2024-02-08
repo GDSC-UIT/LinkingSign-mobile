@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 
@@ -7,11 +8,8 @@ import 'package:vsa_mobile/app/modules/practice/widgets/my_camera.dart';
 
 class PracticeView extends StatelessWidget {
   // const PracticeView({super.key});
-  final double screen_width;
-  final double screen_height;
 
-  PracticeView(
-      {super.key, required this.screen_height, required this.screen_width});
+  const PracticeView({super.key});
   @override
   Widget build(BuildContext context) {
     // Future.delayed(const Duration(seconds: 2), () {
@@ -32,10 +30,10 @@ class PracticeView extends StatelessWidget {
         Container(
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
             alignment: Alignment.bottomCenter,
-            width: screen_height < horizontalHeight
-                ? screen_width * 0.5
-                : screen_width,
-            height: screen_height * 0.2,
+            width: context.height < horizontalHeight
+                ? context.width * 0.5
+                : context.width,
+            height: context.height * 0.2,
             decoration: BoxDecoration(
               color: ColorClass.darkMainColor,
               // borderRadius: BorderRadius.circular(10),
@@ -54,17 +52,17 @@ class PracticeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     exampleImage(
-                        screen_height < horizontalHeight
-                            ? screen_width * 0.2
-                            : screen_width * 0.4,
-                        screen_height * 0.1,
+                        context.height < horizontalHeight
+                            ? context.width * 0.2
+                            : context.width * 0.4,
+                        context.height * 0.1,
                         'assets/image_test.jpg',
                         10),
                     exampleImage(
-                        screen_height < horizontalHeight
-                            ? screen_width * 0.2
-                            : screen_width * 0.4,
-                        screen_height * 0.1,
+                        context.height < horizontalHeight
+                            ? context.width * 0.2
+                            : context.height * 0.4,
+                        context.height * 0.1,
                         'assets/image_test.jpg',
                         10),
                   ],
@@ -74,8 +72,8 @@ class PracticeView extends StatelessWidget {
         Expanded(
             child: Align(
           alignment: Alignment.bottomCenter,
-          child:
-              MyCamera(screenWidth: screen_width, screenHeight: screen_height),
+          child: MyCamera(
+              screenWidth: context.width, screenHeight: context.height),
         )),
       ],
     );

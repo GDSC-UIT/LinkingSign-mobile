@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 
 import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
@@ -40,11 +41,12 @@ class _WordTopicListState extends State<WordTopicList> {
                       selectedColor: ColorClass.darkMainColor,
                       label: Text(
                         state,
-                        style: TextStyle(
-                          color: selectedTopics.contains(state)
-                              ? Colors.white
-                              : ColorClass.darkMainColor,
-                        ),
+                        style: GoogleFonts.poppins(
+                            color: selectedTopics.contains(state)
+                                ? Colors.white
+                                : ColorClass.darkMainColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14),
                       ),
                       selected: selectedTopics.contains(state),
                       onSelected: (value) {

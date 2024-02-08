@@ -89,7 +89,7 @@ class TopicWordsPairController extends GetxController {
     //   }),
     // ];
     var TopicWordPairsFromDatabase = {
-      "Đồ Ăn": [
+      "Hành động": [
         "Cơm",
         "Cháo",
         "Hủ tiếu",
@@ -100,7 +100,7 @@ class TopicWordsPairController extends GetxController {
         "Bánh xèo",
         "Bánh hỏi"
       ],
-      "Thể thao": [
+      "Y tế": [
         "Bóng đá",
         "Bóng bàn",
         "Bóng bầu dục",
@@ -109,7 +109,7 @@ class TopicWordsPairController extends GetxController {
         "Bóng ném",
         "Bơi lội"
       ],
-      "Người thân": [
+      "Trái cây": [
         "Ông",
         "Bà",
         "Cha",

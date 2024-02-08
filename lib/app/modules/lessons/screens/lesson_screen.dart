@@ -23,7 +23,7 @@ class LessonView extends StatelessWidget {
             screenHeight < horizontalHeight
                 ? 0.2 * screenHeight
                 : 0.05 * screenHeight,
-            "Tìm kiếm từ vựng ở đây",
+            "Tìm kiếm chủ đề",
             TopicSearch()),
         Expanded(child: WordTopicList())
       ],

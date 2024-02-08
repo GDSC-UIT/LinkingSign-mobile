@@ -4,7 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 
 import 'package:vsa_mobile/app/modules/dictionary/topic_words_controller.dart';
-import 'package:vsa_mobile/app/modules/dictionary/widgets/word_card.dart';
+import 'package:vsa_mobile/app/global_widgets/word_card.dart';
 
 class WordsInTopic extends StatefulWidget {
   // const WordsInTopic({super.key});
@@ -46,6 +46,7 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 final titleField =
                     controller.topic_word_pair[key]?.elementAt(index);
                 return WordCard(
+                    circleVisible: true,
                     title: titleField,
                     startIndex: index,
                     circleColor: ColorClass.circleColor,

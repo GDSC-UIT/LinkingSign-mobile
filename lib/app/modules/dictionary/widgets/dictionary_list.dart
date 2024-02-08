@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
-import 'package:vsa_mobile/app/modules/dictionary/widgets/word_card.dart';
+import 'package:vsa_mobile/app/global_widgets/word_card.dart';
 
 class DictionaryList extends StatefulWidget {
   const DictionaryList({super.key});
@@ -24,6 +24,7 @@ class _DictionaryListState extends State<DictionaryList> {
             itemCount: controller.words_list.length,
             itemBuilder: (context, index) {
               return WordCard(
+                  circleVisible: false,
                   title: controller.words_list[index],
                   startIndex: index,
                   circleColor: const Color.fromARGB(255, 11, 216, 182),

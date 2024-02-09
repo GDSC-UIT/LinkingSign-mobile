@@ -49,9 +49,9 @@ class _MyCameraState extends State<MyCamera> {
 
   @override
   Widget build(BuildContext context) {
-    if (!isCameraReady) {
-      return Container();
-    }
+    // if (!isCameraReady) {
+    //   return Container();
+    // }
     // return Stack(
     //   children: [
     //     ClipRect(
@@ -86,16 +86,17 @@ class _MyCameraState extends State<MyCamera> {
     //       });
     //     },
     //     child: button(Icons.camera_alt_outlined, Alignment.bottomRight))],);
-    return ClipRect(
-        child: OverflowBox(
-      alignment: Alignment.bottomCenter,
-      child: FittedBox(
-          fit: BoxFit.fitWidth,
-          child: Container(
-              width: widget.screenWidth,
-              height: widget.screenHeight / cameraController!.value.aspectRatio,
-              child: CameraPreview(cameraController!))),
-    ));
+    // return ClipRect(
+    //     child: OverflowBox(
+    //   alignment: Alignment.bottomCenter,
+    //   child: FittedBox(
+    //       fit: BoxFit.fitWidth,
+    //       child: Container(
+    //           width: widget.screenWidth,
+    //           height: widget.screenHeight / cameraController!.value.aspectRatio,
+    //           child: CameraPreview(cameraController!))),
+    // ));
+    return Container();
   }
 }
 

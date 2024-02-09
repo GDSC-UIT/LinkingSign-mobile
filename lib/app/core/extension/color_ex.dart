@@ -16,3 +16,4 @@ extension HexColor on Color {
       '${green.toRadixString(16).padLeft(2, '0')}'
       '${blue.toRadixString(16).padLeft(2, '0')}';
 }
+//https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter

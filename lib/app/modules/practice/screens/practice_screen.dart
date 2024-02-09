@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 
@@ -24,59 +25,84 @@ class PracticeView extends StatelessWidget {
     //     btnCancelOnPress: () {},
     //   ).show();
     // });
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-            padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-            alignment: Alignment.bottomCenter,
-            width: context.height < horizontalHeight
-                ? context.width * 0.5
-                : context.width,
-            height: context.height * 0.2,
-            decoration: BoxDecoration(
-              color: ColorClass.darkMainColor,
-              // borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.topCenter,
-                  child: Text("Title",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w900,
-                          fontSize: 20)),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Luyện tập",
+              style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -0.011)),
+          surfaceTintColor: Colors.transparent,
+          actions: [
+            Container(
+                margin: const EdgeInsets.only(right: 20),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 247, 245, 245),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.more_horiz),
+                  // icon: const Icon(Icons.search),
+                ))
+          ],
+          backgroundColor: ColorClass.myBackground,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                alignment: Alignment.bottomCenter,
+                width: context.height < horizontalHeight
+                    ? context.width * 0.5
+                    : context.width,
+                height: context.height * 0.2,
+                decoration: const BoxDecoration(
+                  color: ColorClass.darkMainColor,
+                  // borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    exampleImage(
-                        context.height < horizontalHeight
-                            ? context.width * 0.2
-                            : context.width * 0.4,
-                        context.height * 0.1,
-                        'assets/image_test.jpg',
-                        10),
-                    exampleImage(
-                        context.height < horizontalHeight
-                            ? context.width * 0.2
-                            : context.height * 0.4,
-                        context.height * 0.1,
-                        'assets/image_test.jpg',
-                        10),
+                    const Align(
+                      alignment: Alignment.topCenter,
+                      child: Text("Title",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        exampleImage(
+                            context.height < horizontalHeight
+                                ? context.width * 0.1
+                                : context.width * 0.4,
+                            context.height * 0.1,
+                            'assets/image_test.jpg',
+                            5),
+                        exampleImage(
+                            context.height < horizontalHeight
+                                ? context.width * 0.1
+                                : context.width * 0.4,
+                            context.height * 0.1,
+                            'assets/image_test.jpg',
+                            5),
+                      ],
+                    ),
                   ],
-                ),
-              ],
-            )),
-        Expanded(
-            child: Align(
-          alignment: Alignment.bottomCenter,
-          child: MyCamera(
-              screenWidth: context.width, screenHeight: context.height),
-        )),
-      ],
-    );
+                )),
+            // Expanded(
+            //     child: Align(
+            //   alignment: Alignment.bottomCenter,
+            //   child: MyCamera(
+            //       screenWidth: context.width, screenHeight: context.height),
+            // )),
+          ],
+        ));
+
     //return MyCamera(screen_width: screen_width, screen_height: screen_height);
   }
 }

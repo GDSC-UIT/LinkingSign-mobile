@@ -3,19 +3,21 @@ import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 
 import 'package:vsa_mobile/app/global_widgets/my_home.dart';
+import 'package:vsa_mobile/app/modules/practice/screens/practice_screen.dart';
 
 Widget practiceButton(String title, Color BGcolor, Color textColor,
     double screenWidth, double screenHeight, Function onPressed) {
   return Padding(
     padding: const EdgeInsets.only(right: 5, top: 5, left: 5),
     child: SizedBox(
-      width: screenHeight < horizontalHeight
-          ? screenWidth * 0.05
-          : screenWidth * 0.2,
+      width: screenWidth * 0.4,
       height: screenHeight < horizontalHeight ? 100 : screenHeight * 0.04,
       child: ElevatedButton(
         onPressed: () {
-          Get.off(MyHomePage(title: "Luyện tập", currentScreenNumber: 2));
+          // Get.off(MyHomePage(title: "Luyện tập", currentScreenNumber: 2));
+          Get.off(() => const PracticeView(),
+              transition: Transition.rightToLeft,
+              duration: Duration(milliseconds: 500));
         },
         style: ElevatedButton.styleFrom(
             backgroundColor: BGcolor,

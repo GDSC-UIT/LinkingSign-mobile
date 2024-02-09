@@ -49,9 +49,7 @@ class WordCard extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (builder) => LearningScreen(
-                        screenWidth: context.width * 2,
-                        screenHeight: context.height,
-                        word: title,
+                        title,
                       )));
         },
       ),

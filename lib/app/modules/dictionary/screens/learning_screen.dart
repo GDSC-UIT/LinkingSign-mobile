@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 
@@ -8,38 +9,32 @@ import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 import 'package:vsa_mobile/app/global_widgets/practice_button.dart';
 
 class LearningScreen extends StatelessWidget {
-  final double screenWidth;
-  final double screenHeight;
-  final String word;
-  const LearningScreen(
-      {super.key,
-      required this.screenWidth,
-      required this.screenHeight,
-      required this.word});
+  final String? word;
+  const LearningScreen(this.word, {super.key});
 
   // Future<List<WordVideoModel>> readjsonData() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(word),
+        title: Text(word!),
         surfaceTintColor: Colors.transparent,
       ),
       body: Column(
         children: [
           Container(
-            width: screenWidth,
-            height: screenHeight < horizontalHeight
-                ? screenHeight * 0.55
-                : screenHeight * 0.3,
+            width: context.width,
+            height: context.height < horizontalHeight
+                ? context.height * 0.55
+                : context.height * 0.3,
             color: Colors.amber,
             child: YoutubeScreen(),
           ),
           Visibility(
-            visible: screenHeight < horizontalHeight ? false : true,
+            visible: context.height < horizontalHeight ? false : true,
             child: Container(
               alignment: Alignment.bottomLeft,
-              child: Text(word,
+              child: Text(word!,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                       color: Colors.black,
@@ -48,7 +43,7 @@ class LearningScreen extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: screenHeight < horizontalHeight ? false : true,
+            visible: context.height < horizontalHeight ? false : true,
             child: const Text("Hình minh họa bên dưới",
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -65,23 +60,29 @@ class LearningScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(20),
                       child: Column(
                         children: [
-                          exampleImage(screenWidth * 0.4, screenHeight * 0.25,
-                              'assets/image_test.jpg', 50),
+                          exampleImage(
+                              context.width * 0.8,
+                              context.height * 0.25,
+                              'assets/image_test.jpg',
+                              50),
                           const SizedBox(
                             height: 20,
                           ),
-                          exampleImage(screenWidth * 0.4, screenHeight * 0.25,
-                              'assets/image_test.jpg', 50),
+                          exampleImage(
+                              context.width * 0.8,
+                              context.height * 0.25,
+                              'assets/image_test.jpg',
+                              50),
                         ],
                       ),
                     )),
-                visible: screenHeight < horizontalHeight ? false : true),
+                visible: context.height < horizontalHeight ? false : true),
           ),
           const SizedBox(
             height: 20,
           ),
           practiceButton("Luyện tập", ColorClass.darkMainColor, Colors.white,
-              screenWidth, screenHeight, () {}),
+              context.width, context.height, () {}),
           const SizedBox(
             height: 10,
           ),

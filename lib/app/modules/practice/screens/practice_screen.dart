@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,25 +7,15 @@ import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 import 'package:vsa_mobile/app/modules/practice/widgets/my_camera.dart';
+import 'package:vsa_mobile/app/modules/practice/widgets/result_notifications.dart';
 
 class PracticeView extends StatelessWidget {
   // const PracticeView({super.key});
 
   const PracticeView({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // Future.delayed(const Duration(seconds: 2), () {
-    //   AwesomeDialog(
-    //     context: context,
-    //     dialogType: DialogType.success,
-    //     animType: AnimType.bottomSlide,
-    //     showCloseIcon: true,
-    //     title: "Chúc mừng bạn",
-    //     desc: "Làm tốt lắm!",
-    //     btnOkOnPress: () {},
-    //     btnCancelOnPress: () {},
-    //   ).show();
-    // });
     return Scaffold(
         appBar: AppBar(
           title: Text("Luyện tập",
@@ -41,7 +32,13 @@ class PracticeView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const ResultNotification();
+                        });
+                  },
                   icon: const Icon(Icons.more_horiz),
                   // icon: const Icon(Icons.search),
                 ))
@@ -52,30 +49,33 @@ class PracticeView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                alignment: Alignment.bottomCenter,
-                width: context.height < horizontalHeight
-                    ? context.width * 0.5
-                    : context.width,
+                //padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                alignment: Alignment.center,
+                width: context.width,
                 height: context.height * 0.2,
-                decoration: const BoxDecoration(
-                  color: ColorClass.darkMainColor,
-                  // borderRadius: BorderRadius.circular(10),
-                ),
+                decoration: BoxDecoration(
+                    color: ColorClass.darkMainColor,
+                    // borderRadius: BorderRadius.circular(10),
+                    border:
+                        Border.all(width: 5, color: ColorClass.circleColor)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Align(
-                      alignment: Alignment.topCenter,
+                      alignment: Alignment.center,
                       child: Text("Title",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
                               fontSize: 20)),
                     ),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        const SizedBox(
+                          width: 10,
+                        ),
                         exampleImage(
                             context.height < horizontalHeight
                                 ? context.width * 0.1
@@ -90,26 +90,20 @@ class PracticeView extends StatelessWidget {
                             context.height * 0.1,
                             'assets/image_test.jpg',
                             5),
+                        const SizedBox(
+                          width: 10,
+                        ),
                       ],
                     ),
                   ],
                 )),
-            // Expanded(
-            //     child: Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: MyCamera(
-            //       screenWidth: context.width, screenHeight: context.height),
-            // )),
+            Expanded(
+                child: Align(
+              alignment: Alignment.bottomCenter,
+              child: MyCamera(
+                  screenWidth: context.width, screenHeight: context.height),
+            )),
           ],
         ));
-
-    //return MyCamera(screen_width: screen_width, screen_height: screen_height);
   }
 }
-//  MyCamera(
-//                 screen_width: screen_height < horizontalHeight
-//                     ? screen_width * 0.8
-//                     : screen_width,
-//                 screen_height: screen_height < horizontalHeight
-//                     ? screen_height * 0.5
-//                     : screen_height)),

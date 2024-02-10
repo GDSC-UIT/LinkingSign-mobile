@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
-
-import 'package:vsa_mobile/app/global_widgets/my_home.dart';
 import 'package:vsa_mobile/app/modules/practice/screens/practice_screen.dart';
 
 Widget practiceButton(String title, Color BGcolor, Color textColor,
@@ -15,9 +13,9 @@ Widget practiceButton(String title, Color BGcolor, Color textColor,
       child: ElevatedButton(
         onPressed: () {
           // Get.off(MyHomePage(title: "Luyện tập", currentScreenNumber: 2));
-          Get.off(() => const PracticeView(),
+          Get.to(() => const PracticeView(),
               transition: Transition.rightToLeft,
-              duration: Duration(milliseconds: 500));
+              duration: const Duration(milliseconds: 500));
         },
         style: ElevatedButton.styleFrom(
             backgroundColor: BGcolor,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
-import 'package:vsa_mobile/app/core/extension/color_ex.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
 import 'package:vsa_mobile/app/global_widgets/searching_bar.dart';

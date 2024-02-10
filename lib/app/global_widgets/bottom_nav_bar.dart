@@ -23,11 +23,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         backgroundColor: HexColor("#F6FBFA"),
         body: IndexedStack(
           index: controller.tabIndex,
-          children: [
-            LessonView(),
-            const DictionaryView(),
-            const PracticeView()
-          ],
+          children: [LessonView(), DictionaryView(), PracticeView()],
         ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: ColorClass.mainColor,

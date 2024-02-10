@@ -9,9 +9,10 @@ class AppRoutes {
 
   //video of word
   static const learningScreen = "/topic/wordlist/learning";
+
   //dictionary
   static const dictionary = "/dictionary";
-
+  static const practiceFromLScreen = '/dictionary/learning/practice';
   //video
   static const video2 = "/dictionary/learning";
   //practice

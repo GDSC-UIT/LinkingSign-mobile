@@ -48,6 +48,8 @@ dependencies:
   awesome_dialog: ^3.2.0
   hexcolor: ^3.0.1
   google_fonts: ^6.1.0
+  animated_icon: ^0.0.5
+  lottie: ^2.7.0
 
 dev_dependencies:
   flutter_test:

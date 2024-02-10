@@ -23,7 +23,13 @@ class AppPages {
       page: () => const PracticeView(),
     ),
     GetPage(
-        name: AppRoutes.learningScreen, page: () => const LearningScreen(""))
+      name: AppRoutes.learningScreen,
+      page: () => const LearningScreen(""),
+    ),
+    GetPage(
+      name: AppRoutes.practiceFromLScreen,
+      page: () => const PracticeView(),
+    ),
   ];
 
   static getTopic() => AppRoutes.topic;

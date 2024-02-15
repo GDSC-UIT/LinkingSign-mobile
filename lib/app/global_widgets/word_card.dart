@@ -8,21 +8,20 @@ class WordCard extends StatelessWidget {
   // const WordCard({super.key});
   final bool circleVisible;
   final Color circleColor;
+  final String? urlPath;
+  final String? urlPic1;
+  final String? urlPic2;
   final Color number;
-  final String title;
+  final String? title;
   final int startIndex;
-  const WordCard(
-      {super.key,
-      required this.circleVisible,
-      required this.title,
-      required this.startIndex,
-      required this.circleColor,
-      required this.number});
+  WordCard(this.circleVisible, this.title, this.startIndex, this.circleColor,
+      this.number, this.urlPath, this.urlPic1, this.urlPic2,
+      {super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
       // padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.only(left: 10, right: 20, top: 10),
+      margin: const EdgeInsets.only(left: 10, right: 20, top: 10, bottom: 10),
       alignment: Alignment.center,
       width: context.width,
       height:
@@ -40,17 +39,16 @@ class WordCard extends StatelessWidget {
                 style: TextStyle(fontSize: 20, color: number)),
           ),
         ),
-        title: Text(title,
+        title: Text(title == null ? "text" : title!,
             style:
                 GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16)),
         trailing: const Icon(Icons.check_circle_outline),
-        onTap: () {
-          Navigator.push(
+        onTap: () async {
+          await Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (builder) => LearningScreen(
-                        title,
-                      )));
+                  builder: (builder) =>
+                      LearningScreen(title, urlPath, urlPic1, urlPic2)));
         },
       ),
     );

@@ -40,17 +40,24 @@ class _WordsInTopicState extends State<WordsInTopic> {
         child: GetX<TopicWordsPairController>(
           builder: (controller) {
             return ListView.builder(
-              itemCount: controller.topic_word_pair.length,
+              itemCount: controller.topic_word_pair[widget.topicName]?.length,
               itemBuilder: (BuildContext context, int index) {
-                var key = widget.topicName;
+                final key = widget.topicName;
                 final titleField =
-                    controller.topic_word_pair[key]?.elementAt(index);
+                    controller.topic_word_pair[key]?.elementAt(index).word;
+                final video =
+                    controller.topic_word_pair[key]?.elementAt(index).video1url;
+                final pic1 =
+                    controller.topic_word_pair[key]?.elementAt(index).image1url;
+                final pic2 =
+                    controller.topic_word_pair[key]?.elementAt(index).image2url;
                 return WordCard(
-                    circleVisible: true,
-                    title: titleField,
-                    startIndex: index,
-                    circleColor: ColorClass.circleColor,
-                    number: ColorClass.mainColor);
+                  true,
+                  titleField,
+                  index,
+                  ColorClass.circleColor,
+                  ColorClass.mainColor,video,pic1,pic2
+                );
               },
             );
           },

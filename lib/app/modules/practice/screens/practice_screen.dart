@@ -53,11 +53,9 @@ class PracticeView extends StatelessWidget {
                 alignment: Alignment.center,
                 width: context.width,
                 height: context.height * 0.2,
-                decoration: BoxDecoration(
-                    color: ColorClass.darkMainColor,
-                    // borderRadius: BorderRadius.circular(10),
-                    border:
-                        Border.all(width: 5, color: ColorClass.circleColor)),
+                decoration: const BoxDecoration(
+                  color: ColorClass.darkMainColor,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [

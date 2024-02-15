@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
@@ -27,8 +28,8 @@ class DictionaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    //final screenWidth = MediaQuery.of(context).size.width;
+    //final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
         appBar: AppBar(
@@ -58,10 +59,10 @@ class DictionaryView extends StatelessWidget {
           children: [
             const SizedBox(height: 10),
             SearchingBar(
-                0.9 * screenWidth,
-                screenHeight < horizontalHeight
-                    ? 0.2 * screenHeight
-                    : 0.05 * screenHeight,
+                0.9 * context.width,
+                context.height < horizontalHeight
+                    ? 0.2 * context.height
+                    : 0.05 * context.height,
                 "Tìm kiếm từ vựng ở đây",
                 WordSearch()),
             const SizedBox(height: 10),

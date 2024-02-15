@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
@@ -15,8 +16,8 @@ class LessonView extends StatelessWidget {
   LessonView({super.key});
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    //final screenWidth = MediaQuery.of(context).size.width;
+    //final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
             title: Text("Bài học",
@@ -44,10 +45,10 @@ class LessonView extends StatelessWidget {
           children: [
             const SizedBox(height: 20),
             SearchingBar(
-                0.9 * screenWidth,
-                screenHeight < horizontalHeight
-                    ? 0.2 * screenHeight
-                    : 0.05 * screenHeight,
+                0.9 * context.width,
+                context.height < horizontalHeight
+                    ? 0.2 * context.height
+                    : 0.05 * context.height,
                 "Tìm kiếm chủ đề",
                 TopicSearch()),
             Expanded(child: WordTopicList())

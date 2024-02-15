@@ -22,7 +22,7 @@ class TopicsController extends GetxController {
           state: 'Chưa học'),
       WordTopic(
           url_path: "assets/topic-2.jpg",
-          title: 'Thể thao',
+          title: 'Trái cây',
           current_completed: 10,
           total_lessons: 60,
           state: 'Đang học'),
@@ -33,44 +33,6 @@ class TopicsController extends GetxController {
         total_lessons: 100,
         state: 'Đang học',
       ),
-      // WordTopic(
-      //     url_path: "assets/image-4.svg",
-      //     title: 'Đồ chơi',
-      //     current_completed: 100,
-      //     total_lessons: 100,
-      //     state: 'Hoàn thành'),
-      // WordTopic(
-      //     url_path: "assets/image-5.svg",
-      //     title: '',
-      //     current_completed: 0,
-      //     total_lessons: 100,
-      //     state: 'Chưa học'),
-
-      ///testing area
-      // WordTopic(
-      //     url_path: "assets/image-6.svg",
-      //     title: 'Ăn bánh mì',
-      //     current_completed: 15,
-      //     total_lessons: 100,
-      //     state: 'Đang học'),
-      // WordTopic(
-      //     url_path: "assets/image-6.svg",
-      //     title: 'game Ăn bánh',
-      //     current_completed: 15,
-      //     total_lessons: 100,
-      //     state: 'Đang học'),
-      // WordTopic(
-      //     url_path: "assets/image-6.svg",
-      //     title: 'Chơi trốn tìm',
-      //     current_completed: 15,
-      //     total_lessons: 100,
-      //     state: 'Đang học'),
-      // WordTopic(
-      //     url_path: "assets/image-6.svg",
-      //     title: 'Đồ Ăn ngon',
-      //     current_completed: 15,
-      //     total_lessons: 100,
-      //     state: 'Đang học'),
     ];
     topics.value = topicsFromDatabase;
   }

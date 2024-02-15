@@ -3,14 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
-
-import 'package:vsa_mobile/app/modules/dictionary/widgets/youtube_player_srceen.dart';
+import 'package:vsa_mobile/app/modules/dictionary/widgets/video_player.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 import 'package:vsa_mobile/app/global_widgets/practice_button.dart';
 
 class LearningScreen extends StatelessWidget {
   final String? word;
-  const LearningScreen(this.word, {super.key});
+  final String? urlPath;
+  final String? image1;
+  final String? image2;
+  const LearningScreen(this.word, this.urlPath, this.image1, this.image2,
+      {super.key});
 
   // Future<List<WordVideoModel>> readjsonData() async {
   @override
@@ -22,14 +25,20 @@ class LearningScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          // Container(
+          // width: context.width,
+          // height: context.height < horizontalHeight
+          //     ? context.height * 0.55
+          //     : context.height * 0.3,
+          //   //color: Colors.amber,
+          //   child: VideoPLayer(),
+          // ),
           Container(
-            width: context.width,
-            height: context.height < horizontalHeight
-                ? context.height * 0.55
-                : context.height * 0.3,
-            color: Colors.amber,
-            child: YoutubeScreen(),
-          ),
+              width: context.width,
+              height: context.height < horizontalHeight
+                  ? context.height * 0.55
+                  : context.height * 0.3,
+              child: VideoDisplay(urlPath: urlPath)),
           Visibility(
             visible: context.height < horizontalHeight ? false : true,
             child: Container(
@@ -60,19 +69,13 @@ class LearningScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(20),
                       child: Column(
                         children: [
-                          exampleImage(
-                              context.width * 0.8,
-                              context.height * 0.25,
-                              'assets/image_test.jpg',
-                              50),
+                          exampleImage(context.width * 0.8,
+                              context.height * 0.25, image1!, 50),
                           const SizedBox(
                             height: 20,
                           ),
-                          exampleImage(
-                              context.width * 0.8,
-                              context.height * 0.25,
-                              'assets/image_test.jpg',
-                              50),
+                          exampleImage(context.width * 0.8,
+                              context.height * 0.25, image2!, 50),
                         ],
                       ),
                     )),

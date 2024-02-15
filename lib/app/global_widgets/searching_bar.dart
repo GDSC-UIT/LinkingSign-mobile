@@ -85,8 +85,8 @@ class _SearchingBarState extends State<SearchingBar> {
     //   ),
     // );
     return GestureDetector(
-      onTap: () {
-        showSearch(context: context, delegate: widget.searchOptions);
+      onTap: () async {
+        await showSearch(context: context, delegate: widget.searchOptions);
       },
       child: Container(
         width: widget.width,
@@ -188,33 +188,45 @@ class WordSearch extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     return GetX<WordController>(builder: (controller) {
-      List<String> topicResult = controller.searchWord(query);
+      List topicResult = controller.searchWord(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
-                circleVisible: false,
-                title: topicResult[index],
-                startIndex: index,
-                circleColor: ColorClass.darkMainColor,
-                number: Colors.white);
+                false,
+                topicResult[index],
+                index,
+                ColorClass.darkMainColor,
+                Colors.white,
+                controller.wordsList.elementAt(index).video1url,
+                controller.wordsList.elementAt(index).image1url,
+                controller.wordsList.elementAt(index).image2url);
           });
     });
+    // return ListView.builder(
+    //   itemCount: 8,
+    //   itemBuilder: (context, index) {
+    //     return Container(color: Colors.red, child: const Text("text"));
+    //   },
+    // );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     return GetX<WordController>(builder: (controller) {
-      List<String> topicResult = controller.searchWord(query);
+      List topicResult = controller.searchWord(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
-                circleVisible: false,
-                title: topicResult[index],
-                startIndex: index,
-                circleColor: ColorClass.darkMainColor,
-                number: Colors.white);
+                false,
+                topicResult[index],
+                index,
+                ColorClass.darkMainColor,
+                Colors.white,
+                controller.wordsList.elementAt(index).video1url,
+                controller.wordsList.elementAt(index).image1url,
+                controller.wordsList.elementAt(index).image2url);
           });
     });
   }

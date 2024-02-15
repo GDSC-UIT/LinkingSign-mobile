@@ -1,8 +1,10 @@
 import 'package:get/state_manager.dart';
+import 'package:vsa_mobile/app/data/data.dart';
+import 'package:vsa_mobile/app/data/models/word.dart';
 
 class TopicWordsPairController extends GetxController {
   // var topic_word_pair = <TopicWordPairs>[].obs;
-  var topic_word_pair = <String, List>{}.obs;
+  var topic_word_pair = <String, List<Word>>{}.obs;
   @override
   void onInit() {
     super.onInit();
@@ -12,147 +14,16 @@ class TopicWordsPairController extends GetxController {
   void fetchWordTopicWordsPair() async {
     await Future.delayed(const Duration(seconds: 1));
 
-    // var TopicWordPairsFromDatabase = [
-    //   TopicWordPairs(topic_words: {
-    //     "Đồ Ăn": [
-    //       "Cơm",
-    //       "Cháo",
-    //       "Hủ tiếu",
-    //       "Gà",
-    //       "Cháo",
-    //       "Bánh mì",
-    //       "Bánh ướt",
-    //       "Bánh xèo",
-    //       "Bánh hỏi"
-    //     ]
-    //   }),
-    //   TopicWordPairs(topic_words: {
-    //     "Thể thao": [
-    //       "Bóng đá",
-    //       "Bóng bàn",
-    //       "Bóng bầu dục",
-    //       "Cầu lông",
-    //       "Tennis",
-    //       "Bóng ném",
-    //       "Bơi lội"
-    //     ]
-    //   }),
-    //   TopicWordPairs(topic_words: {
-    //     "Người thân": [
-    //       "Ông",
-    //       "Bà",
-    //       "Cha",
-    //       "Mẹ",
-    //       "Anh",
-    //       "Chị",
-    //       "Em",
-    //       "Em họ",
-    //       "Chú",
-    //       "Bác"
-    //     ]
-    //   }),
-    //   TopicWordPairs(topic_words: {
-    //     "Đồ chơi": [
-    //       "Súng",
-    //       "Kiếm",
-    //       "lắp ghép",
-    //       "lego",
-    //       "cầu mây",
-    //       "Dây nhảy",
-    //       "cung tên",
-    //       "cây viết"
-    //     ]
-    //   }),
-    //   TopicWordPairs(topic_words: {
-    //     "Học tập": [
-    //       "Trường học",
-    //       "Thầy cô",
-    //       "Đồng phục",
-    //       "Bạn học",
-    //       "Bảng",
-    //       "Phấn",
-    //       "Viết",
-    //       "Tập sách"
-    //     ]
-    //   }),
-    //   TopicWordPairs(topic_words: {
-    //     "Lễ hội": [
-    //       "Đua ghe",
-    //       "Cúng đình",
-    //       "Noel",
-    //       "Tết",
-    //       "Trung thu",
-    //       "Tất niên",
-    //       "Té nước",
-    //       "Vu lan"
-    //     ]
-    //   }),
-    // ];
-    var TopicWordPairsFromDatabase = {
-      "Hành động": [
-        "Cơm",
-        "Cháo",
-        "Hủ tiếu",
-        "Gà",
-        "Cháo",
-        "Bánh mì",
-        "Bánh ướt",
-        "Bánh xèo",
-        "Bánh hỏi"
-      ],
-      "Y tế": [
-        "Bóng đá",
-        "Bóng bàn",
-        "Bóng bầu dục",
-        "Cầu lông",
-        "Tennis",
-        "Bóng ném",
-        "Bơi lội"
-      ],
-      "Trái cây": [
-        "Ông",
-        "Bà",
-        "Cha",
-        "Mẹ",
-        "Anh",
-        "Chị",
-        "Em",
-        "Em họ",
-        "Chú",
-        "Bác"
-      ],
-      "Đồ chơi": [
-        "Súng",
-        "Kiếm",
-        "lắp ghép",
-        "lego",
-        "cầu mây",
-        "Dây nhảy",
-        "cung tên",
-        "cây viết"
-      ],
-      "Học tập": [
-        "Trường học",
-        "Thầy cô",
-        "Đồng phục",
-        "Bạn học",
-        "Bảng",
-        "Phấn",
-        "Viết",
-        "Tập sách"
-      ],
-      "Lễ hội": [
-        "Đua ghe",
-        "Cúng đình",
-        "Noel",
-        "Tết",
-        "Trung thu",
-        "Tất niên",
-        "Té nước",
-        "Vu lan"
-      ]
+    final actionTopic =
+        word_data.where((element) => element.topicName == "action").toList();
+    final fruitTopic =
+        word_data.where((element) => element.topicName == "fruit").toList();
+    final medicineTopic =
+        word_data.where((element) => element.topicName == "medicine").toList();
+    topic_word_pair.value = {
+      "Hành động": actionTopic,
+      "Trái cây": fruitTopic,
+      "Y tế": medicineTopic,
     };
-
-    topic_word_pair.value = TopicWordPairsFromDatabase;
   }
 }

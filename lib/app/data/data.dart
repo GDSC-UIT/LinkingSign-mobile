@@ -9,7 +9,7 @@ final word_data = [
       "action"),
   Word(
     "Ghen tị",
-    "assets/videos/action/chao.mp4",
+    "assets/videos/action/ghen_ti.mp4",
     "assets/topics/action/ghen_ti_1.jpg",
     "assets/topics/action/ghen_ti_2.jpg",
     "action",

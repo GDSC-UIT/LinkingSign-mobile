@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
+import 'package:vsa_mobile/app/data/models/word.dart';
 import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
@@ -214,13 +215,13 @@ class WordSearch extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     return GetX<WordController>(builder: (controller) {
-      List topicResult = controller.searchWord(query);
+      List<Word> topicResult = controller.searchWord(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
                 false,
-                topicResult[index],
+                topicResult.elementAt(index).word,
                 index,
                 ColorClass.darkMainColor,
                 Colors.white,

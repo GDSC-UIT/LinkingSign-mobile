@@ -24,7 +24,7 @@ class PracticeController extends GetxController {
   final _random = Random();
   int next(int min, int max) => min + _random.nextInt(max - min);
   Word wordReview(int number) {
-    return word_data[18];
+    return word_data[next(2, 15)];
   }
 
   Future<void> fetchReviewWord() async {

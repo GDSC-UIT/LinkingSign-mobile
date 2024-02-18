@@ -84,37 +84,43 @@ class _MyCameraState extends State<MyCamera> {
       await cameraController.initialize();
       await cameraController.prepareForVideoRecording();
       await cameraController.startVideoRecording();
+      //startTimer();
       setState(() {
         _isRecording = true;
       });
-      startTimer();
-    }
-    try {
-      Future.delayed(const Duration(seconds: 5), () async {
-        final file = await cameraController.stopVideoRecording();
-
-        // final route = MaterialPageRoute(
-        //   fullscreenDialog: true,
-        //   builder: (_) => VideoPage(filePath: file.path),
-        // );
-
-        setState(() {
-          _isRecording = false;
-        });
-
-        _generateThumbnails(file);
-        //Navigator.push(context, route);
-        showDialog(
-            context: context,
-            builder: (context) {
-              return ResultNotification(
-                onPressed: widget.onPressed,
-              );
-            });
+    } else {
+      await cameraController.stopVideoRecording();
+      showDialog(
+          context: context,
+          builder: (context) {
+            return ResultNotification(
+              onPressed: widget.onPressed,
+            );
+          });
+      setState(() {
+        _isRecording = false;
       });
-    } catch (e) {
-      print(e.toString());
     }
+    // Future.delayed(const Duration(seconds: 5), () async {
+    //   // final route = MaterialPageRoute(
+    //   //   fullscreenDialog: true,
+    //   //   builder: (_) => VideoPage(filePath: file.path),
+    //   // );
+
+    //   setState(() {
+    //     _isRecording = false;
+    //   });
+    //   final file = await cameraController.stopVideoRecording();
+    //   _generateThumbnails(file);
+    //   //Navigator.push(context, route);
+    //   showDialog(
+    //       context: context,
+    //       builder: (context) {
+    //         return ResultNotification(
+    //           onPressed: widget.onPressed,
+    //         );
+    //       });
+    // });
   }
 
   void startTimer() {
@@ -167,14 +173,15 @@ class _MyCameraState extends State<MyCamera> {
     setState(() {
       _thumbnails = thumbnails;
     });
+
     print(_thumbnails);
   }
 
-  @override
-  void dispose() {
-    cameraController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   cameraController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

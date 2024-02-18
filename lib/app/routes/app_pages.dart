@@ -10,7 +10,7 @@ class AppPages {
   static final List<GetPage> pages = [
     GetPage(
       name: AppRoutes.navBar,
-      page: () => const MyBottomNavBar(),
+      page: () => MyBottomNavBar(),
     ),
     GetPage(
       name: AppRoutes.topic,

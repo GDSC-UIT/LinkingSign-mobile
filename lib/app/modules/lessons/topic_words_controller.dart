@@ -1,7 +1,6 @@
 import 'package:get/state_manager.dart';
 import 'package:vsa_mobile/app/data/DataCenter.dart';
 import 'package:vsa_mobile/app/data/data.dart';
-import 'package:vsa_mobile/app/data/models/word.dart';
 
 class TopicWordsPairController extends GetxController {
   // var topic_word_pair = <TopicWordPairs>[].obs;

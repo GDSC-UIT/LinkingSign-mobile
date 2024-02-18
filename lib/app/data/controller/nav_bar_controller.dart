@@ -7,4 +7,9 @@ class NavController extends GetxController {
     tabIndex = index;
     update();
   }
+
+  void getToPracticeScreen(int index) {
+    tabIndex = 2;
+    update();
+  }
 }

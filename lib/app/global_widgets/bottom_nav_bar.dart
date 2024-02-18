@@ -8,8 +8,9 @@ import 'package:vsa_mobile/app/modules/practice/screens/practice_screen.dart';
 import 'package:vsa_mobile/app/data/controller/nav_bar_controller.dart';
 
 class MyBottomNavBar extends StatefulWidget {
-  const MyBottomNavBar({super.key});
+  //MyBottomNavBar({super.key});
 
+  MyBottomNavBar();
   @override
   State<MyBottomNavBar> createState() => _MyBottomNavBarState();
 }

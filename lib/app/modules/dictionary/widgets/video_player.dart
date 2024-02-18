@@ -11,7 +11,7 @@ class VideoDisplay extends StatefulWidget {
 }
 
 class _VideoDisplayState extends State<VideoDisplay> {
-  late CachedVideoPlayerController _videoPlayerController;
+  late VideoPlayerController _videoPlayerController;
 
   late CustomVideoPlayerController _customVideoPlayerController;
 
@@ -23,7 +23,7 @@ class _VideoDisplayState extends State<VideoDisplay> {
   void initState() {
     super.initState();
 
-    _videoPlayerController = CachedVideoPlayerController.asset(widget.urlPath)
+    _videoPlayerController = VideoPlayerController.asset(widget.urlPath)
       ..initialize().then((_) {
         setState(() {
           isLoading = false;

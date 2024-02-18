@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:lottie/lottie.dart';
-import 'package:vsa_mobile/app/routes/app_routes.dart';
+import 'package:vsa_mobile/app/global_widgets/bottom_nav_bar.dart';
 
 class ResultNotification extends StatefulWidget {
   final Future onPressed;
@@ -78,7 +78,12 @@ class _ResultNotificationState extends State<ResultNotification>
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.amber),
                     onPressed: () {
-                      Get.toNamed(AppRoutes.practiceFromLScreen);
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyBottomNavBar()),
+                        (Route<dynamic> route) => false,
+                      );
                     },
                     child: Text(
                       "Từ tiếp theo",

@@ -23,7 +23,11 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         backgroundColor: HexColor("#F6FBFA"),
         body: IndexedStack(
           index: controller.tabIndex,
-          children: [LessonView(), DictionaryView(), PracticeView()],
+          children: [
+            LessonView(),
+            const DictionaryView(),
+            const PracticeView()
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: ColorClass.mainColor,
@@ -56,8 +60,4 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
       );
     });
   }
-}
-
-_bottombarItem(IconData icon, String label) {
-  return BottomNavigationBarItem(icon: Icon(icon), label: label);
 }

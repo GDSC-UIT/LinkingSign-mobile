@@ -10,7 +10,7 @@ import 'package:vsa_mobile/app/modules/lessons/widgets/topics_list.dart';
 // ignore: must_be_immutable
 class LessonView extends StatelessWidget {
   // const LessonView({super.key});
-  List<WordTopic> filter = [];
+  List<Topic> filter = [];
   String? query;
 
   LessonView({super.key});

@@ -20,17 +20,13 @@
 //     state ??= "";
 //   }
 // }
-class WordTopic {
-  final String url_path;
+class Topic {
+  final String urlPath;
   final String title;
-  final double current_completed;
-  final double total_lessons;
-  final String state;
+  double currentCompleted;
+  double totalLessons;
+  String state;
 
-  WordTopic(
-      {required this.url_path,
-      required this.title,
-      required this.current_completed,
-      required this.total_lessons,
-      required this.state});
+  Topic(this.urlPath, this.title, this.currentCompleted, this.totalLessons,
+      this.state);
 }

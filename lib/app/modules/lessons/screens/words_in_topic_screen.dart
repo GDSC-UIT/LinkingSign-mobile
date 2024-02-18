@@ -4,7 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 
-import 'package:vsa_mobile/app/modules/dictionary/topic_words_controller.dart';
+import 'package:vsa_mobile/app/modules/lessons/topic_words_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
 
 class WordsInTopic extends StatefulWidget {
@@ -20,7 +20,8 @@ class WordsInTopic extends StatefulWidget {
 }
 
 class _WordsInTopicState extends State<WordsInTopic> {
-  final topicsController = Get.put(TopicWordsPairController());
+  final TopicWordsPairController topicsController =
+      Get.put(TopicWordsPairController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class _WordsInTopicState extends State<WordsInTopic> {
           builder: (controller) {
             return ListView.builder(
               itemCount: controller.topic_word_pair[widget.topicName]?.length,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (context, index) {
                 final key = widget.topicName;
                 final titleField =
                     controller.topic_word_pair[key]?.elementAt(index).word;
@@ -51,12 +52,26 @@ class _WordsInTopicState extends State<WordsInTopic> {
                     controller.topic_word_pair[key]?.elementAt(index).image1url;
                 final pic2 =
                     controller.topic_word_pair[key]?.elementAt(index).image2url;
-                return WordCard(
-                  true,
-                  titleField,
-                  index,
-                  ColorClass.circleColor,
-                  ColorClass.mainColor,video,pic1,pic2
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      controller.topic_word_pair[key]
+                          ?.elementAt(index)
+                          .isLearned = true;
+                    });
+                    controller.updateLearningState(
+                        titleField, widget.topicName);
+                  },
+                  child: WordCard(
+                    true,
+                    titleField,
+                    index,
+                    ColorClass.circleColor,
+                    ColorClass.mainColor,
+                    video,
+                    pic1,
+                    pic2,
+                  ),
                 );
               },
             );

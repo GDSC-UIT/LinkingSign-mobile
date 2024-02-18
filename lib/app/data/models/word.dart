@@ -4,12 +4,8 @@ class Word {
   final String image1url;
   final String image2url;
   final String topicName;
+  bool isLearned = false;
 
-  Word(
-    this.word,
-    this.video1url,
-    this.image1url,
-    this.image2url,
-    this.topicName,
-  );
+  Word(this.word, this.video1url, this.image1url, this.image2url,
+      this.topicName, this.isLearned);
 }

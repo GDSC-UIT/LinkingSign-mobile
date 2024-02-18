@@ -8,7 +8,10 @@ import 'package:vsa_mobile/app/global_widgets/bottom_nav_bar.dart';
 
 class AppPages {
   static final List<GetPage> pages = [
-    GetPage(name: AppRoutes.navBar, page: () => const MyBottomNavBar()),
+    GetPage(
+      name: AppRoutes.navBar,
+      page: () => const MyBottomNavBar(),
+    ),
     GetPage(
       name: AppRoutes.topic,
       page: () => LessonView(),

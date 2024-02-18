@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:lottie/lottie.dart';
+import 'package:vsa_mobile/app/routes/app_routes.dart';
 
 class ResultNotification extends StatefulWidget {
-  const ResultNotification({super.key});
+  final Future onPressed;
+  const ResultNotification({super.key, required this.onPressed});
 
   @override
   State<ResultNotification> createState() => _ResultNotificationState();
@@ -14,6 +16,7 @@ class ResultNotification extends StatefulWidget {
 class _ResultNotificationState extends State<ResultNotification>
     with SingleTickerProviderStateMixin {
   late AnimationController _checkIconController;
+
   @override
   void initState() {
     super.initState();
@@ -74,7 +77,9 @@ class _ResultNotificationState extends State<ResultNotification>
                 child: ElevatedButton(
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.amber),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.practiceFromLScreen);
+                    },
                     child: Text(
                       "Từ tiếp theo",
                       style: GoogleFonts.poppins(

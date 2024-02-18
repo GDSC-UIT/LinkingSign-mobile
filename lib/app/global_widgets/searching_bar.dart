@@ -134,15 +134,15 @@ class TopicSearch extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     return GetX<TopicsController>(builder: (controller) {
-      List<WordTopic> topicResult = controller.filterSearchingBar(query);
+      List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                urlPath: topicResult[index].url_path,
+                urlPath: topicResult[index].urlPath,
                 title: topicResult[index].title,
-                currentCompleted: topicResult[index].current_completed,
-                totalLessons: topicResult[index].total_lessons);
+                currentCompleted: topicResult[index].currentCompleted,
+                totalLessons: topicResult[index].totalLessons);
           });
     });
   }
@@ -150,15 +150,15 @@ class TopicSearch extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     return GetX<TopicsController>(builder: (controller) {
-      List<WordTopic> topicResult = controller.filterSearchingBar(query);
+      List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                urlPath: topicResult[index].url_path,
+                urlPath: topicResult[index].urlPath,
                 title: topicResult[index].title,
-                currentCompleted: topicResult[index].current_completed,
-                totalLessons: topicResult[index].total_lessons);
+                currentCompleted: topicResult[index].currentCompleted,
+                totalLessons: topicResult[index].totalLessons);
           });
     });
   }
@@ -189,27 +189,21 @@ class WordSearch extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     return GetX<WordController>(builder: (controller) {
-      List topicResult = controller.searchWord(query);
+      List<Word> topicResult = controller.searchWord(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordCard(
                 false,
-                topicResult[index],
+                topicResult[index].word,
                 index,
                 ColorClass.darkMainColor,
                 Colors.white,
-                controller.wordsList.elementAt(index).video1url,
-                controller.wordsList.elementAt(index).image1url,
-                controller.wordsList.elementAt(index).image2url);
+                topicResult.elementAt(index).video1url,
+                topicResult.elementAt(index).image1url,
+                topicResult.elementAt(index).image2url);
           });
     });
-    // return ListView.builder(
-    //   itemCount: 8,
-    //   itemBuilder: (context, index) {
-    //     return Container(color: Colors.red, child: const Text("text"));
-    //   },
-    // );
   }
 
   @override
@@ -225,9 +219,9 @@ class WordSearch extends SearchDelegate {
                 index,
                 ColorClass.darkMainColor,
                 Colors.white,
-                controller.wordsList.elementAt(index).video1url,
-                controller.wordsList.elementAt(index).image1url,
-                controller.wordsList.elementAt(index).image2url);
+                topicResult.elementAt(index).video1url,
+                topicResult.elementAt(index).image1url,
+                topicResult.elementAt(index).image2url);
           });
     });
   }

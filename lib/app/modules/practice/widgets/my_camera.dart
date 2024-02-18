@@ -1,24 +1,42 @@
-import 'package:camera/camera.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+import 'package:camera/camera.dart' hide ImageFormat;
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
+import 'package:video_thumbnail/video_thumbnail.dart' hide ImageFormat;
+import 'package:video_thumbnail/video_thumbnail.dart';
+import 'package:vsa_mobile/app/modules/practice/widgets/result_notifications.dart';
 
 class MyCamera extends StatefulWidget {
   const MyCamera(
-      {super.key, required this.screenWidth, required this.screenHeight});
+      {super.key,
+      required this.screenWidth,
+      required this.screenHeight,
+      required this.onPressed});
   final double screenWidth;
   final double screenHeight;
+  final Future onPressed;
   @override
   State<MyCamera> createState() => _MyCameraState();
 }
 
 class _MyCameraState extends State<MyCamera> {
   late List<CameraDescription> cameras;
-  CameraController? cameraController;
+  late CameraController cameraController;
   int direction = 1;
   bool isCameraReady = false;
+  late bool _isRecording = false;
+
+  Timer? countdownTimer;
+  late Duration myDuration = const Duration(seconds: 5);
+  VideoPlayerController? videoController;
 
   @override
   void initState() {
     initializeCamera();
+
+    _isRecording = false;
     super.initState();
   }
 
@@ -29,7 +47,7 @@ class _MyCameraState extends State<MyCamera> {
       ResolutionPreset.high,
       enableAudio: false,
     );
-    cameraController!.initialize().then((_) {
+    cameraController.initialize().then((_) {
       if (!mounted) {
         return;
       }
@@ -41,9 +59,120 @@ class _MyCameraState extends State<MyCamera> {
     });
   }
 
+  _recordVideo(context) async {
+    // if (_isRecording) {
+    //   final file = await cameraController!.stopVideoRecording();
+
+    //   final route = MaterialPageRoute(
+    //     fullscreenDialog: true,
+    //     builder: (_) => VideoPage(filePath: file!.path),
+    //   );
+
+    // setState(() {
+    //   _isRecording = false;
+    // });
+    //   Navigator.push(context, route);
+    // } else {
+    //   await cameraController!.prepareForVideoRecording();
+    //   await cameraController!.startVideoRecording();
+    //   setState(() {
+    //     _isRecording = true;
+    //   });
+    //   startTimer();
+    // }
+    if (!_isRecording) {
+      await cameraController.initialize();
+      await cameraController.prepareForVideoRecording();
+      await cameraController.startVideoRecording();
+      setState(() {
+        _isRecording = true;
+      });
+      startTimer();
+    }
+    try {
+      Future.delayed(const Duration(seconds: 5), () async {
+        final file = await cameraController.stopVideoRecording();
+
+        // final route = MaterialPageRoute(
+        //   fullscreenDialog: true,
+        //   builder: (_) => VideoPage(filePath: file.path),
+        // );
+
+        setState(() {
+          _isRecording = false;
+        });
+
+        _generateThumbnails(file);
+        //Navigator.push(context, route);
+        showDialog(
+            context: context,
+            builder: (context) {
+              return ResultNotification(
+                onPressed: widget.onPressed,
+              );
+            });
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  void startTimer() {
+    myDuration = const Duration(seconds: 5);
+    countdownTimer =
+        Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
+  }
+
+  void setCountDown() {
+    const reduceSecondsBy = 1;
+
+    setState(() {
+      final seconds = myDuration.inSeconds - reduceSecondsBy;
+      if (seconds < 0) {
+        countdownTimer!.cancel();
+      } else {
+        myDuration = Duration(seconds: seconds);
+      }
+    });
+  }
+
+  List<String> _thumbnails = [];
+  Future<void> _generateThumbnails(XFile file) async {
+    var byteData = await VideoThumbnail.thumbnailData(
+      video: file.path, // Replace with your video path
+      imageFormat: ImageFormat.JPEG,
+      quality: 100,
+      timeMs: 0,
+      maxWidth: 150, // Adjust according to your needs
+      maxHeight: 150, // Adjust according to your needs
+    );
+
+    List<String> thumbnails = [];
+    for (int i = 0; i < 30; i++) {
+      Uint8List byteList = byteData!;
+
+      String base64String = base64Encode(byteList);
+      thumbnails.add(base64String);
+
+      byteData = await VideoThumbnail.thumbnailData(
+        video: file.path, // Replace with your video path
+        imageFormat: ImageFormat.JPEG,
+        quality: 100,
+        timeMs: (i + 1) * 1000, // Extract frames at 1-second intervals
+        maxWidth: 150, // Adjust according to your needs
+        maxHeight: 150, // Adjust according to your needs
+      );
+    }
+
+    setState(() {
+      _thumbnails = thumbnails;
+    });
+    print(_thumbnails);
+  }
+
   @override
   void dispose() {
-    cameraController?.dispose();
+    cameraController.dispose();
     super.dispose();
   }
 
@@ -52,6 +181,8 @@ class _MyCameraState extends State<MyCamera> {
     if (!isCameraReady) {
       return const Text("camera close");
     }
+    String strDigits(int n) => n.toString().padLeft(2, '0');
+    final seconds = strDigits(myDuration.inSeconds.remainder(60));
     // return Stack(
     //   children: [
     //     ClipRect(
@@ -86,38 +217,77 @@ class _MyCameraState extends State<MyCamera> {
     //       });
     //     },
     //     child: button(Icons.camera_alt_outlined, Alignment.bottomRight))],);
-    return ClipRect(
-        child: OverflowBox(
-      alignment: Alignment.bottomCenter,
-      minWidth: widget.screenWidth,
-      child: FittedBox(
-          fit: BoxFit.fitWidth,
-          child: SizedBox(
-              width: widget.screenWidth,
-              height: widget.screenHeight *
-                  1.5 /
-                  cameraController!.value.aspectRatio,
-              child: CameraPreview(cameraController!))),
-    ));
+    return Stack(children: [
+      ClipRect(
+          child: OverflowBox(
+        alignment: Alignment.bottomCenter,
+        minWidth: widget.screenWidth,
+        child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: SizedBox(
+                width: widget.screenWidth,
+                height: widget.screenHeight *
+                    1.5 /
+                    cameraController.value.aspectRatio,
+                child: CameraPreview(cameraController))),
+      )),
+      Visibility(
+        visible: _isRecording,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Text(
+            '$seconds s',
+            style: const TextStyle(
+                color: Colors.amber, fontWeight: FontWeight.bold, fontSize: 30),
+          ),
+        ),
+      ),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: InkWell(
+          onTap: () => _recordVideo(context),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              const Icon(
+                Icons.circle,
+                color: Colors.white,
+                size: 80,
+              ),
+              Icon(
+                Icons.circle,
+                color: _isRecording ? Colors.green : Colors.red,
+                size: 65,
+              ),
+              const Icon(
+                Icons.stop_rounded,
+                color: Colors.white,
+                size: 32,
+              ),
+            ],
+          ),
+        ),
+      ),
+    ]);
   }
 }
 
 //widget for camera button
-Widget button(IconData icon, Alignment alignment) {
-  return Align(
-    alignment: alignment,
-    child: Container(
-      height: 50,
-      width: 50,
-      // margin: const EdgeInsets.only(left: 20, right: 20),
-      decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black26, offset: Offset(2, 2), blurRadius: 20)
-          ]),
-      child: Icon(icon, color: Colors.black),
-    ),
-  );
-}
+// Widget button(IconData icon, Alignment alignment) {
+//   return Align(
+//     alignment: alignment,
+//     child: Container(
+//       height: 50,
+//       width: 50,
+//       // margin: const EdgeInsets.only(left: 20, right: 20),
+//       decoration: const BoxDecoration(
+//           shape: BoxShape.circle,
+//           color: Colors.white,
+//           boxShadow: [
+//             BoxShadow(
+//                 color: Colors.black26, offset: Offset(2, 2), blurRadius: 20)
+//           ]),
+//       child: Icon(icon, color: Colors.black),
+//     ),
+//   );
+// }

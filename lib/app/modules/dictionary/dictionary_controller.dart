@@ -4,7 +4,7 @@ import 'package:vsa_mobile/app/data/models/word.dart';
 
 class WordController extends GetxController {
   // List<WordTopic> topics = <WordTopic>[].obs;
-  var wordsList = <Word>[].obs;
+  var wordsList = [].obs;
   @override
   void onInit() {
     super.onInit();
@@ -13,17 +13,16 @@ class WordController extends GetxController {
 
   void fetchWordTopics() async {
     await Future.delayed(const Duration(seconds: 2));
-    var data = word_data;
-    wordsList.value = data;
+
+    wordsList.value = word_data;
   }
 
-  // getX improper usage because it does not have any observable variableso
-  List<Word> searchWord(String? query) {
+  List<Word> searchWord(String query) {
     List<Word> result = [];
-    var lowerQuery = query?.toLowerCase();
-    for (int i = 0; i < word_data.length; ++i) {
-      var lowerWord = wordsList[i].word.toLowerCase();
-      if (lowerWord.contains(lowerQuery!)) {
+    var lowerQuery = query.toLowerCase();
+    for (int i = 0; i < wordsList.length; ++i) {
+      String lowerWord = wordsList[i].word.toLowerCase();
+      if (lowerWord.contains(lowerQuery)) {
         result.add(wordsList[i]);
       }
     }

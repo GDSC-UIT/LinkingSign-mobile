@@ -8,6 +8,7 @@ import 'package:vsa_mobile/app/data/models/word.dart';
 import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
+import 'package:vsa_mobile/app/modules/lessons/topic_words_controller.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
 
 // ignore: must_be_immutable
@@ -112,7 +113,7 @@ class _SearchingBarState extends State<SearchingBar> {
 }
 
 class TopicSearch extends SearchDelegate {
-  final topicsController = Get.put(TopicsController());
+  final topicsController = Get.put(TopicWordsPairController());
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -135,7 +136,7 @@ class TopicSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return GetX<TopicsController>(builder: (controller) {
+    return GetX<TopicWordsPairController>(builder: (controller) {
       List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
@@ -151,7 +152,7 @@ class TopicSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return GetX<TopicsController>(builder: (controller) {
+    return GetX<TopicWordsPairController>(builder: (controller) {
       List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,

@@ -1,16 +1,26 @@
 import 'package:get/state_manager.dart';
-import 'package:vsa_mobile/app/data/DataCenter.dart';
 import 'package:vsa_mobile/app/data/data.dart';
+import 'package:vsa_mobile/app/data/models/topic.dart';
 
 class TopicWordsPairController extends GetxController {
   // var topic_word_pair = <TopicWordPairs>[].obs;
   var topic_word_pair = <String, List>{}.obs;
+  var topics = <Topic>[].obs;
   late List data;
   @override
   void onInit() {
     super.onInit();
-    data = Data().words;
+    fetchTopic();
     fetchWordTopicWordsPair();
+  }
+
+  void fetchTopic() async {
+    await Future.delayed(const Duration(seconds: 2));
+    topics.value = [
+      Topic("assets/topic-1.jpg", 'Y tế', 2, 7, 'Đang học'),
+      Topic("assets/topic-2.jpg", 'Trái cây', 0, 7, 'Chưa học'),
+      Topic("assets/topic-3.jpg", 'Hành động', 8, 8, 'Hoàn thành'),
+    ];
   }
 
   void fetchWordTopicWordsPair() async {
@@ -38,5 +48,20 @@ class TopicWordsPairController extends GetxController {
         }
       }
     });
+  }
+
+  List<Topic> filterSearchingBar(String? queryTopic) {
+    final splitQuery = queryTopic?.toLowerCase().trim().split(' ');
+    List<Topic> result = [];
+    for (int j = 0; j < topics.length; ++j) {
+      final topicLower = topics[j].title.toLowerCase();
+      for (int i = 0; i < splitQuery!.length; ++i) {
+        if (topicLower.contains(splitQuery[i])) {
+          result.add(topics[j]);
+          break;
+        }
+      }
+    }
+    return result;
   }
 }

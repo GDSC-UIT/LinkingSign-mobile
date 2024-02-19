@@ -22,7 +22,7 @@ class _WordTopicListState extends State<WordTopicList> {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<TopicsController>(
+    return GetX<TopicWordsPairController>(
       builder: (controller) {
         final filterTopics = controller.topics.where((topic) {
           return selectedTopics.isEmpty || selectedTopics.contains(topic.state);

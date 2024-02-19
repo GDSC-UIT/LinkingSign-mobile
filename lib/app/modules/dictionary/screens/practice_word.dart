@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
-import 'package:vsa_mobile/app/modules/dictionary/widgets/result.dart';
+import 'package:vsa_mobile/app/global_widgets/result.dart';
 import 'package:vsa_mobile/app/modules/practice/widgets/my_camera.dart';
 import 'package:vsa_mobile/app/modules/practice/widgets/result_notifications.dart';
 

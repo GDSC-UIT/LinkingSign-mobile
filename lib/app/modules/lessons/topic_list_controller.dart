@@ -19,7 +19,6 @@ class TopicsController extends GetxController {
 
   Future<void> fetchWordTopics() async {
     await Future.delayed(const Duration(seconds: 2));
-
     //topic y te
     topics.value = topicsFromDatabase;
   }
@@ -38,38 +37,4 @@ class TopicsController extends GetxController {
     }
     return result;
   }
-
-  // Future<List<Topic>> UpdateTopic() async {
-  //   Map<String, String> Mapping = {
-  //     "Y tế": "medicine",
-  //     "Hành động": "action",
-  //     "Trái cây": "fruit"
-  //   };
-
-  //   double action = 8;
-  //   double fruit = 7;
-  //   double medicine = 7;
-
-  //   data.forEach((element) {
-  //     if (!element.isLearned && element.topicName == Mapping["Y tế"]) {
-  //       medicine = medicine - 1;
-  //     } else if (!element.isLearned &&
-  //         element.topicName == Mapping["Hành động"]) {
-  //       action = action - 1;
-  //     } else if (!element.isLearned &&
-  //         element.topicName == Mapping["Trái cây"]) {
-  //       fruit = fruit - 1;
-  //     }
-  //   });
-  //   topicsFromDatabase.forEach((element) {
-  //     if (element.title == "Hành động") {
-  //       element.currentCompleted = action;
-  //     } else if (element.title == "Y tế") {
-  //       element.currentCompleted = medicine;
-  //     } else if (element.title == "Trái cây") {
-  //       element.currentCompleted = fruit;
-  //     }
-  //   });
-  //   return topicsFromDatabase;
-  // }
 }

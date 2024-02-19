@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
+import 'package:vsa_mobile/app/global_widgets/fail_notification.dart';
 import 'package:vsa_mobile/app/modules/practice/practice_controller.dart';
 import 'package:vsa_mobile/app/modules/practice/widgets/my_camera.dart';
 import 'package:vsa_mobile/app/modules/practice/widgets/result_notifications.dart';
@@ -48,7 +49,7 @@ class _PracticeViewState extends State<PracticeView> {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return const ResultNotification();
+                          return const FailResult();
                         });
                   },
                   icon: const Icon(Icons.more_horiz),

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
-
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 import 'package:vsa_mobile/app/modules/practice/practice_controller.dart';
 import 'package:vsa_mobile/app/modules/practice/widgets/my_camera.dart';
@@ -49,8 +48,7 @@ class _PracticeViewState extends State<PracticeView> {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return ResultNotification(
-                              onPressed: controller.fetchReviewWord());
+                          return const ResultNotification();
                         });
                   },
                   icon: const Icon(Icons.more_horiz),
@@ -112,10 +110,7 @@ class _PracticeViewState extends State<PracticeView> {
             Expanded(
                 child: Align(
               alignment: Alignment.bottomCenter,
-              child: MyCamera(
-                  screenWidth: context.width,
-                  screenHeight: context.height,
-                  onPressed: controller.fetchReviewWord()),
+              child: MyCamera(const ResultNotification()),
             )),
           ],
         ));

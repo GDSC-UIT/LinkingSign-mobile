@@ -15,8 +15,9 @@ class WordCard extends StatelessWidget {
   final Color number;
   final String? title;
   final int startIndex;
-  const WordCard(this.circleVisible, this.title, this.startIndex,
-      this.circleColor, this.number, this.urlPath, this.urlPic1, this.urlPic2,
+  bool islearned;
+  WordCard(this.circleVisible, this.title, this.startIndex, this.circleColor,
+      this.number, this.urlPath, this.urlPic1, this.urlPic2, this.islearned,
       {super.key});
   @override
   Widget build(BuildContext context) {
@@ -41,13 +42,10 @@ class WordCard extends StatelessWidget {
         title: Text(title == null ? "text" : title!,
             style:
                 GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16)),
-        trailing: const Icon(Icons.check_circle_outline),
+        trailing: islearned
+            ? const Icon(Icons.abc)
+            : const Icon(Icons.check_circle_outline),
         onTap: () {
-          //  Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //           builder: (builder) =>
-          //               LearningScreen(title, urlPath, urlPic1, urlPic2)));
           Get.to(LearningScreen(title, urlPath, urlPic1, urlPic2));
         },
       ),

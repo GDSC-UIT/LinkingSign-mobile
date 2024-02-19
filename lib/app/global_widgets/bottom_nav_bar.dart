@@ -10,7 +10,7 @@ import 'package:vsa_mobile/app/data/controller/nav_bar_controller.dart';
 class MyBottomNavBar extends StatefulWidget {
   //MyBottomNavBar({super.key});
 
-  MyBottomNavBar();
+  const MyBottomNavBar();
   @override
   State<MyBottomNavBar> createState() => _MyBottomNavBarState();
 }
@@ -23,7 +23,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
       return Scaffold(
         backgroundColor: HexColor("#F6FBFA"),
         body: IndexedStack(
-          index: controller.tabIndex,
+          index: controller.tabIndex.value,
           children: [
             LessonView(),
             const DictionaryView(),
@@ -32,7 +32,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: ColorClass.mainColor,
-          currentIndex: controller.tabIndex,
+          currentIndex: controller.tabIndex.value,
           onTap: controller.changeTabIndex,
           items: const [
             BottomNavigationBarItem(
@@ -53,7 +53,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
               icon: Icon(
                 Icons.waving_hand_rounded,
               ),
-              label: 'practice',
+              label: 'Luyện tập',
               backgroundColor: Colors.green,
             )
           ],

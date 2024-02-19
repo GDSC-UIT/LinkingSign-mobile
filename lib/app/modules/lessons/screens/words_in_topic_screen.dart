@@ -63,15 +63,15 @@ class _WordsInTopicState extends State<WordsInTopic> {
                         titleField, widget.topicName);
                   },
                   child: WordCard(
-                    true,
-                    titleField,
-                    index,
-                    ColorClass.circleColor,
-                    ColorClass.mainColor,
-                    video,
-                    pic1,
-                    pic2,
-                  ),
+                      true,
+                      titleField,
+                      index,
+                      ColorClass.circleColor,
+                      ColorClass.mainColor,
+                      video,
+                      pic1,
+                      pic2,
+                      false),
                 );
               },
             );

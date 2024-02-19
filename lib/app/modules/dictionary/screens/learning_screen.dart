@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
+import 'package:vsa_mobile/app/modules/dictionary/screens/practice_word.dart';
 import 'package:vsa_mobile/app/modules/dictionary/widgets/video_player.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 import 'package:vsa_mobile/app/global_widgets/practice_button.dart';
@@ -84,8 +85,10 @@ class LearningScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          practiceButton("Luyện tập", ColorClass.darkMainColor, Colors.white,
-              context.width, context.height, () {}),
+          // practiceButton("Luyện tập", ColorClass.darkMainColor, Colors.white,
+          //     context.width, context.height, () {}),
+          PracticeButton(word!, ColorClass.mainColor, Colors.white,
+              PracticeWord(word, image1, image2)),
           const SizedBox(
             height: 10,
           ),

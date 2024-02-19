@@ -6,17 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart' hide ImageFormat;
 import 'package:video_thumbnail/video_thumbnail.dart';
-import 'package:vsa_mobile/app/modules/practice/widgets/result_notifications.dart';
+import 'package:vsa_mobile/app/core/extension/buildcontext_ex.dart';
 
+// ignore: must_be_immutable
 class MyCamera extends StatefulWidget {
-  const MyCamera(
-      {super.key,
-      required this.screenWidth,
-      required this.screenHeight,
-      required this.onPressed});
-  final double screenWidth;
-  final double screenHeight;
-  final Future onPressed;
+  Widget notification;
+  MyCamera(
+    this.notification,
+  );
+
   @override
   State<MyCamera> createState() => _MyCameraState();
 }
@@ -93,9 +91,7 @@ class _MyCameraState extends State<MyCamera> {
       showDialog(
           context: context,
           builder: (context) {
-            return ResultNotification(
-              onPressed: widget.onPressed,
-            );
+            return widget.notification;
           });
       setState(() {
         _isRecording = false;
@@ -228,12 +224,12 @@ class _MyCameraState extends State<MyCamera> {
       ClipRect(
           child: OverflowBox(
         alignment: Alignment.bottomCenter,
-        minWidth: widget.screenWidth,
+        minWidth: context.screenWidth,
         child: FittedBox(
             fit: BoxFit.fitWidth,
             child: SizedBox(
-                width: widget.screenWidth,
-                height: widget.screenHeight *
+                width: context.screenWidth,
+                height: context.screenHeight *
                     1.5 /
                     cameraController.value.aspectRatio,
                 child: CameraPreview(cameraController))),

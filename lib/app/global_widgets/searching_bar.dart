@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
@@ -201,7 +203,8 @@ class WordSearch extends SearchDelegate {
                 Colors.white,
                 topicResult.elementAt(index).video1url,
                 topicResult.elementAt(index).image1url,
-                topicResult.elementAt(index).image2url);
+                topicResult.elementAt(index).image2url,
+                topicResult.elementAt(index).isLearned);
           });
     });
   }
@@ -221,7 +224,8 @@ class WordSearch extends SearchDelegate {
                 Colors.white,
                 topicResult.elementAt(index).video1url,
                 topicResult.elementAt(index).image1url,
-                topicResult.elementAt(index).image2url);
+                topicResult.elementAt(index).image2url,
+                topicResult.elementAt(index).isLearned);
           });
     });
   }

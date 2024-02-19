@@ -22,15 +22,15 @@ class _DictionaryListState extends State<DictionaryList> {
           itemCount: controller.wordsList.length,
           itemBuilder: (context, index) {
             return WordCard(
-              false,
-              controller.wordsList.elementAt(index).word,
-              index,
-              const Color.fromARGB(255, 11, 216, 182),
-              Colors.transparent,
-              controller.wordsList.elementAt(index).video1url,
-              controller.wordsList.elementAt(index).image1url,
-              controller.wordsList.elementAt(index).image2url,
-            );
+                false,
+                controller.wordsList.elementAt(index).word,
+                index,
+                const Color.fromARGB(255, 11, 216, 182),
+                Colors.transparent,
+                controller.wordsList.elementAt(index).video1url,
+                controller.wordsList.elementAt(index).image1url,
+                controller.wordsList.elementAt(index).image2url,
+                controller.wordsList.elementAt(index).isLearned);
           },
         );
       },

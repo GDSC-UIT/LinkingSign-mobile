@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:lottie/lottie.dart';
-import 'package:vsa_mobile/app/routes/app_routes.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
 
-class ResultNotification extends StatefulWidget {
-  const ResultNotification({super.key});
+class Result extends StatefulWidget {
+  const Result({super.key});
 
   @override
-  State<ResultNotification> createState() => _ResultNotificationState();
+  State<Result> createState() => _ResultState();
 }
 
-class _ResultNotificationState extends State<ResultNotification>
-    with SingleTickerProviderStateMixin {
+class _ResultState extends State<Result> with SingleTickerProviderStateMixin {
   late AnimationController _checkIconController;
 
   @override
@@ -65,33 +63,12 @@ class _ResultNotificationState extends State<ResultNotification>
                       controller: _checkIconController)),
             ),
             Positioned(
-                bottom: MediaQuery.of(context).size.height * 0.1 + 60,
+                bottom: MediaQuery.of(context).size.height * 0.1 + 30,
                 child: Text("Làm tốt lắm!".toUpperCase(),
                     style: const TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                        // fontWeight: FontWeight.bold,
                         fontSize: 20))),
-            Positioned(
-                bottom: MediaQuery.of(context).size.height * 0.1 + 10,
-                child: ElevatedButton(
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.amber),
-                    onPressed: () {
-                      // Navigator.pushAndRemoveUntil(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => const MyBottomNavBar()),
-                      //   (Route route) => false,
-                      // );
-                      Get.offAllNamed(AppRoutes.navBar);
-                    },
-                    child: Text(
-                      "Từ tiếp theo",
-                      style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500),
-                    )))
           ],
         ),
       ),

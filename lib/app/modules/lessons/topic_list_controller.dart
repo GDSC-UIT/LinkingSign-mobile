@@ -14,14 +14,32 @@ class TopicsController extends GetxController {
 
   var topicsFromDatabase = [
     Topic(
-        imageUrl: "assets/topic-1.jpg",
+        imageUrl: "assets/topics/medicine/topic.jpg",
         topicName: 'Y tế',
         currentCompleted: 2,
         totalLessons: 7,
         state: 'Đang học'),
     Topic(
-        imageUrl: "assets/topic-1.jpg",
-        topicName: 'Y tế',
+        imageUrl: "assets/topics/action/topic.jpg",
+        topicName: 'Hành động',
+        currentCompleted: 2,
+        totalLessons: 7,
+        state: 'Đang học'),
+    Topic(
+        imageUrl: "assets/topics/fruit/topic.jpg",
+        topicName: 'Trái cây',
+        currentCompleted: 2,
+        totalLessons: 7,
+        state: 'Đang học'),
+    Topic(
+        imageUrl: "assets/topics/fruit/topic.jpg",
+        topicName: 'Cảm xúc',
+        currentCompleted: 2,
+        totalLessons: 7,
+        state: 'Đang học'),
+    Topic(
+        imageUrl: "assets/topics/fruit/topic.jpg",
+        topicName: 'Phương tiện',
         currentCompleted: 2,
         totalLessons: 7,
         state: 'Đang học'),
@@ -42,28 +60,29 @@ class TopicsController extends GetxController {
   // }
   Future<void> fetchWordTopics() async {
     await Future.delayed(const Duration(seconds: 2));
-    try {
-      print('fetch topics data');
-      const url =
-          "https://linkingsign.onrender.com/api/v1/topic?fbclid=IwAR3wwfzPMf9M7GQ3_mmXbRZvjoQsc1V1bM1mFnSikB2070C8s4o1Fs69LEQ";
-      final uri = Uri.parse(url);
-      final response = await http.get(uri);
-      final body = response.body;
-      List bodyData = jsonDecode(body)['data'];
+    topics.value = topicsFromDatabase;
+    // try {
+    //   print('fetch topics data');
+    //   const url =
+    //       "https://linkingsign.onrender.com/api/v1/topic?fbclid=IwAR3wwfzPMf9M7GQ3_mmXbRZvjoQsc1V1bM1mFnSikB2070C8s4o1Fs69LEQ";
+    //   final uri = Uri.parse(url);
+    //   final response = await http.get(uri);
+    //   final body = response.body;
+    //   List bodyData = jsonDecode(body)['data'];
 
-      if (response.statusCode == 200) {
-        print("print body data: $bodyData");
-        List<Topic> mapData =
-            bodyData.map((topic) => Topic.fromJson(topic)).toList();
-        topics.value = mapData;
-      } else {
-        print("error happened ");
-      }
-    } catch (e) {
-      print("Error happened");
-      print(e.toString());
-      topics.value = topicsFromDatabase;
-    }
+    //   if (response.statusCode == 200) {
+    //     print("print body data: $bodyData");
+    //     List<Topic> mapData =
+    //         bodyData.map((topic) => Topic.fromJson(topic)).toList();
+    //     topics.value = mapData;
+    //   } else {
+    //     print("error happened ");
+    //   }
+    // } catch (e) {
+    //   print("Error happened");
+    //   print(e.toString());
+    //   topics.value = topicsFromDatabase;
+    // }
   }
 
   List<Topic> filterSearchingBar(String? queryTopic) {

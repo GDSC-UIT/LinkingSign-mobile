@@ -2,7 +2,6 @@
 
 LinkingSign is the mobile application project that facilitates sign-language learning process with the help of AI in practice assessment.
 
-
 ## Video
 
 #insert a link
@@ -31,18 +30,18 @@ LinkingSign is the mobile application project that facilitates sign-language lea
 ## Project Structure
 
 - app
-    - data:
-        - models: contains the app's models
-    - global_widgets: contains widgets that are used multiple times in app
-    - modules:
-        - <module_name>:each module is named after its specified function
-            - screens: contains screens of the function
-            - widgets: contains widgets that only appear in this function.
-            - <module_name>_controller.dart: Initializes controller for the feature
-            - <module_name>_binding.dart: Defines functions and variables for controller
-    - routes
-    - app_pages.dart: routes to corresponding pages
-    - app_routes.dart: contains names of routes
+  - data:
+    - models: contains the app's models
+  - global_widgets: contains widgets that are used multiple times in app
+  - modules:
+    - <module_name>:each module is named after its specified function
+      - screens: contains screens of the function
+      - widgets: contains widgets that only appear in this function.
+      - <module_name>\_controller.dart: Initializes controller for the feature
+      - <module_name>\_binding.dart: Defines functions and variables for controller
+  - routes
+  - app_pages.dart: routes to corresponding pages
+  - app_routes.dart: contains names of routes
 - main.dart
 
 ## Resource

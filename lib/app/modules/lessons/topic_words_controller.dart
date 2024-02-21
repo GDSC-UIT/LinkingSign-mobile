@@ -32,10 +32,16 @@ class TopicWordsPairController extends GetxController {
         word_data.where((element) => element.topicName == "fruit").toList();
     var medicineTopic =
         word_data.where((element) => element.topicName == "medicine").toList();
+    var emotionTopic =
+        word_data.where((element) => element.topicName == "emotion").toList();
+    var transportTopic =
+        word_data.where((element) => element.topicName == "transport").toList();
     topic_word_pair.value = {
       "Hành động": actionTopic,
       "Trái cây": fruitTopic,
       "Y tế": medicineTopic,
+      "Cảm xúc": emotionTopic,
+      "Phương tiện": transportTopic
     };
   }
 

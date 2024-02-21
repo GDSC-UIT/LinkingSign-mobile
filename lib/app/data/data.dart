@@ -243,9 +243,9 @@ List<Word> word_data = [
   ),
   Word(
     word: "Xe cẩu",
-    video1url: "assets/videos/transport/xe_cau.mp4",
-    image1url: "assets/topics/transport/xe_cau_1.jpg",
-    image2url: "assets/topics/transport/xe_cau_2.jpg",
+    video1url: "assets/videos/transport/cau.mp4",
+    image1url: "assets/topics/transport/cau_1.jpg",
+    image2url: "assets/topics/transport/cau_2.jpg",
     topicName: "transport",
     isLearned: false,
   ),

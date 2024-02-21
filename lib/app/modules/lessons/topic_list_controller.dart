@@ -29,20 +29,20 @@ class TopicsController extends GetxController {
         imageUrl: "assets/topics/fruit/topic.jpg",
         topicName: 'Trái cây',
         currentCompleted: 2,
-        totalLessons: 7,
+        totalLessons: 10,
         state: 'Đang học'),
     Topic(
         imageUrl: "assets/topics/emotion/topic.jpg",
         topicName: 'Cảm xúc',
-        currentCompleted: 2,
+        currentCompleted: 0,
         totalLessons: 7,
-        state: 'Đang học'),
+        state: 'Chưa học'),
     Topic(
         imageUrl: "assets/topics/transport/topic.jpg",
         topicName: 'Phương tiện',
-        currentCompleted: 2,
-        totalLessons: 7,
-        state: 'Đang học'),
+        currentCompleted: 9,
+        totalLessons: 9,
+        state: 'Hoàn thành'),
   ];
 
   var data = word_data;

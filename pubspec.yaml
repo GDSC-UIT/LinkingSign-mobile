@@ -88,9 +88,13 @@ flutter:
     - assets/videos/action/
     - assets/videos/medicine/
     - assets/videos/fruit/
+    - assets/videos/transport/
+    - assets/videos/emotion/
     - assets/topics/fruit/
     - assets/topics/medicine/
     - assets/topics/action/
+    - assets/topics/emotion/
+    - assets/topics/transport/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

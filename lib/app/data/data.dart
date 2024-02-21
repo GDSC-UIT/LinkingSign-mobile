@@ -202,7 +202,7 @@ List<Word> word_data = [
     isLearned: false,
   ),
   Word(
-    word: "Hài lòng",
+    word: "Hốt hoảng",
     video1url: "assets/videos/emotion/hot_hoang.mp4",
     image1url: "assets/topics/emotion/hot_hoang_1.jpg",
     image2url: "assets/topics/emotion/hot_hoang_2.jpg",

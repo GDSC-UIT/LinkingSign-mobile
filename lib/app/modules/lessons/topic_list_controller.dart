@@ -32,13 +32,13 @@ class TopicsController extends GetxController {
         totalLessons: 7,
         state: 'Đang học'),
     Topic(
-        imageUrl: "assets/topics/fruit/topic.jpg",
+        imageUrl: "assets/topics/emotion/topic.jpg",
         topicName: 'Cảm xúc',
         currentCompleted: 2,
         totalLessons: 7,
         state: 'Đang học'),
     Topic(
-        imageUrl: "assets/topics/fruit/topic.jpg",
+        imageUrl: "assets/topics/transport/topic.jpg",
         topicName: 'Phương tiện',
         currentCompleted: 2,
         totalLessons: 7,

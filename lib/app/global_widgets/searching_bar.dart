@@ -142,10 +142,10 @@ class TopicSearch extends SearchDelegate {
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                urlPath: topicResult[index].urlPath,
-                title: topicResult[index].title,
-                currentCompleted: topicResult[index].currentCompleted,
-                totalLessons: topicResult[index].totalLessons);
+                topicResult[index].imageUrl!,
+                topicResult[index].topicName!,
+                topicResult[index].currentCompleted! * 1.0,
+                topicResult[index].totalLessons! * 1.0);
           });
     });
   }
@@ -158,10 +158,10 @@ class TopicSearch extends SearchDelegate {
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                urlPath: topicResult[index].urlPath,
-                title: topicResult[index].title,
-                currentCompleted: topicResult[index].currentCompleted,
-                totalLessons: topicResult[index].totalLessons);
+                topicResult[index].imageUrl!,
+                topicResult[index].topicName,
+                topicResult[index].currentCompleted * 1.0,
+                topicResult[index].totalLessons * 1.0);
           });
     });
   }

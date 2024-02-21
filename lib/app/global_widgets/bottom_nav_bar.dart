@@ -6,6 +6,7 @@ import 'package:vsa_mobile/app/modules/dictionary/screens/dictionary_screen.dart
 import 'package:vsa_mobile/app/modules/lessons/screens/lesson_screen.dart';
 import 'package:vsa_mobile/app/modules/practice/screens/practice_screen.dart';
 import 'package:vsa_mobile/app/data/controller/nav_bar_controller.dart';
+import 'package:vsa_mobile/sample.dart';
 
 class MyBottomNavBar extends StatefulWidget {
   //MyBottomNavBar({super.key});
@@ -26,6 +27,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
           index: controller.tabIndex.value,
           children: [
             LessonView(),
+            //TestScreen(),
             const DictionaryView(),
             const PracticeView()
           ],

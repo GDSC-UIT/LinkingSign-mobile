@@ -7,12 +7,12 @@ import 'package:vsa_mobile/app/data/models/word.dart';
 
 class PracticeController extends GetxController {
   var review = Word(
-          "Chào",
-          "assets/videos/action/chao.mp4",
-          "assets/topics/action/chao_1.jpg",
-          "assets/topics/action/chao_2.jpg",
-          "action",
-          false)
+          word: "Chào",
+          video1url: "assets/videos/action/chao.mp4",
+          image1url: "assets/topics/action/chao_1.jpg",
+          image2url: "assets/topics/action/chao_2.jpg",
+          topicName: "action",
+          isLearned: false)
       .obs;
   @override
   void onInit() {

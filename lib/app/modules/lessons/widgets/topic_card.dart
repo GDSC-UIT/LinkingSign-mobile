@@ -8,17 +8,16 @@ import 'package:vsa_mobile/app/modules/lessons/widgets/progress_circle.dart';
 @immutable
 class WordTopicCard extends StatelessWidget {
   // const WordTopicCard({super.key});
-  final String urlPath;
-  final String title;
-  final double currentCompleted;
-  final double totalLessons;
-  const WordTopicCard({
-    super.key,
-    required this.urlPath,
-    required this.title,
-    required this.currentCompleted,
-    required this.totalLessons,
-  });
+  String topic_image;
+  String? title;
+  double? currentCompleted;
+  double? totalLessons;
+  WordTopicCard(
+    this.topic_image,
+    this.title,
+    this.currentCompleted,
+    this.totalLessons,
+  );
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,7 +26,7 @@ class WordTopicCard extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => WordsInTopic(
-                    topicName: title,
+                    topicName: title!,
                   )),
         );
       },
@@ -47,14 +46,15 @@ class WordTopicCard extends StatelessWidget {
             Row(
               children: [
                 Container(
-                    padding: const EdgeInsets.all(20),
-                    margin: const EdgeInsets.only(left: 10, right: 20),
-                    child: Image(image: AssetImage(urlPath))),
+                  padding: const EdgeInsets.all(20),
+                  margin: const EdgeInsets.only(left: 10, right: 20),
+                  child: Image(image: AssetImage(topic_image)),
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      title,
+                      title!,
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600, fontSize: 16),
                     ),
@@ -87,8 +87,8 @@ class WordTopicCard extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(right: 20),
               child: ProgressCircle(
-                currentValue: currentCompleted,
-                maxValue: totalLessons,
+                currentValue: currentCompleted!,
+                maxValue: totalLessons!,
               ),
             ),
           ],

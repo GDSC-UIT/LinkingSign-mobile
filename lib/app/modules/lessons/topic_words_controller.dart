@@ -17,9 +17,9 @@ class TopicWordsPairController extends GetxController {
   void fetchTopic() async {
     await Future.delayed(const Duration(seconds: 2));
     topics.value = [
-      Topic("assets/topic-1.jpg", 'Y tế', 2, 7, 'Đang học'),
-      Topic("assets/topic-2.jpg", 'Trái cây', 0, 7, 'Chưa học'),
-      Topic("assets/topic-3.jpg", 'Hành động', 8, 8, 'Hoàn thành'),
+      //Topic("assets/topic-1.jpg", 'Y tế', 2, 7, 'Đang học'),
+      //Topic("assets/topic-2.jpg", 'Trái cây', 0, 7, 'Chưa học'),
+      //Topic("assets/topic-3.jpg", 'Hành động', 8, 8, 'Hoàn thành'),
     ];
   }
 
@@ -54,7 +54,7 @@ class TopicWordsPairController extends GetxController {
     final splitQuery = queryTopic?.toLowerCase().trim().split(' ');
     List<Topic> result = [];
     for (int j = 0; j < topics.length; ++j) {
-      final topicLower = topics[j].title.toLowerCase();
+      final topicLower = topics[j].topicName.toLowerCase();
       for (int i = 0; i < splitQuery!.length; ++i) {
         if (topicLower.contains(splitQuery[i])) {
           result.add(topics[j]);

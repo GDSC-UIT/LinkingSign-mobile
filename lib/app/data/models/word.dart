@@ -6,6 +6,26 @@ class Word {
   final String topicName;
   bool isLearned = false;
 
-  Word(this.word, this.video1url, this.image1url, this.image2url,
-      this.topicName, this.isLearned);
+  Word({
+    required this.word,
+    required this.video1url,
+    required this.image1url,
+    required this.image2url,
+    required this.topicName,
+    required this.isLearned,
+  });
+  factory Word.fromJson(Map<String, dynamic> json) {
+    return Word(
+        word: json['word'],
+        video1url: json['video'],
+        image1url: json['example1'],
+        image2url: json['example2'],
+        topicName: "",
+        isLearned: json['is_learned']);
+  }
 }
+//     "word_name": "test2",
+//     "example1": "test2.url",
+//     "example2": "test2.url",
+//     "video": "testvideo2.url",
+//     "is_learned": false

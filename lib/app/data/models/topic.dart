@@ -1,32 +1,32 @@
-// class Topic {
-//   String? Id;
-//   String? name;
-//   String? imageUrl;
-//   int? numberOfLearnedLesson;
-//   int? totalLesson;
-//   String? state;
-
-//   Topic(
-//       {this.Id,
-//       required this.name,
-//       this.imageUrl,
-//       this.numberOfLearnedLesson,
-//       this.totalLesson,
-//       this.state}) {
-//     Id ??= DateTime.now().toString();
-//     imageUrl ??= "";
-//     numberOfLearnedLesson ??= 0;
-//     totalLesson ??= 0;
-//     state ??= "";
-//   }
-// }
 class Topic {
-  final String urlPath;
-  final String title;
-  double currentCompleted;
-  double totalLessons;
-  String state;
+  String? imageUrl;
+  late String topicName;
+  late int currentCompleted;
+  late int totalLessons;
+  late String state;
 
-  Topic(this.urlPath, this.title, this.currentCompleted, this.totalLessons,
-      this.state);
+  Topic(
+      {required this.imageUrl,
+      required this.topicName,
+      required this.currentCompleted,
+      required this.totalLessons,
+      required this.state});
+  factory Topic.fromJson(Map<String, dynamic> json) {
+    return Topic(
+        imageUrl: json['topic_image'],
+        topicName: json['topic_name'],
+        currentCompleted: json['number_learned_lesson'],
+        totalLessons: json['total_lesson'],
+        state: json['state']);
+  }
+  Map<String, dynamic> toJson() {
+    var topic = {
+      'image_url': imageUrl,
+      'topic_name': topicName,
+      'number_learned_lesson': currentCompleted,
+      'total_lesson': totalLessons,
+      'state': state
+    };
+    return topic;
+  }
 }

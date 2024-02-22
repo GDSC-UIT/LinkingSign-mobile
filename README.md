@@ -40,8 +40,8 @@ LinkingSign is the mobile application project that facilitates sign-language lea
       - <module_name>\_controller.dart: Initializes controller for the feature
       - <module_name>\_binding.dart: Defines functions and variables for controller
   - routes
-  - app_pages.dart: routes to corresponding pages
-  - app_routes.dart: contains names of routes
+    - app_pages.dart: routes to corresponding pages
+    - app_routes.dart: contains names of routes
 - main.dart
 
 ## Resource

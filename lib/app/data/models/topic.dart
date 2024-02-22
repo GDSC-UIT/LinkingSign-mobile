@@ -1,4 +1,5 @@
 class Topic {
+  String? id;
   String? imageUrl;
   late String topicName;
   late int currentCompleted;
@@ -19,6 +20,7 @@ class Topic {
         totalLessons: json['total_lesson'],
         state: json['state']);
   }
+  set setID(String id) => this.id = id;
   Map<String, dynamic> toJson() {
     var topic = {
       'image_url': imageUrl,

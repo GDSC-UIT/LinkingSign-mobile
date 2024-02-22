@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
-import 'package:vsa_mobile/app/modules/lessons/screens/words_in_topic_screen.dart';
+import 'package:vsa_mobile/app/modules/word_in_topic/screens/words_in_topic_screen.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/progress_circle.dart';
 
 @immutable

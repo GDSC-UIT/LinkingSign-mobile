@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
-
-import 'package:vsa_mobile/app/modules/lessons/topic_words_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
+import 'package:vsa_mobile/app/modules/word_in_topic/word_in_topic_controller.dart';
 
 class WordsInTopic extends StatefulWidget {
   // const WordsInTopic({super.key});

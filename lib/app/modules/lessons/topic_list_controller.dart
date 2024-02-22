@@ -6,6 +6,7 @@ import 'package:get/state_manager.dart';
 import 'package:vsa_mobile/app/data/data.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
 import 'package:http/http.dart' as http;
+import 'package:vsa_mobile/app/data/repositories/topic_repository.dart';
 
 class TopicsController extends GetxController {
   // List<WordTopic> topics = <WordTopic>[].obs;
@@ -45,19 +46,17 @@ class TopicsController extends GetxController {
         state: 'Hoàn thành'),
   ];
 
+  var repoTopic = TopicRepository();
+
+  RxList<Topic> listTopics = <Topic>[].obs;
   var data = word_data;
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
     fetchWordTopics();
+    //listTopics.value = topicsFromDatabase;
   }
 
-  // Future<void> fetchWordTopics() async {
-  //   await Future.delayed(const Duration(seconds: 2));
-  //   //topic y te
-  //   //topics.value = topicsFromDatabase;
-
-  // }
   Future<void> fetchWordTopics() async {
     await Future.delayed(const Duration(seconds: 2));
     topics.value = topicsFromDatabase;

@@ -8,8 +8,8 @@ import 'package:vsa_mobile/app/data/models/word.dart';
 import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
-import 'package:vsa_mobile/app/modules/lessons/topic_words_controller.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
+import 'package:vsa_mobile/app/modules/word_in_topic/word_in_topic_controller.dart';
 
 // ignore: must_be_immutable
 class SearchingBar extends StatefulWidget {

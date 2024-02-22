@@ -23,6 +23,16 @@ class Word {
         topicName: "",
         isLearned: json['is_learned']);
   }
+  Map<String, dynamic> toJson() {
+    var tojsonData = {
+      'word': word,
+      'video': video1url,
+      'example1': image1url,
+      'example2': image2url,
+      'state': isLearned,
+    };
+    return tojsonData;
+  }
 }
 //     "word_name": "test2",
 //     "example1": "test2.url",

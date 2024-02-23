@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
+import 'package:vsa_mobile/app/data/models/word.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 import 'package:vsa_mobile/app/global_widgets/fail_notification.dart';
 import 'package:vsa_mobile/app/modules/practice/practice_controller.dart';
@@ -23,7 +24,6 @@ class _PracticeViewState extends State<PracticeView> {
   PracticeController controller = Get.put(PracticeController());
   @override
   void initState() {
-    controller.fetchReviewWord();
     super.initState();
   }
 
@@ -57,11 +57,12 @@ class _PracticeViewState extends State<PracticeView> {
           ],
           backgroundColor: ColorClass.myBackground,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Obx(
-              () => Container(
+        body: GetX<PracticeController>(builder: (controller) {
+          Word reviewedWord = controller.wordReview();
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
                   alignment: Alignment.center,
                   width: context.width,
                   height: context.height * 0.2,
@@ -73,7 +74,7 @@ class _PracticeViewState extends State<PracticeView> {
                     children: [
                       Align(
                         alignment: Alignment.center,
-                        child: Text("",
+                        child: Text(reviewedWord.word,
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
@@ -91,14 +92,14 @@ class _PracticeViewState extends State<PracticeView> {
                                   ? context.width * 0.1
                                   : context.width * 0.4,
                               context.height * 0.1,
-                              "",
+                              reviewedWord.example1,
                               5),
                           exampleImage(
                               context.height < horizontalHeight
                                   ? context.width * 0.1
                                   : context.width * 0.4,
                               context.height * 0.1,
-                              "",
+                              reviewedWord.example2,
                               5),
                           const SizedBox(
                             width: 10,
@@ -107,13 +108,13 @@ class _PracticeViewState extends State<PracticeView> {
                       ),
                     ],
                   )),
-            ),
-            Expanded(
-                child: Align(
-              alignment: Alignment.bottomCenter,
-              child: MyCamera(const ResultNotification()),
-            )),
-          ],
-        ));
+              Expanded(
+                  child: Align(
+                alignment: Alignment.bottomCenter,
+                child: MyCamera(const ResultNotification()),
+              )),
+            ],
+          );
+        }));
   }
 }

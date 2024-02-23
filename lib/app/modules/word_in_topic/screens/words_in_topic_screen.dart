@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
+import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 import 'package:vsa_mobile/app/modules/word_in_topic/word_in_topic_controller.dart';
 
 class WordsInTopic extends StatefulWidget {
@@ -52,21 +53,9 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 final video = controller.words[index].video;
                 final pic1 = controller.words[index].example1;
                 final pic2 = controller.words[index].example2;
-                final word_id = controller.words[index].id!;
-                return GestureDetector(
-                  onTap: () {},
-                  child: WordCard(
-                      true,
-                      titleField,
-                      index,
-                      ColorClass.circleColor,
-                      ColorClass.mainColor,
-                      video,
-                      pic1,
-                      pic2,
-                      false,
-                      word_id),
-                );
+                final word_id = controller.words[index].id;
+                return WordCard(true, titleField, index, ColorClass.circleColor,
+                    ColorClass.mainColor, video, pic1, pic2, false, word_id);
               },
             );
           },

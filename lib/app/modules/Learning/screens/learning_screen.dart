@@ -1,48 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
-import 'package:vsa_mobile/app/modules/Learning/learning_controller.dart';
-import 'package:vsa_mobile/app/modules/Learning/screens/practice_word.dart';
 import 'package:vsa_mobile/app/modules/Learning/widgets/video_player.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
-import 'package:vsa_mobile/app/global_widgets/practice_button.dart';
 
 class LearningScreen extends StatefulWidget {
-  String id;
-  String word;
-  LearningScreen(this.id, this.word, {super.key});
+  final String video_url;
+  final String example1_url;
+  final String example2_url;
+  final String word;
+  LearningScreen({
+    required this.video_url,
+    required this.example1_url,
+    required this.example2_url,
+    required this.word,
+  });
 
   @override
   State<LearningScreen> createState() => _LearningScreenState();
 }
 
 class _LearningScreenState extends State<LearningScreen> {
-  final LearningController wordcontroller = Get.put(LearningController());
-
   @override
   void initState() {
-    wordcontroller.getSingleWord(widget.id);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.word),
-        surfaceTintColor: Colors.transparent,
-      ),
-      body: GetX<LearningController>(builder: (controller) {
-        return Column(
+        appBar: AppBar(
+          title: Text(widget.word),
+          surfaceTintColor: Colors.transparent,
+        ),
+        body: Column(
           children: [
             Container(
                 width: context.width,
                 height: context.height < horizontalHeight
                     ? context.height * 0.55
                     : context.height * 0.3,
-                child: VideoDisplay(urlPath: controller.word.value.video!)),
+                child: VideoDisplay(urlPath: widget.video_url)),
             Visibility(
               visible: context.height < horizontalHeight ? false : true,
               child: Container(
@@ -73,19 +72,13 @@ class _LearningScreenState extends State<LearningScreen> {
                         padding: const EdgeInsets.all(20),
                         child: Column(
                           children: [
-                            exampleImage(
-                                context.width * 0.8,
-                                context.height * 0.25,
-                                controller.word.value.example1!,
-                                50),
+                            exampleImage(context.width * 0.8,
+                                context.height * 0.25, widget.example1_url, 50),
                             const SizedBox(
                               height: 20,
                             ),
-                            exampleImage(
-                                context.width * 0.8,
-                                context.height * 0.25,
-                                controller.word.value.example2!,
-                                50),
+                            exampleImage(context.width * 0.8,
+                                context.height * 0.25, widget.example2_url, 50),
                           ],
                         ),
                       )),
@@ -96,18 +89,19 @@ class _LearningScreenState extends State<LearningScreen> {
             ),
             // practiceButton("Luyện tập", ColorClass.darkMainColor, Colors.white,
             //     context.width, context.height, () {}),
-            PracticeButton(
-                widget.word,
-                ColorClass.mainColor,
-                Colors.white,
-                PracticeWord(widget.word, controller.word.value.example1,
-                    controller.word.value.example2)),
+            // PracticeButton(
+            //     widget.word,
+            //     ColorClass.mainColor,
+            //     Colors.white,
+            //     PracticeWord(
+            //       widget.word,
+            //       wordcontroller.wordforlearning.value.example1,
+            //       wordcontroller.wordforlearning.value.example1,
+            //     )),
             const SizedBox(
               height: 10,
             ),
           ],
-        );
-      }),
-    );
+        ));
   }
 }

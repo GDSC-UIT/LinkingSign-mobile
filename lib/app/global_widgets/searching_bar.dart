@@ -207,7 +207,7 @@ class WordSearch extends SearchDelegate {
                 topicResult.elementAt(index).example1,
                 topicResult.elementAt(index).example2,
                 topicResult.elementAt(index).is_learned,
-                topicResult.elementAt(index).id!);
+                topicResult.elementAt(index).id);
           });
     });
   }

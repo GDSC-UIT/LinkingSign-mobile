@@ -19,16 +19,20 @@ class _VideoDisplayState extends State<VideoDisplay> {
       const CustomVideoPlayerSettings(showFullscreenButton: false);
   late bool isLoading = true;
   //String url = "assets/videos/action/chao.mp4";
+
   @override
   void initState() {
     super.initState();
-
-    _videoPlayerController = VideoPlayerController.network(widget.urlPath)
-      ..initialize().then((_) {
-        setState(() {
-          isLoading = false;
+    Future.delayed(Duration(seconds: 5));
+    setState(() {
+      _videoPlayerController = VideoPlayerController.network(widget.urlPath)
+        ..initialize().then((_) {
+          setState(() {
+            isLoading = false;
+          });
         });
-      });
+    });
+
     _customVideoPlayerController = CustomVideoPlayerController(
       context: context,
       videoPlayerController: _videoPlayerController,

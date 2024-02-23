@@ -1,19 +1,19 @@
 class Word {
-  String? id;
+  String id;
   String? topic_id;
   String word;
-  String? video;
+  String video;
   String example1;
   String example2;
   bool is_learned;
 
   Word({
-    this.id,
+    required this.id,
     this.topic_id,
     required this.word,
     required this.example1,
     required this.example2,
-    this.video,
+    required this.video,
     required this.is_learned,
   });
   factory Word.fromJson(Map<String, dynamic> json) {

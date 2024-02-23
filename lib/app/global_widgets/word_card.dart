@@ -40,6 +40,17 @@ class WordCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: ListTile(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LearningScreen(
+                    video_url: urlPath!,
+                    example1_url: urlPic1!,
+                    example2_url: urlPic2!,
+                    word: title!)),
+          );
+        },
         leading: Visibility(
           visible: circleVisible,
           child: CircleAvatar(
@@ -55,13 +66,6 @@ class WordCard extends StatelessWidget {
         trailing: islearned
             ? const Icon(Icons.abc)
             : const Icon(Icons.check_circle_outline),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LearningScreen(word_id, title!)),
-          );
-        },
       ),
     );
   }

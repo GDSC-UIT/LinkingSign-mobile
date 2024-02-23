@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
 
@@ -21,17 +22,20 @@ class _DictionaryListState extends State<DictionaryList> {
           shrinkWrap: true,
           itemCount: controller.wordsList.length,
           itemBuilder: (context, index) {
-            return WordCard(
-                false,
-                controller.wordsList.elementAt(index).word,
-                index,
-                const Color.fromARGB(255, 11, 216, 182),
-                Colors.transparent,
-                controller.wordsList.elementAt(index).video,
-                controller.wordsList.elementAt(index).example1,
-                controller.wordsList.elementAt(index).example2,
-                controller.wordsList.elementAt(index).is_learned,
-                controller.wordsList.elementAt(index).id!);
+            return GestureDetector(
+              onTap: () {},
+              child: WordCard(
+                  false,
+                  controller.wordsList.elementAt(index).word,
+                  index,
+                  const Color.fromARGB(255, 11, 216, 182),
+                  Colors.transparent,
+                  controller.wordsList.elementAt(index).video,
+                  controller.wordsList.elementAt(index).example1,
+                  controller.wordsList.elementAt(index).example2,
+                  controller.wordsList.elementAt(index).is_learned,
+                  controller.wordsList.elementAt(index).id),
+            );
           },
         );
       },

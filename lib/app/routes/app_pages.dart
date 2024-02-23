@@ -24,10 +24,10 @@ class AppPages {
       name: AppRoutes.practice,
       page: () => const PracticeView(),
     ),
-    // GetPage(
-    //   name: AppRoutes.learningScreen,
-    //   page: () => const LearningScreen("", "", "", ""),
-    // ),
+    GetPage(
+        name: AppRoutes.learningScreen,
+        page: () => LearningScreen(
+            video_url: "", example1_url: "", example2_url: "", word: "")),
     GetPage(
       name: AppRoutes.practiceFromLScreen,
       page: () => const PracticeView(),

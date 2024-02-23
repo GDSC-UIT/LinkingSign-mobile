@@ -14,7 +14,7 @@ class WordsInTopicController extends GetxController {
   }
 
   void getWordByTopicId(String topic_id) async {
-    await Future.delayed(const Duration(seconds: 2));
+    //await Future.delayed(const Duration(seconds: 1));
     print("Print get function by topic");
     words.value = await repoWord.getWordsByTopicId(topic_id);
   }

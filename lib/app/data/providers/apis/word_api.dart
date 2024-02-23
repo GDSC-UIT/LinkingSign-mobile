@@ -9,7 +9,7 @@ class WordAPI {
     const url = WORD_URL;
     final response = await HttpService.getRequest(url);
     List<Word> listGetWords = [];
-    print('fetch topics data');
+    print('fetch words data');
     if (response.statusCode == 200) {
       final parsed = ((json.decode(response.body)['data'] ?? []) as List)
           .cast<Map<String, dynamic>>();
@@ -36,6 +36,39 @@ class WordAPI {
     } else {
       throw Exception(
           'Fail to update topic: ${jsonDecode(response.body)['error']}');
+    }
+  }
+
+  Future<List<Word>> getWordsByTopicId(String topic_id) async {
+    String WordInTopicUrl = "$WORD_URL?topic_id=$topic_id";
+    final response = await HttpService.getRequest(WordInTopicUrl);
+    List<Word> listGetWordsByTopic_Id = [];
+    print('fetch topics data');
+    if (response.statusCode == 200) {
+      final parsed = ((json.decode(response.body)['data'] ?? []) as List)
+          .cast<Map<String, dynamic>>();
+      listGetWordsByTopic_Id =
+          parsed.map((word) => Word.fromJson(word)).toList();
+      return listGetWordsByTopic_Id;
+    } else {
+      print("Error happened in word_api.dart");
+      throw Exception(
+          "Fail to get topics: ${jsonDecode(response.body)['error']}");
+    }
+  }
+
+  Future<Word> getSingleWord(String id) async {
+    String word_url = "$WORD_URL/$id";
+    final response = await HttpService.getRequest(word_url);
+
+    if (response.statusCode == 200) {
+      print('get single word');
+      final parsed = json.decode(response.body)['data'];
+      Word getWord = Word.fromJson(parsed);
+      return getWord;
+    } else {
+      throw Exception(
+          "Fail to get topics: ${jsonDecode(response.body)['error']}");
     }
   }
 }

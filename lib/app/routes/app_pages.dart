@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/modules/dictionary/screens/dictionary_screen.dart';
-import 'package:vsa_mobile/app/modules/dictionary/screens/learning_screen.dart';
+import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 import 'package:vsa_mobile/app/modules/lessons/screens/lesson_screen.dart';
 import 'package:vsa_mobile/app/modules/practice/screens/practice_screen.dart';
 import 'package:vsa_mobile/app/routes/app_routes.dart';
@@ -24,10 +24,10 @@ class AppPages {
       name: AppRoutes.practice,
       page: () => const PracticeView(),
     ),
-    GetPage(
-      name: AppRoutes.learningScreen,
-      page: () => const LearningScreen("", "", "", ""),
-    ),
+    // GetPage(
+    //   name: AppRoutes.learningScreen,
+    //   page: () => const LearningScreen("", "", "", ""),
+    // ),
     GetPage(
       name: AppRoutes.practiceFromLScreen,
       page: () => const PracticeView(),

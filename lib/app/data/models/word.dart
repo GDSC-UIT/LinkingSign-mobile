@@ -1,35 +1,40 @@
 class Word {
-  final String word;
-  final String video1url;
-  final String image1url;
-  final String image2url;
-  final String topicName;
-  bool isLearned = false;
+  String? id;
+  String? topic_id;
+  String word;
+  String? video;
+  String example1;
+  String example2;
+  bool is_learned;
 
   Word({
+    this.id,
+    this.topic_id,
     required this.word,
-    required this.video1url,
-    required this.image1url,
-    required this.image2url,
-    required this.topicName,
-    required this.isLearned,
+    required this.example1,
+    required this.example2,
+    this.video,
+    required this.is_learned,
   });
   factory Word.fromJson(Map<String, dynamic> json) {
     return Word(
-        word: json['word'],
-        video1url: json['video'],
-        image1url: json['example1'],
-        image2url: json['example2'],
-        topicName: "",
-        isLearned: json['is_learned']);
+        id: json['id'],
+        topic_id: json['topic_id'],
+        word: json['word_name'],
+        example1: json['example1'],
+        example2: json['example2'],
+        video: json['video'],
+        is_learned: json['is_learned']);
   }
   Map<String, dynamic> toJson() {
     var tojsonData = {
-      'word': word,
-      'video': video1url,
-      'example1': image1url,
-      'example2': image2url,
-      'state': isLearned,
+      'id': id,
+      'topic_id': topic_id,
+      'word_name': word,
+      'example1': example1,
+      'example2': example2,
+      'video': video,
+      'state': is_learned,
     };
     return tojsonData;
   }

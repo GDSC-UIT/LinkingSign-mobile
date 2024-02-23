@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
@@ -113,7 +112,7 @@ class _SearchingBarState extends State<SearchingBar> {
 }
 
 class TopicSearch extends SearchDelegate {
-  final topicsController = Get.put(TopicWordsPairController());
+  final topicsController = Get.put(WordsInTopicController());
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -136,28 +135,30 @@ class TopicSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return GetX<TopicWordsPairController>(builder: (controller) {
+    return GetX<WordsInTopicController>(builder: (controller) {
       List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
+                topicResult[index].id!,
                 topicResult[index].imageUrl!,
-                topicResult[index].topicName!,
-                topicResult[index].currentCompleted! * 1.0,
-                topicResult[index].totalLessons! * 1.0);
+                topicResult[index].topicName,
+                topicResult[index].currentCompleted * 1.0,
+                topicResult[index].totalLessons * 1.0);
           });
     });
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return GetX<TopicWordsPairController>(builder: (controller) {
+    return GetX<WordsInTopicController>(builder: (controller) {
       List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
+                topicResult[index].id!,
                 topicResult[index].imageUrl!,
                 topicResult[index].topicName,
                 topicResult[index].currentCompleted * 1.0,
@@ -202,10 +203,11 @@ class WordSearch extends SearchDelegate {
                 index,
                 ColorClass.darkMainColor,
                 Colors.white,
-                topicResult.elementAt(index).video1url,
-                topicResult.elementAt(index).image1url,
-                topicResult.elementAt(index).image2url,
-                topicResult.elementAt(index).isLearned);
+                topicResult.elementAt(index).video,
+                topicResult.elementAt(index).example1,
+                topicResult.elementAt(index).example2,
+                topicResult.elementAt(index).is_learned,
+                topicResult.elementAt(index).id!);
           });
     });
   }
@@ -223,10 +225,11 @@ class WordSearch extends SearchDelegate {
                 index,
                 ColorClass.darkMainColor,
                 Colors.white,
-                topicResult.elementAt(index).video1url,
-                topicResult.elementAt(index).image1url,
-                topicResult.elementAt(index).image2url,
-                topicResult.elementAt(index).isLearned);
+                topicResult.elementAt(index).video,
+                topicResult.elementAt(index).example1,
+                topicResult.elementAt(index).example2,
+                topicResult.elementAt(index).is_learned,
+                topicResult.elementAt(index).id!);
           });
     });
   }

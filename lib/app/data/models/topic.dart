@@ -1,5 +1,5 @@
 class Topic {
-  String? id;
+  String id;
   String? imageUrl;
   late String topicName;
   late int currentCompleted;
@@ -7,13 +7,15 @@ class Topic {
   late String state;
 
   Topic(
-      {required this.imageUrl,
+      {required this.id,
+      required this.imageUrl,
       required this.topicName,
       required this.currentCompleted,
       required this.totalLessons,
       required this.state});
   factory Topic.fromJson(Map<String, dynamic> json) {
     return Topic(
+        id: json['id'],
         imageUrl: json['topic_image'],
         topicName: json['topic_name'],
         currentCompleted: json['number_learned_lesson'],

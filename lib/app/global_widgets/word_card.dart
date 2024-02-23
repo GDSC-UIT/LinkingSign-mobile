@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vsa_mobile/app/modules/dictionary/screens/learning_screen.dart';
+import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 
 @immutable
 class WordCard extends StatelessWidget {
   // const WordCard({super.key});
+  final String word_id;
   final bool circleVisible;
   final Color circleColor;
   final String? urlPath;
@@ -16,8 +17,17 @@ class WordCard extends StatelessWidget {
   final String? title;
   final int startIndex;
   bool islearned;
-  WordCard(this.circleVisible, this.title, this.startIndex, this.circleColor,
-      this.number, this.urlPath, this.urlPic1, this.urlPic2, this.islearned,
+  WordCard(
+      this.circleVisible,
+      this.title,
+      this.startIndex,
+      this.circleColor,
+      this.number,
+      this.urlPath,
+      this.urlPic1,
+      this.urlPic2,
+      this.islearned,
+      this.word_id,
       {super.key});
   @override
   Widget build(BuildContext context) {
@@ -46,7 +56,11 @@ class WordCard extends StatelessWidget {
             ? const Icon(Icons.abc)
             : const Icon(Icons.check_circle_outline),
         onTap: () {
-          Get.to(LearningScreen(title, urlPath, urlPic1, urlPic2));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LearningScreen(word_id, title!)),
+          );
         },
       ),
     );

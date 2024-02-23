@@ -8,24 +8,30 @@ import 'package:vsa_mobile/app/modules/word_in_topic/word_in_topic_controller.da
 
 class WordsInTopic extends StatefulWidget {
   // const WordsInTopic({super.key});
-  final String topicName;
-
-  const WordsInTopic({
-    super.key,
-    required this.topicName,
+  final String topic_id;
+  final String topic_name;
+  WordsInTopic({
+    required this.topic_id,
+    required this.topic_name,
   });
   @override
   State<WordsInTopic> createState() => _WordsInTopicState();
 }
 
 class _WordsInTopicState extends State<WordsInTopic> {
-  final TopicWordsPairController topicsController =
-      Get.put(TopicWordsPairController());
+  final WordsInTopicController wordcontroller =
+      Get.put(WordsInTopicController());
+  @override
+  void initState() {
+    wordcontroller.getWordByTopicId(widget.topic_id);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.topicName,
+        title: Text(widget.topic_name,
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -37,30 +43,18 @@ class _WordsInTopicState extends State<WordsInTopic> {
       ),
       body: Container(
         color: ColorClass.myBackground,
-        child: GetX<TopicWordsPairController>(
+        child: GetX<WordsInTopicController>(
           builder: (controller) {
             return ListView.builder(
-              itemCount: controller.topic_word_pair[widget.topicName]?.length,
+              itemCount: controller.words.length,
               itemBuilder: (context, index) {
-                final key = widget.topicName;
-                final titleField =
-                    controller.topic_word_pair[key]?.elementAt(index).word;
-                final video =
-                    controller.topic_word_pair[key]?.elementAt(index).video1url;
-                final pic1 =
-                    controller.topic_word_pair[key]?.elementAt(index).image1url;
-                final pic2 =
-                    controller.topic_word_pair[key]?.elementAt(index).image2url;
+                final titleField = controller.words[index].word;
+                final video = controller.words[index].video;
+                final pic1 = controller.words[index].example1;
+                final pic2 = controller.words[index].example2;
+                final word_id = controller.words[index].id!;
                 return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      controller.topic_word_pair[key]
-                          ?.elementAt(index)
-                          .isLearned = true;
-                    });
-                    controller.updateLearningState(
-                        titleField, widget.topicName);
-                  },
+                  onTap: () {},
                   child: WordCard(
                       true,
                       titleField,
@@ -70,7 +64,8 @@ class _WordsInTopicState extends State<WordsInTopic> {
                       video,
                       pic1,
                       pic2,
-                      false),
+                      false,
+                      word_id),
                 );
               },
             );

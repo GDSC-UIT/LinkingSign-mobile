@@ -24,7 +24,7 @@ class _VideoPageState extends State<VideoPage> {
   }
 
   Future _initVideoPlayer() async {
-    _videoPlayerController = VideoPlayerController.file(File(widget.filePath));
+    _videoPlayerController = VideoPlayerController.network(widget.filePath);
     await _videoPlayerController.initialize();
     await _videoPlayerController.setLooping(true);
     await _videoPlayerController.play();

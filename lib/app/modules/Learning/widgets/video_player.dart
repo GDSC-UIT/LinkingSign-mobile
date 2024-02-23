@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class VideoDisplay extends StatefulWidget {
   //const VideoDisplay({Key? key}) : super(key: key);
-  final urlPath;
-  const VideoDisplay({super.key, required this.urlPath});
+  final String urlPath;
+  VideoDisplay({super.key, required this.urlPath});
   @override
   State<VideoDisplay> createState() => _VideoDisplayState();
 }
@@ -23,7 +23,7 @@ class _VideoDisplayState extends State<VideoDisplay> {
   void initState() {
     super.initState();
 
-    _videoPlayerController = VideoPlayerController.asset(widget.urlPath)
+    _videoPlayerController = VideoPlayerController.network(widget.urlPath)
       ..initialize().then((_) {
         setState(() {
           isLoading = false;

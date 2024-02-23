@@ -8,11 +8,14 @@ import 'package:vsa_mobile/app/modules/lessons/widgets/progress_circle.dart';
 @immutable
 class WordTopicCard extends StatelessWidget {
   // const WordTopicCard({super.key});
+  String topic_id;
   String topic_image;
   String? title;
   double? currentCompleted;
   double? totalLessons;
+
   WordTopicCard(
+    this.topic_id,
     this.topic_image,
     this.title,
     this.currentCompleted,
@@ -26,7 +29,8 @@ class WordTopicCard extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => WordsInTopic(
-                    topicName: title!,
+                    topic_id: topic_id,
+                    topic_name: title!,
                   )),
         );
       },
@@ -46,9 +50,10 @@ class WordTopicCard extends StatelessWidget {
             Row(
               children: [
                 Container(
+                  width: 100,
                   padding: const EdgeInsets.all(20),
                   margin: const EdgeInsets.only(left: 10, right: 20),
-                  child: Image(image: AssetImage(topic_image)),
+                  child: Image.network(topic_image),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

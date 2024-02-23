@@ -60,6 +60,7 @@ dependencies:
       url: https://github.com/vikram25897/flutter_cached_video_player
       ref: feature/gradle_version_bump
   http: ^1.2.0
+  dio: ^5.4.1
 
 dev_dependencies:
   flutter_test:

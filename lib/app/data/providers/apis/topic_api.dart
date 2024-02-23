@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter_launcher_icons/utils.dart';
 import 'package:vsa_mobile/app/core/url/url.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
 import 'package:vsa_mobile/app/data/service/http_service.dart';

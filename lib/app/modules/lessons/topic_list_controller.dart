@@ -1,87 +1,22 @@
-import 'dart:convert';
-import 'dart:ffi';
-import 'dart:ui';
-
 import 'package:get/state_manager.dart';
 import 'package:vsa_mobile/app/data/data.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
-import 'package:http/http.dart' as http;
 import 'package:vsa_mobile/app/data/repositories/topic_repository.dart';
 
 class TopicsController extends GetxController {
-  // List<WordTopic> topics = <WordTopic>[].obs;
   var topics = <Topic>[].obs;
   var isLoading = false.obs;
-
-  var topicsFromDatabase = [
-    Topic(
-        imageUrl: "assets/topics/medicine/topic.jpg",
-        topicName: 'Y tế',
-        currentCompleted: 2,
-        totalLessons: 7,
-        state: 'Đang học'),
-    Topic(
-        imageUrl: "assets/topics/action/topic.jpg",
-        topicName: 'Hành động',
-        currentCompleted: 2,
-        totalLessons: 7,
-        state: 'Đang học'),
-    Topic(
-        imageUrl: "assets/topics/fruit/topic.jpg",
-        topicName: 'Trái cây',
-        currentCompleted: 2,
-        totalLessons: 10,
-        state: 'Đang học'),
-    Topic(
-        imageUrl: "assets/topics/emotion/topic.jpg",
-        topicName: 'Cảm xúc',
-        currentCompleted: 0,
-        totalLessons: 7,
-        state: 'Chưa học'),
-    Topic(
-        imageUrl: "assets/topics/transport/topic.jpg",
-        topicName: 'Phương tiện',
-        currentCompleted: 9,
-        totalLessons: 9,
-        state: 'Hoàn thành'),
-  ];
-
   var repoTopic = TopicRepository();
 
-  RxList<Topic> listTopics = <Topic>[].obs;
-  var data = word_data;
   @override
   void onInit() async {
     super.onInit();
     fetchWordTopics();
-    //listTopics.value = topicsFromDatabase;
   }
 
   Future<void> fetchWordTopics() async {
     await Future.delayed(const Duration(seconds: 2));
-    topics.value = topicsFromDatabase;
-    // try {
-    //   print('fetch topics data');
-    //   const url =
-    //       "https://linkingsign.onrender.com/api/v1/topic?fbclid=IwAR3wwfzPMf9M7GQ3_mmXbRZvjoQsc1V1bM1mFnSikB2070C8s4o1Fs69LEQ";
-    //   final uri = Uri.parse(url);
-    //   final response = await http.get(uri);
-    //   final body = response.body;
-    //   List bodyData = jsonDecode(body)['data'];
-
-    //   if (response.statusCode == 200) {
-    //     print("print body data: $bodyData");
-    //     List<Topic> mapData =
-    //         bodyData.map((topic) => Topic.fromJson(topic)).toList();
-    //     topics.value = mapData;
-    //   } else {
-    //     print("error happened ");
-    //   }
-    // } catch (e) {
-    //   print("Error happened");
-    //   print(e.toString());
-    //   topics.value = topicsFromDatabase;
-    // }
+    topics.value = await repoTopic.fetchTopics();
   }
 
   List<Topic> filterSearchingBar(String? queryTopic) {

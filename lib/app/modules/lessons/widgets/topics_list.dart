@@ -70,6 +70,7 @@ class _WordTopicListState extends State<WordTopicList> {
                 itemCount: filterTopics.length,
                 itemBuilder: (context, index) {
                   return WordTopicCard(
+                      filterTopics[index].id,
                       filterTopics[index].imageUrl!,
                       filterTopics[index].topicName,
                       filterTopics[index].currentCompleted * 1.0,

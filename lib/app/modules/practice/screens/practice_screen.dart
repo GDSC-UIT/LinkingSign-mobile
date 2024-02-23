@@ -73,7 +73,7 @@ class _PracticeViewState extends State<PracticeView> {
                     children: [
                       Align(
                         alignment: Alignment.center,
-                        child: Text(controller.review.value.word,
+                        child: Text("",
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
@@ -91,14 +91,14 @@ class _PracticeViewState extends State<PracticeView> {
                                   ? context.width * 0.1
                                   : context.width * 0.4,
                               context.height * 0.1,
-                              controller.review.value.image1url,
+                              "",
                               5),
                           exampleImage(
                               context.height < horizontalHeight
                                   ? context.width * 0.1
                                   : context.width * 0.4,
                               context.height * 0.1,
-                              controller.review.value.image2url,
+                              "",
                               5),
                           const SizedBox(
                             width: 10,

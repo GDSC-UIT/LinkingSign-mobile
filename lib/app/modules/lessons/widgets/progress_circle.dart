@@ -17,8 +17,9 @@ class ProgressCircle extends StatefulWidget {
 class _ProgressCircleState extends State<ProgressCircle> {
   @override
   Widget build(BuildContext context) {
-    var percent = (widget.currentValue / widget.maxValue) * 100;
+    double percent = (widget.currentValue / widget.maxValue) * 100.0;
     var roundedPercentage = percent.toInt().toString();
+
     return CircularPercentIndicator(
       radius: 30,
       lineWidth: 10,

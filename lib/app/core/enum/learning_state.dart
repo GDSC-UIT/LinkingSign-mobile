@@ -1,13 +1,8 @@
 enum LearningStateTypes {
   learning,
   learned,
-  notLearning;
+  unlearning;
 
-  static Map<String, String> Mapping = {
-    "learning": "Đang học",
-    "learned": "Hoàn thành",
-    "notLearning": "Đã học",
-  };
   @override
   String toString() {
     switch (this) {
@@ -15,17 +10,16 @@ enum LearningStateTypes {
         return "Đang học";
       case LearningStateTypes.learned:
         return "Hoàn thành";
-      case LearningStateTypes.notLearning:
+      case LearningStateTypes.unlearning:
         return "Chưa học";
     }
   }
 
-  // tomap
   static Map<LearningStateTypes, String> toMap() {
     return {
-      LearningStateTypes.notLearning: "Chưa học",
+      LearningStateTypes.learned: "Đã học",
       LearningStateTypes.learning: "Đang học",
-      LearningStateTypes.learned: "Đã học"
+      LearningStateTypes.unlearning: "Chưa học"
     };
   }
 }

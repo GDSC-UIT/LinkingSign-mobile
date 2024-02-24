@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
@@ -6,7 +8,7 @@ import 'package:vsa_mobile/app/modules/word_in_topic/screens/words_in_topic_scre
 import 'package:vsa_mobile/app/modules/lessons/widgets/progress_circle.dart';
 
 @immutable
-class WordTopicCard extends StatelessWidget {
+class WordTopicCard extends StatefulWidget {
   // const WordTopicCard({super.key});
   String topic_id;
   String topic_image;
@@ -21,18 +23,29 @@ class WordTopicCard extends StatelessWidget {
     this.currentCompleted,
     this.totalLessons,
   );
+
+  @override
+  State<WordTopicCard> createState() => _WordTopicCardState();
+}
+
+class _WordTopicCardState extends State<WordTopicCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => WordsInTopic(
-                    topic_id: topic_id,
-                    topic_name: title!,
-                  )),
-        );
+      onTap: () async {
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //       builder: (context) => WordsInTopic(
+        //             topic_id: topic_id,
+        //             topic_name: title!,
+        //           )),
+        // );
+        await Get.to(() => WordsInTopic(
+              topic_id: widget.topic_id,
+              topic_name: widget.title!,
+            ));
+        setState(() {});
       },
       child: Container(
         margin: const EdgeInsets.all(10),
@@ -53,24 +66,24 @@ class WordTopicCard extends StatelessWidget {
                   width: 100,
                   padding: const EdgeInsets.all(20),
                   margin: const EdgeInsets.only(left: 10, right: 20),
-                  child: Image.network(topic_image),
+                  child: Image.network(widget.topic_image),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      title!,
+                      widget.title!,
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600, fontSize: 16),
                     ),
                     Container(
-                        width: currentCompleted == 100 ? 100 : 80,
+                        width: widget.currentCompleted == 100 ? 100 : 80,
                         height: 20,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: ColorClass.mainColor),
-                        child: currentCompleted == 100
+                        child: widget.currentCompleted == 100
                             ? Text("Đã hoàn thành",
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
@@ -78,7 +91,7 @@ class WordTopicCard extends StatelessWidget {
                                     fontSize: 10,
                                     letterSpacing: -0.011))
                             : Text(
-                                "$currentCompleted/$totalLessons",
+                                "${widget.currentCompleted}/${widget.totalLessons}",
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
@@ -92,8 +105,8 @@ class WordTopicCard extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(right: 20),
               child: ProgressCircle(
-                currentValue: currentCompleted!,
-                maxValue: totalLessons!,
+                currentValue: widget.currentCompleted!,
+                maxValue: widget.totalLessons!,
               ),
             ),
           ],

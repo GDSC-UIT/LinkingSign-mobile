@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
+import 'package:vsa_mobile/app/modules/word_in_topic/screens/words_in_topic_screen.dart';
 
 class WordTopicList extends StatefulWidget {
   WordTopicList();
@@ -15,15 +16,27 @@ final List<String> states = ["Chưa học", "Đang học", "Hoàn thành"];
 
 List<String> selectedTopics = [];
 
+Map<String, String> Mapping = {
+  "learning": "Đang học",
+  "learned": "Đã học",
+  "unlearning": "Chưa học",
+};
+
 class _WordTopicListState extends State<WordTopicList> {
   final topicsController = Get.put(TopicsController());
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return GetX<TopicsController>(
       builder: (controller) {
         final filterTopics = controller.topics.where((topic) {
-          return selectedTopics.isEmpty || selectedTopics.contains(topic.state);
+          return selectedTopics.isEmpty ||
+              selectedTopics.contains(Mapping[topic.state]);
         }).toList();
 
         return Column(

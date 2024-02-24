@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
 import 'package:vsa_mobile/app/data/repositories/topic_repository.dart';
@@ -11,6 +12,8 @@ class TopicsController extends GetxController {
   void onInit() async {
     super.onInit();
     fetchWordTopics();
+    //Get.delete<TopicsController>();
+    //Get.put(TopicsController());
   }
 
   Future<void> fetchWordTopics() async {

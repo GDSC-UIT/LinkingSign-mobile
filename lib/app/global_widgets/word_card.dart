@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vsa_mobile/app/data/repositories/word_repository.dart';
 import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 
 @immutable
@@ -41,6 +42,7 @@ class WordCard extends StatelessWidget {
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: ListTile(
         onTap: () {
+          final repoWord = WordRepository();
           Navigator.push(
             context,
             MaterialPageRoute(

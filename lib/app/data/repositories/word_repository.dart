@@ -11,16 +11,8 @@ class WordRepository implements WordInterfaceRepository {
   }
 
   @override
-  Future<Word?> updateWords(Word word) async {
-    // var temp = await word_api.updateWords(word);
-    // for (var word in DataCenter.instance.words) {
-    //   if (temp.word == word.word) {
-    //     DataCenter.instance.words.remove(word);
-    //     DataCenter.instance.words.add(temp);
-    //     return temp;
-    //   }
-    // }
-    return null;
+  Future<void> updateWord(Word word) async {
+    await word_api.updateWords(word);
   }
 
   @override

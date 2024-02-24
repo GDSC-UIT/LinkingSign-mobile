@@ -1,5 +1,4 @@
 import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
 
 class HttpService {
   static Future<http.Response> postRequest({body, url}) async {

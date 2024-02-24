@@ -5,7 +5,7 @@ import 'package:vsa_mobile/app/data/service/http_service.dart';
 
 class TopicAPI {
   Future<List<Topic>> fetchTopics() async {
-    const url = TOPIC_URL;
+    String url = "$BASE_URL/topic";
     final response = await HttpService.getRequest(url);
     List<Topic> listGetTopics = [];
     print('fetch topics data');
@@ -22,7 +22,7 @@ class TopicAPI {
 
   Future<Topic> updateTopic(Topic topic) async {
     final response = await HttpService.putRequest(
-      url: TOPIC_URL,
+      url: "$BASE_URL/topic",
       body: jsonEncode(topic.toJson()),
     );
 

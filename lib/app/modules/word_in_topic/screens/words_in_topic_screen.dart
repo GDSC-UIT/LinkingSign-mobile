@@ -54,8 +54,21 @@ class _WordsInTopicState extends State<WordsInTopic> {
                 final pic1 = controller.words[index].example1;
                 final pic2 = controller.words[index].example2;
                 final word_id = controller.words[index].id;
-                return WordCard(true, titleField, index, ColorClass.circleColor,
-                    ColorClass.mainColor, video, pic1, pic2, false, word_id);
+                return GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {},
+                  child: WordCard(
+                      true,
+                      titleField,
+                      index,
+                      ColorClass.circleColor,
+                      ColorClass.mainColor,
+                      video,
+                      pic1,
+                      pic2,
+                      false,
+                      word_id),
+                );
               },
             );
           },

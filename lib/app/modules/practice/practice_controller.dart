@@ -1,12 +1,15 @@
+import 'package:camera/camera.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'dart:math';
 import 'package:get/state_manager.dart';
 import 'package:vsa_mobile/app/data/models/word.dart';
+import 'package:vsa_mobile/app/data/repositories/media_repository.dart';
 import 'package:vsa_mobile/app/data/repositories/word_repository.dart';
 
 class PracticeController extends GetxController {
   var word_data = <Word>[].obs;
   var repoWords = WordRepository();
+  var repoMedia = MediaRepository();
   @override
   void onInit() {
     fetchReviewWord();
@@ -36,5 +39,10 @@ class PracticeController extends GetxController {
   Future<void> fetchReviewWord() async {
     await Future.delayed(const Duration(seconds: 2));
     word_data.value = await repoWords.fetchWords();
+  }
+
+  Future<String> uploadVideo(XFile video_file) async {
+    String video_url = await repoMedia.uploadVideo(video_file);
+    return video_url;
   }
 }

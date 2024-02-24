@@ -6,7 +6,7 @@ import 'package:vsa_mobile/app/data/service/http_service.dart';
 
 class WordAPI {
   Future<List<Word>> fetchWords() async {
-    const url = WORD_URL;
+    String url = "$BASE_URL/word";
     final response = await HttpService.getRequest(url);
     List<Word> listGetWords = [];
     print('fetch words data');
@@ -21,26 +21,35 @@ class WordAPI {
     }
   }
 
-  Future<Word> updateWords(Word word) async {
-    final response = await HttpService.putRequest(
-      url: TOPIC_URL,
-      body: jsonEncode(word.toJson()),
-    );
+  Future<void> updateWords(Word word) async {
+    print("api is CALLINGIIIIIIIIIIIIIIIIIIIIIIIIIII");
+    final word_id = word.id;
+    Map<String, dynamic> body = {
+      "topic_id": word.topic_id,
+      "word_name": word.word,
+      "example1": word.example1,
+      "example2": word.example2,
+      "video": word.video,
+      "is_learned": true,
+    };
 
+    final response = await HttpService.putRequest(
+      url: "$BASE_URL/word/$word_id",
+      body: jsonEncode(body),
+    );
     //check status
     if (response.statusCode == 200) {
-      final parsed = json.decode(response.body);
-      var received_word = Word.fromJson(parsed);
       print("word updated successfully");
-      return received_word;
+      print("NOTICEEEEEEEEE SUCCESSSSSSSSSS");
     } else {
+      print("PLEASE CHECKKKKKKK");
       throw Exception(
           'Fail to update topic: ${jsonDecode(response.body)['error']}');
     }
   }
 
   Future<List<Word>> getWordsByTopicId(String topic_id) async {
-    String WordInTopicUrl = "$WORD_URL?topic_id=$topic_id";
+    String WordInTopicUrl = "$BASE_URL/word?topic_id=$topic_id";
     final response = await HttpService.getRequest(WordInTopicUrl);
     List<Word> listGetWordsByTopic_Id = [];
     print('fetch topics data');
@@ -58,7 +67,7 @@ class WordAPI {
   }
 
   Future<Word> getSingleWord(String id) async {
-    String word_url = "$WORD_URL/$id";
+    String word_url = "$BASE_URL/word/$id";
     final response = await HttpService.getRequest(word_url);
 
     if (response.statusCode == 200) {

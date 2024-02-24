@@ -23,15 +23,9 @@ class WordsInTopicController extends GetxController {
     await Future.delayed(const Duration(seconds: 1));
   }
 
-  void updateLearningState(String? word, String topic) {
-    // topic_word_pair.forEach((key, value) {
-    //   if (key != topic) return;
-    //   for (int i = 0; i < value.length; ++i) {
-    //     if (value[i].word == word) {
-    //       topic_word_pair[key]?.elementAt(i).isLearned = true;
-    //     }
-    //   }
-    // });
+  void updateLearningState(Word word) async {
+    print("FUNCTION IS CALLINGGGGGGGGG");
+    await repoWord.updateWord(word);
   }
 
   List<Topic> filterSearchingBar(String? queryTopic) {

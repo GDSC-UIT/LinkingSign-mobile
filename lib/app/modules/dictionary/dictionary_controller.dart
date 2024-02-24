@@ -1,5 +1,4 @@
 import 'package:get/state_manager.dart';
-import 'package:vsa_mobile/app/data/data.dart';
 import 'package:vsa_mobile/app/data/models/word.dart';
 import 'package:vsa_mobile/app/data/repositories/word_repository.dart';
 

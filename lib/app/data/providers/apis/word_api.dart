@@ -21,7 +21,7 @@ class WordAPI {
     }
   }
 
-  Future<void> updateWords(Word word) async {
+  Future<void> updateWords(Word word, bool isLearned) async {
     print("api is CALLINGIIIIIIIIIIIIIIIIIIIIIIIIIII");
     final word_id = word.id;
     Map<String, dynamic> body = {
@@ -30,7 +30,7 @@ class WordAPI {
       "example1": word.example1,
       "example2": word.example2,
       "video": word.video,
-      "is_learned": true,
+      "is_learned": isLearned,
     };
 
     final response = await HttpService.putRequest(

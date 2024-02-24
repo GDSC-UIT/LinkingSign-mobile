@@ -11,8 +11,8 @@ class WordRepository implements WordInterfaceRepository {
   }
 
   @override
-  Future<void> updateWord(Word word) async {
-    await word_api.updateWords(word);
+  Future<void> updateWord(Word word, bool isLearned) async {
+    await word_api.updateWords(word, isLearned);
   }
 
   @override

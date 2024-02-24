@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/data/models/word.dart';
+import 'package:vsa_mobile/app/data/repositories/word_repository.dart';
 import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 
 @immutable
@@ -29,33 +31,35 @@ class WordCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: ListTile(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LearningScreen(
-                    video_url: word.video,
-                    example1_url: word.example1,
-                    example2_url: word.example2,
-                    word: word.word)),
-          );
-        },
-        leading: Visibility(
-          visible: circleVisible,
-          child: CircleAvatar(
-            radius: 50,
-            backgroundColor: circleColor,
-            child: Text((startIndex + 1).toString(),
-                style: TextStyle(fontSize: 20, color: number)),
+          onTap: () {
+            final wordRepo = WordRepository();
+            wordRepo.updateWord(word, true);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => LearningScreen(
+                      video_url: word.video,
+                      example1_url: word.example1,
+                      example2_url: word.example2,
+                      word: word.word)),
+            );
+          },
+          leading: Visibility(
+            visible: circleVisible,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundColor: circleColor,
+              child: Text((startIndex + 1).toString(),
+                  style: TextStyle(fontSize: 20, color: number)),
+            ),
           ),
-        ),
-        title: Text(word.word,
-            style:
-                GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16)),
-        trailing: word.is_learned
-            ? const Icon(Icons.abc)
-            : const Icon(Icons.check_circle_outline),
-      ),
+          title: Text(word.word,
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600, fontSize: 16)),
+          trailing: word.is_learned
+              ? const Icon(Icons.check_circle_outline,
+                  color: ColorClass.darkMainColor)
+              : const Icon(Icons.play_arrow)),
     );
   }
 }

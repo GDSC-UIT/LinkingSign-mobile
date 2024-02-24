@@ -112,7 +112,7 @@ class _SearchingBarState extends State<SearchingBar> {
 }
 
 class TopicSearch extends SearchDelegate {
-  final topicsController = Get.put(WordsInTopicController());
+  final topicsController = Get.put(TopicsController());
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -135,13 +135,13 @@ class TopicSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return GetX<WordsInTopicController>(builder: (controller) {
+    return GetX<TopicsController>(builder: (controller) {
       List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                topicResult[index].id!,
+                topicResult[index].id,
                 topicResult[index].imageUrl!,
                 topicResult[index].topicName,
                 topicResult[index].currentCompleted * 1.0,
@@ -152,7 +152,7 @@ class TopicSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return GetX<WordsInTopicController>(builder: (controller) {
+    return GetX<TopicsController>(builder: (controller) {
       List<Topic> topicResult = controller.filterSearchingBar(query);
       return ListView.builder(
           itemCount: topicResult.length,

@@ -1,5 +1,4 @@
 import 'package:get/state_manager.dart';
-import 'package:vsa_mobile/app/data/data.dart';
 import 'package:vsa_mobile/app/data/models/topic.dart';
 import 'package:vsa_mobile/app/data/repositories/topic_repository.dart';
 

@@ -19,6 +19,6 @@ class TopicRepository implements TopicInterfaceRepository {
     //     return temp;
     //   }
     // }
-    // return null;
+    return null;
   }
 }

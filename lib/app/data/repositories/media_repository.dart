@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:vsa_mobile/app/data/providers/apis/media_api.dart';
 

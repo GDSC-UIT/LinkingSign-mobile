@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:vsa_mobile/app/core/const/color.dart';
 
 class FailResult extends StatefulWidget {
   const FailResult({super.key});

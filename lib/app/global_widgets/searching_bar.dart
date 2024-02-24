@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vsa_mobile/app/core/const/color.dart';
@@ -8,7 +7,6 @@ import 'package:vsa_mobile/app/modules/lessons/topic_list_controller.dart';
 import 'package:vsa_mobile/app/modules/dictionary/dictionary_controller.dart';
 import 'package:vsa_mobile/app/global_widgets/word_card.dart';
 import 'package:vsa_mobile/app/modules/lessons/widgets/topic_card.dart';
-import 'package:vsa_mobile/app/modules/word_in_topic/word_in_topic_controller.dart';
 
 // ignore: must_be_immutable
 class SearchingBar extends StatefulWidget {
@@ -158,7 +156,7 @@ class TopicSearch extends SearchDelegate {
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
             return WordTopicCard(
-                topicResult[index].id!,
+                topicResult[index].id,
                 topicResult[index].imageUrl!,
                 topicResult[index].topicName,
                 topicResult[index].currentCompleted * 1.0,

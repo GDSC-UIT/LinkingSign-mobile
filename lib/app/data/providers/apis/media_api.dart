@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:vsa_mobile/app/core/url/url.dart';
-import 'package:vsa_mobile/app/data/service/http_service.dart';
 import 'package:http/http.dart' as http;
 
 class MediaAPI {

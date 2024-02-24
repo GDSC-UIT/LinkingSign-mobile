@@ -197,17 +197,8 @@ class WordSearch extends SearchDelegate {
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
-            return WordCard(
-                false,
-                topicResult[index].word,
-                index,
-                ColorClass.darkMainColor,
-                Colors.white,
-                topicResult.elementAt(index).video,
-                topicResult.elementAt(index).example1,
-                topicResult.elementAt(index).example2,
-                topicResult.elementAt(index).is_learned,
-                topicResult.elementAt(index).id);
+            return WordCard(false, index, ColorClass.darkMainColor,
+                Colors.white, topicResult.elementAt(index));
           });
     });
   }
@@ -219,17 +210,8 @@ class WordSearch extends SearchDelegate {
       return ListView.builder(
           itemCount: topicResult.length,
           itemBuilder: (context, index) {
-            return WordCard(
-                false,
-                topicResult.elementAt(index).word,
-                index,
-                ColorClass.darkMainColor,
-                Colors.white,
-                topicResult.elementAt(index).video,
-                topicResult.elementAt(index).example1,
-                topicResult.elementAt(index).example2,
-                topicResult.elementAt(index).is_learned,
-                topicResult.elementAt(index).id!);
+            return WordCard(false, index, ColorClass.darkMainColor,
+                Colors.white, topicResult.elementAt(index));
           });
     });
   }

@@ -2,33 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vsa_mobile/app/data/repositories/word_repository.dart';
+import 'package:vsa_mobile/app/data/models/word.dart';
 import 'package:vsa_mobile/app/modules/Learning/screens/learning_screen.dart';
 
 @immutable
 class WordCard extends StatelessWidget {
   // const WordCard({super.key});
-  final String word_id;
+
   final bool circleVisible;
   final Color circleColor;
-  final String? urlPath;
-  final String? urlPic1;
-  final String? urlPic2;
   final Color number;
-  final String? title;
   final int startIndex;
-  bool islearned;
-  WordCard(
-      this.circleVisible,
-      this.title,
-      this.startIndex,
-      this.circleColor,
-      this.number,
-      this.urlPath,
-      this.urlPic1,
-      this.urlPic2,
-      this.islearned,
-      this.word_id,
+  final Word word;
+
+  WordCard(this.circleVisible, this.startIndex, this.circleColor, this.number,
+      this.word,
       {super.key});
   @override
   Widget build(BuildContext context) {
@@ -42,15 +30,14 @@ class WordCard extends StatelessWidget {
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: ListTile(
         onTap: () {
-          final repoWord = WordRepository();
           Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => LearningScreen(
-                    video_url: urlPath!,
-                    example1_url: urlPic1!,
-                    example2_url: urlPic2!,
-                    word: title!)),
+                    video_url: word.video,
+                    example1_url: word.example1,
+                    example2_url: word.example2,
+                    word: word.word)),
           );
         },
         leading: Visibility(
@@ -62,10 +49,10 @@ class WordCard extends StatelessWidget {
                 style: TextStyle(fontSize: 20, color: number)),
           ),
         ),
-        title: Text(title == null ? "text" : title!,
+        title: Text(word.word,
             style:
                 GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16)),
-        trailing: islearned
+        trailing: word.is_learned
             ? const Icon(Icons.abc)
             : const Icon(Icons.check_circle_outline),
       ),

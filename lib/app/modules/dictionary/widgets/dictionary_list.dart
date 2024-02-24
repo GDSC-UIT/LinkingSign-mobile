@@ -26,15 +26,10 @@ class _DictionaryListState extends State<DictionaryList> {
               onTap: () {},
               child: WordCard(
                   false,
-                  controller.wordsList.elementAt(index).word,
                   index,
                   const Color.fromARGB(255, 11, 216, 182),
                   Colors.transparent,
-                  controller.wordsList.elementAt(index).video,
-                  controller.wordsList.elementAt(index).example1,
-                  controller.wordsList.elementAt(index).example2,
-                  controller.wordsList.elementAt(index).is_learned,
-                  controller.wordsList.elementAt(index).id),
+                  controller.wordsList[index]),
             );
           },
         );

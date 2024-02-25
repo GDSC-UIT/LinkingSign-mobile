@@ -5,7 +5,7 @@ import 'package:vsa_mobile/app/data/repositories/topic_repository.dart';
 
 class TopicsController extends GetxController {
   var topics = <Topic>[].obs;
-  var isLoading = false.obs;
+  var isLoading = true.obs;
   var repoTopic = TopicRepository();
 
   @override
@@ -19,6 +19,7 @@ class TopicsController extends GetxController {
   Future<void> fetchWordTopics() async {
     await Future.delayed(const Duration(seconds: 2));
     topics.value = await repoTopic.fetchTopics();
+    isLoading.value = false;
   }
 
   List<Topic> filterSearchingBar(String? queryTopic) {

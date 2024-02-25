@@ -61,7 +61,11 @@ dependencies:
       ref: feature/gradle_version_bump
   http: ^1.2.0
   dio: ^5.4.1
-
+  custom_circular_progress: ^1.0.1
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/linking-sign-logo.png"
 dev_dependencies:
   flutter_test:
     sdk: flutter

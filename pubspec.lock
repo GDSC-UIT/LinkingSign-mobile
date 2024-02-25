@@ -202,6 +202,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  custom_circular_progress:
+    dependency: "direct main"
+    description:
+      name: custom_circular_progress
+      sha256: d89787a21278d93bc037705dc9c27a203297bc0c5605b25072a848f6655fccfe
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   dio:
     dependency: "direct main"
     description:

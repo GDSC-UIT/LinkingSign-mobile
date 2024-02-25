@@ -1,6 +1,3 @@
 [submodule "LinkingSign-backend"]
 	path = LinkingSign-backend
 	url = https://github.com/GDSC-UIT/LinkingSign-backend.git
-[submodule "LinkingSign_Demo5"]
-	path = LinkingSign_Demo5
-	url = https://github.com/ThanhThang5722/LinkingSign_Demo5.git

@@ -4,7 +4,7 @@
 
 ![https://github.com/iseT1enLoc/testsubmodule2/assets/126844791/18a99a68-69a9-4095-8c29-5a8ee9b728ea](https://github.com/iseT1enLoc/testsubmodule2/assets/126844791/18a99a68-69a9-4095-8c29-5a8ee9b728ea)
 
-Our goal is provide solution for those 2 major pillar recommended by WHO.
+Our goal is provide solution for 2 sustainable development goals.
 
 <div align="center">
   <img src="https://github.com/iseT1enLoc/testsubmodule2/assets/126844791/6ede35ea-aded-47fb-bcd3-0685f364c04b" alt="Screenshot 2" height="200"/>

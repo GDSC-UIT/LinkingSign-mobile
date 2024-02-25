@@ -2,7 +2,7 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.CAMERA"/>
     <application
-        android:label="vsa_mobile"
+        android:label="LinkingSign"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

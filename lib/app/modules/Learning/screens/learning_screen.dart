@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:vsa_mobile/app/core/const/color.dart';
 import 'package:vsa_mobile/app/core/const/const_dimension.dart';
+import 'package:vsa_mobile/app/global_widgets/practice_button.dart';
+import 'package:vsa_mobile/app/modules/Learning/screens/practice_word.dart';
 import 'package:vsa_mobile/app/modules/Learning/widgets/video_player.dart';
 import 'package:vsa_mobile/app/global_widgets/example_image.dart';
 
@@ -89,15 +92,15 @@ class _LearningScreenState extends State<LearningScreen> {
             ),
             // practiceButton("Luyện tập", ColorClass.darkMainColor, Colors.white,
             //     context.width, context.height, () {}),
-            // PracticeButton(
-            //     widget.word,
-            //     ColorClass.mainColor,
-            //     Colors.white,
-            //     PracticeWord(
-            //       widget.word,
-            //       wordcontroller.wordforlearning.value.example1,
-            //       wordcontroller.wordforlearning.value.example1,
-            //     )),
+            PracticeButton(
+                widget.word,
+                ColorClass.mainColor,
+                Colors.white,
+                PracticeWord(
+                  widget.word,
+                  widget.example1_url,
+                  widget.example2_url,
+                )),
             const SizedBox(
               height: 10,
             ),

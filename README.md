@@ -11,8 +11,10 @@ Our goal is provide solution for 2 sustainable development goals.
 </div>
 
 ## Video
-Our video is display on [Youtube](https://www.youtube.com/watch?v=lIorAJDzEvM).
+Our project introduction video is displayed on [Youtube](https://www.youtube.com/watch?v=lIorAJDzEvM).
 
+## App Demo
+This is link to download [Apk File](https://drive.google.com/file/d/1Y5Vp3baaDVz3ROAocbkZCyXqRpyS85_P/view?usp=drive_link).
 ## Video Preview
 https://github.com/iseT1enLoc/testsubmodule2/assets/126844791/f4a27f09-46cb-4ca6-aa20-c5cf4ad847a4
 

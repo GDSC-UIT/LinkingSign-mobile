@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Language Recognition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sign Language Recognition</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="data" multiple>
+        <input type="submit" value="Predict">
+    </form>
+    <p id="prediction">{{ prediction|safe }}</p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
